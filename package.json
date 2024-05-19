@@ -29,6 +29,7 @@
     "build": "tsc && vite build",
     "build-storybook": "storybook build",
     "changeset-version": "changeset version",
+    "changeset-publish": "npm run build && changeset publish",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
   },
   "dependencies": {

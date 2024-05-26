@@ -1,5 +1,11 @@
 # @shikakun/oden
 
+## 0.2.0
+
+### Minor Changes
+
+- [#6](https://github.com/shikakun/oden/pull/6) [`5982e19`](https://github.com/shikakun/oden/commit/5982e19c7c552f6e1e73f6ab71f3d8bf55469696) Thanks [@shikakun](https://github.com/shikakun)! - oden から dashi で指定したデザイントークンの値を取得できるようになりました
+
 ## 0.1.1
 
 ### Patch Changes

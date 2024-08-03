@@ -19,10 +19,10 @@ export const interactiveOverlay = style({
       backgroundColor: Color.overlay.background.hover.light,
     },
     '&:active::after': {
-      backgroundColor: Color.overlay.background.activated.light,
+      backgroundColor: Color.overlay.background.active.light,
     },
     '&:focus::after': {
-      backgroundColor: Color.overlay.background.focused.light,
+      backgroundColor: Color.overlay.background.focus.light,
     },
     '&:disabled::after': {
       backgroundColor: Color.overlay.background.disabled.light,

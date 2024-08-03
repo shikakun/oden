@@ -1,4 +1,5 @@
 import React from 'react';
+import * as style from './Button.css';
 
 export interface ButtonProps {
   /**
@@ -16,7 +17,7 @@ export interface ButtonProps {
  */
 export const Button = ({ children, ...props }: ButtonProps) => {
   return (
-    <button type='button' className='button' {...props}>
+    <button type='button' className={style.root} {...props}>
       {children}
     </button>
   );

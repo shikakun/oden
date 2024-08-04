@@ -1,5 +1,11 @@
 # @shikakun/oden
 
+## 0.3.0
+
+### Minor Changes
+
+- [#8](https://github.com/shikakun/oden/pull/8) [`cf31145`](https://github.com/shikakun/oden/commit/cf31145d944f03e6497e79a5822d749473fbf1cd) Thanks [@shikakun](https://github.com/shikakun)! - Styling Button
+
 ## 0.2.0
 
 ### Minor Changes

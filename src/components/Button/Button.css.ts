@@ -19,6 +19,7 @@ export const root = style([
     justifyContent: 'center',
     maxWidth: '100%',
     fontFamily: Typography.fontFamily.sansSerif,
+    fontWeight: Typography.fontWeight.default,
     cursor: 'pointer',
   },
 ]);

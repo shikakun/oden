@@ -1,6 +1,6 @@
 import { Color, Size, Typography } from '@shikakun/dashi';
 import { style } from '@vanilla-extract/css';
-import { interactiveOverlay } from '../../styles/mixins.css';
+import { ellipsis, interactiveOverlay } from '../../styles/mixins.css';
 
 const unset = style({
   background: 'unset',
@@ -17,8 +17,17 @@ export const root = style([
     flexWrap: 'nowrap',
     alignItems: 'center',
     justifyContent: 'center',
+    maxWidth: '100%',
     fontFamily: Typography.fontFamily.sansSerif,
     cursor: 'pointer',
+  },
+]);
+
+export const label = style([
+  ellipsis,
+  {
+    display: 'block',
+    wordBreak: 'break-all',
   },
 ]);
 

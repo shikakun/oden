@@ -29,3 +29,9 @@ export const interactiveOverlay = style({
     },
   },
 });
+
+export const ellipsis = style({
+  whiteSpace: 'nowrap',
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
+});

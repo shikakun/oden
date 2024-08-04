@@ -54,10 +54,11 @@ export const Button = ({
     [style.widthHalf]: width === 'half',
     [style.widthThird]: width === 'third',
   });
+  const labelClass = style.label;
 
   return (
     <button type='button' className={rootClass} {...props}>
-      {children}
+      <div className={labelClass}>{children}</div>
     </button>
   );
 };

@@ -30,7 +30,7 @@
     "build-storybook": "storybook build",
     "changeset-version": "changeset version",
     "changeset-publish": "npm run build && changeset publish",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
+    "lint": "eslint . --report-unused-disable-directives --max-warnings 0"
   },
   "dependencies": {
     "react": "^18.3.1",

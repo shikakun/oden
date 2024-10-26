@@ -11,6 +11,7 @@ module.exports = {
     'plugin:import/warnings',
     'plugin:import/typescript',
   ],
+  extensions: ['ts', 'tsx'],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
   plugins: [

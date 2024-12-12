@@ -71,13 +71,6 @@ export const sizeM = style({
   lineHeight: Typography.lineHeight.m.dense,
 });
 
-export const sizeL = style({
-  minHeight: Size.interactiveComponent.l,
-  padding: `0 ${Size.spacing.l}`,
-  fontSize: Typography.fontSize.l,
-  lineHeight: Typography.lineHeight.l.dense,
-});
-
 export const widthHug = style({
   width: 'auto',
 });

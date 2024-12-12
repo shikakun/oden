@@ -18,7 +18,7 @@ export interface ButtonBaseProps {
   /**
    * Button size
    */
-  size?: 's' | 'm' | 'l';
+  size?: 's' | 'm';
   /**
    * Button width
    */
@@ -63,6 +63,7 @@ export const Button = ({
     [style.appearanceOutlined]: appearance === 'outlined',
     [style.shapeSquare]: shape === 'square',
     [style.shapeCircle]: shape === 'circle',
+    [style.sizeXS]: size === 'xs',
     [style.sizeS]: size === 's',
     [style.sizeM]: size === 'm',
     [style.sizeL]: size === 'l',

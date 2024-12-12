@@ -1,5 +1,11 @@
 # @shikakun/oden
 
+## 0.4.0
+
+### Minor Changes
+
+- [#11](https://github.com/shikakun/oden/pull/11) [`a53e229`](https://github.com/shikakun/oden/commit/a53e229aa3a861ae3eea8d9141a11fd38ddcb600) Thanks [@shikakun](https://github.com/shikakun)! - Button コンポーネントで a 要素をマークアップできるようにした
+
 ## 0.3.0
 
 ### Minor Changes

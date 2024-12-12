@@ -7,6 +7,10 @@ const meta = {
   component: Button,
   tags: ['autodocs'],
   argTypes: {
+    appearance: { control: 'radio', options: ['text', 'filled', 'outlined'] },
+    shape: { control: 'radio', options: ['square', 'circle'] },
+    size: { control: 'radio', options: ['s', 'm'] },
+    width: { control: 'radio', options: ['hug', 'full', 'half', 'third'] },
     children: { control: 'text' },
   },
   args: { onClick: fn() },

@@ -5,6 +5,7 @@ import { ellipsis, interactiveOverlay } from '../../styles/mixins.css';
 const unset = style({
   background: 'unset',
   border: 'unset',
+  textDecoration: 'unset',
 });
 
 export const root = style([
@@ -68,13 +69,6 @@ export const sizeM = style({
   padding: `0 ${Size.spacing.m}`,
   fontSize: Typography.fontSize.m,
   lineHeight: Typography.lineHeight.m.dense,
-});
-
-export const sizeL = style({
-  minHeight: Size.interactiveComponent.l,
-  padding: `0 ${Size.spacing.l}`,
-  fontSize: Typography.fontSize.l,
-  lineHeight: Typography.lineHeight.l.dense,
 });
 
 export const widthHug = style({

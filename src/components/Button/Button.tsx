@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import React from 'react';
 import * as style from './Button.css';
 
-export interface ButtonProps {
+export interface ButtonBaseProps {
   /**
    * Button appearance
    */
@@ -23,11 +23,27 @@ export interface ButtonProps {
    * Button width
    */
   width?: 'hug' | 'full' | 'half' | 'third';
-  /**
-   * Optional click handler
-   */
-  onClick?: () => void;
 }
+
+export interface LinkButtonProps extends ButtonBaseProps {
+  /**
+   * Optional href
+   */
+  href: string;
+  /**
+   * Optional target
+   */
+  target?: string;
+  onClick?: never;
+}
+
+export interface ClickButtonProps extends ButtonBaseProps {
+  href?: never;
+  target?: never;
+  onClick: () => void;
+}
+
+export type ButtonProps = LinkButtonProps | ClickButtonProps;
 
 /**
  * Primary UI component for user interaction
@@ -38,6 +54,7 @@ export const Button = ({
   shape = 'square',
   size = 'm',
   width = 'hug',
+  href,
   ...props
 }: ButtonProps) => {
   const rootClass = classNames(style.root, {
@@ -55,6 +72,14 @@ export const Button = ({
     [style.widthThird]: width === 'third',
   });
   const labelClass = style.label;
+
+  if (href) {
+    return (
+      <a className={rootClass} href={href} {...props}>
+        <div className={labelClass}>{children}</div>
+      </a>
+    );
+  }
 
   return (
     <button type='button' className={rootClass} {...props}>

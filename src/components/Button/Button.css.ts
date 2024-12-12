@@ -5,6 +5,7 @@ import { ellipsis, interactiveOverlay } from '../../styles/mixins.css';
 const unset = style({
   background: 'unset',
   border: 'unset',
+  textDecoration: 'unset',
 });
 
 export const root = style([

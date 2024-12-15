@@ -1,5 +1,5 @@
 ---
-"@shikakun/oden": patch
+'@shikakun/oden': patch
 ---
 
-@vanilla-extract/css を devDependencies から dependencies へ移した
+Button コンポーネントで button 要素の場合に onClick の指定を必須にしないことにした

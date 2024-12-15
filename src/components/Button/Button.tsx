@@ -32,7 +32,7 @@ export interface LinkProps extends BaseButtonProps {
 export interface ClickProps extends BaseButtonProps {
   href?: never;
   target?: never;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 export type ButtonProps =

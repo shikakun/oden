@@ -1,4 +1,5 @@
 import { fn } from '@storybook/test';
+import { HiArrowSmallRight, HiMagnifyingGlass } from 'react-icons/hi2';
 import { Button } from './Button';
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -12,6 +13,22 @@ const meta = {
     size: { control: 'radio', options: ['s', 'm'] },
     width: { control: 'radio', options: ['hug', 'full', 'half', 'third'] },
     children: { control: 'text' },
+    LeadingIcon: {
+      control: 'boolean',
+      defaultValue: false,
+      mapping: {
+        true: HiMagnifyingGlass,
+        false: null,
+      },
+    },
+    TrailingIcon: {
+      control: 'boolean',
+      defaultValue: false,
+      mapping: {
+        true: HiArrowSmallRight,
+        false: null,
+      },
+    },
   },
   args: { onClick: fn() },
 } satisfies Meta<typeof Button>;
@@ -26,5 +43,7 @@ export const InteractiveDemo: Story = {
     shape: 'square',
     size: 'm',
     width: 'hug',
+    LeadingIcon: undefined,
+    TrailingIcon: undefined,
   },
 };

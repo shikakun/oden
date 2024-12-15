@@ -86,3 +86,33 @@ export const widthHalf = style({
 export const widthThird = style({
   width: '33.333%',
 });
+
+export const withLeading = style({
+  paddingLeft: '0',
+});
+
+export const withTrailing = style({
+  paddingRight: '0',
+});
+
+export const labelOnly = style({
+  paddingLeft: '0',
+  paddingRight: '0',
+});
+
+export const media = style({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  fontSize: '1.5em',
+});
+
+export const mediaSizeS = style({
+  minWidth: Size.interactiveComponent.s,
+  minHeight: Size.interactiveComponent.s,
+});
+
+export const mediaSizeM = style({
+  minWidth: Size.interactiveComponent.m,
+  minHeight: Size.interactiveComponent.m,
+});

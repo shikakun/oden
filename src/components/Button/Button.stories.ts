@@ -13,6 +13,14 @@ const meta = {
     size: { control: 'radio', options: ['s', 'm'] },
     width: { control: 'radio', options: ['hug', 'full', 'half', 'third'] },
     children: { control: 'text' },
+    Icon: {
+      control: 'boolean',
+      defaultValue: false,
+      mapping: {
+        true: HiMagnifyingGlass,
+        false: null,
+      },
+    },
     LeadingIcon: {
       control: 'boolean',
       defaultValue: false,
@@ -29,6 +37,7 @@ const meta = {
         false: null,
       },
     },
+    ariaLabel: { control: 'text' },
   },
   args: { onClick: fn() },
 } satisfies Meta<typeof Button>;
@@ -43,7 +52,9 @@ export const InteractiveDemo: Story = {
     shape: 'square',
     size: 'm',
     width: 'hug',
+    Icon: undefined,
     LeadingIcon: undefined,
     TrailingIcon: undefined,
+    ariaLabel: undefined,
   },
 };

@@ -21,6 +21,8 @@ export const root = style([
     maxWidth: '100%',
     fontFamily: Typography.fontFamily.sansSerif,
     fontWeight: Typography.fontWeight.default,
+    fontSize: Typography.fontSize.m,
+    lineHeight: Typography.lineHeight.m.dense,
     cursor: 'pointer',
   },
 ]);
@@ -60,15 +62,11 @@ export const shapeCircle = style({
 export const sizeS = style({
   minHeight: Size.interactiveComponent.s,
   padding: `0 ${Size.spacing.s}`,
-  fontSize: Typography.fontSize.s,
-  lineHeight: Typography.lineHeight.s.dense,
 });
 
 export const sizeM = style({
   minHeight: Size.interactiveComponent.m,
   padding: `0 ${Size.spacing.m}`,
-  fontSize: Typography.fontSize.m,
-  lineHeight: Typography.lineHeight.m.dense,
 });
 
 export const widthHug = style({
@@ -87,15 +85,15 @@ export const widthThird = style({
   width: '33.333%',
 });
 
-export const withLeading = style({
+export const hasLeadingIcon = style({
   paddingLeft: '0',
 });
 
-export const withTrailing = style({
+export const hasTrailingIcon = style({
   paddingRight: '0',
 });
 
-export const labelOnly = style({
+export const iconOnly = style({
   paddingLeft: '0',
   paddingRight: '0',
 });

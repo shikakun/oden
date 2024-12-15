@@ -1,5 +1,11 @@
 # @shikakun/oden
 
+## 0.5.1
+
+### Patch Changes
+
+- [#15](https://github.com/shikakun/oden/pull/15) [`e410b85`](https://github.com/shikakun/oden/commit/e410b851d7c5a701dea256a87e252e57c7e46344) Thanks [@shikakun](https://github.com/shikakun)! - Button コンポーネントで button 要素の場合に onClick の指定を必須にしないことにした
+
 ## 0.5.0
 
 ### Minor Changes

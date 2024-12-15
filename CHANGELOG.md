@@ -1,5 +1,11 @@
 # @shikakun/oden
 
+## 0.5.0
+
+### Minor Changes
+
+- [#13](https://github.com/shikakun/oden/pull/13) [`3f9017c`](https://github.com/shikakun/oden/commit/3f9017ccee507f3b2adfa26c6d8daee03244cb3b) Thanks [@shikakun](https://github.com/shikakun)! - Button コンポーネントにアイコンをつけられるようにした
+
 ## 0.4.0
 
 ### Minor Changes

@@ -1,88 +1,160 @@
 import classNames from 'classnames';
 import React from 'react';
-import * as style from './Button.css';
+import { IconType } from 'react-icons';
+import * as styles from './Button.css';
 
-export interface ButtonBaseProps {
-  /**
-   * Button appearance
-   */
+export interface BaseButtonProps {
   appearance?: 'text' | 'filled' | 'outlined';
-  /**
-   * Button contents
-   */
   children?: React.ReactNode;
-  /**
-   * Button shape
-   */
   shape?: 'square' | 'circle';
-  /**
-   * Button size
-   */
   size?: 's' | 'm';
-  /**
-   * Button width
-   */
   width?: 'hug' | 'full' | 'half' | 'third';
+  LeadingIcon?: IconType;
+  TrailingIcon?: IconType;
 }
 
-export interface LinkButtonProps extends ButtonBaseProps {
-  /**
-   * Optional href
-   */
+export interface IconButtonProps extends BaseButtonProps {
+  Icon: IconType;
+  ariaLabel: string;
+}
+
+export interface TextButtonProps extends BaseButtonProps {
+  Icon?: never;
+  ariaLabel?: string;
+}
+
+export interface LinkProps extends BaseButtonProps {
   href: string;
-  /**
-   * Optional target
-   */
   target?: string;
   onClick?: never;
 }
 
-export interface ClickButtonProps extends ButtonBaseProps {
+export interface ClickProps extends BaseButtonProps {
   href?: never;
   target?: never;
   onClick: () => void;
 }
 
-export type ButtonProps = LinkButtonProps | ClickButtonProps;
+export type ButtonProps =
+  | (LinkProps & (IconButtonProps | TextButtonProps))
+  | (ClickProps & (IconButtonProps | TextButtonProps));
 
-/**
- * Primary UI component for user interaction
- */
-export const Button = ({
+interface ContentProps {
+  Icon?: IconType;
+  LeadingIcon?: IconType;
+  TrailingIcon?: IconType;
+  children: React.ReactNode;
+  mediaClass: string;
+  labelClass: string;
+}
+
+const ButtonContent: React.FC<ContentProps> = ({
+  Icon,
+  LeadingIcon,
+  TrailingIcon,
+  children,
+  mediaClass,
+  labelClass,
+}) => {
+  if (Icon) {
+    return (
+      <div className={mediaClass}>
+        <Icon />
+      </div>
+    );
+  }
+
+  return (
+    <>
+      {LeadingIcon && (
+        <div className={mediaClass}>
+          <LeadingIcon />
+        </div>
+      )}
+      <div className={labelClass}>{children}</div>
+      {TrailingIcon && (
+        <div className={mediaClass}>
+          <TrailingIcon />
+        </div>
+      )}
+    </>
+  );
+};
+
+export const Button: React.FC<ButtonProps> = ({
   appearance = 'text',
   children,
   shape = 'square',
   size = 'm',
   width = 'hug',
   href,
+  Icon,
+  LeadingIcon,
+  TrailingIcon,
+  ariaLabel,
   ...props
-}: ButtonProps) => {
-  const rootClass = classNames(style.root, {
-    [style.appearanceText]: appearance === 'text',
-    [style.appearanceFilled]: appearance === 'filled',
-    [style.appearanceOutlined]: appearance === 'outlined',
-    [style.shapeSquare]: shape === 'square',
-    [style.shapeCircle]: shape === 'circle',
-    [style.sizeS]: size === 's',
-    [style.sizeM]: size === 'm',
-    [style.widthHug]: width === 'hug',
-    [style.widthFull]: width === 'full',
-    [style.widthHalf]: width === 'half',
-    [style.widthThird]: width === 'third',
+}) => {
+  const buttonClass = classNames(styles.root, {
+    [styles.appearanceText]: appearance === 'text',
+    [styles.appearanceFilled]: appearance === 'filled',
+    [styles.appearanceOutlined]: appearance === 'outlined',
+    [styles.shapeSquare]: shape === 'square',
+    [styles.shapeCircle]: shape === 'circle',
+    [styles.sizeS]: size === 's',
+    [styles.sizeM]: size === 'm',
+    [styles.widthHug]: width === 'hug',
+    [styles.widthFull]: width === 'full',
+    [styles.widthHalf]: width === 'half',
+    [styles.widthThird]: width === 'third',
+    [styles.hasLeadingIcon]: !!LeadingIcon,
+    [styles.hasTrailingIcon]: !!TrailingIcon,
+    [styles.iconOnly]: !!Icon,
   });
-  const labelClass = style.label;
+
+  const labelClass = styles.label;
+  const mediaClass = classNames(styles.media, {
+    [styles.mediaSizeS]: size === 's',
+    [styles.mediaSizeM]: size === 'm',
+  });
+  const ariaLabelText = ariaLabel || (Icon ? children?.toString() : undefined);
 
   if (href) {
     return (
-      <a className={rootClass} href={href} {...props}>
-        <div className={labelClass}>{children}</div>
+      <a
+        className={buttonClass}
+        href={href}
+        aria-label={ariaLabelText}
+        {...props}
+      >
+        <ButtonContent
+          Icon={Icon}
+          LeadingIcon={LeadingIcon}
+          TrailingIcon={TrailingIcon}
+          mediaClass={mediaClass}
+          labelClass={labelClass}
+        >
+          {children}
+        </ButtonContent>
       </a>
     );
   }
 
   return (
-    <button type='button' className={rootClass} {...props}>
-      <div className={labelClass}>{children}</div>
+    <button
+      type='button'
+      className={buttonClass}
+      aria-label={ariaLabelText}
+      {...props}
+    >
+      <ButtonContent
+        Icon={Icon}
+        LeadingIcon={LeadingIcon}
+        TrailingIcon={TrailingIcon}
+        mediaClass={mediaClass}
+        labelClass={labelClass}
+      >
+        {children}
+      </ButtonContent>
     </button>
   );
 };

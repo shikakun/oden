@@ -1,5 +1,11 @@
 # @shikakun/oden
 
+## 0.5.2
+
+### Patch Changes
+
+- [#17](https://github.com/shikakun/oden/pull/17) [`b70b329`](https://github.com/shikakun/oden/commit/b70b329c97eb015f07fbae56ece4decf8dfd1fb9) Thanks [@shikakun](https://github.com/shikakun)! - package.json の exports に CSS ファイルを指定した
+
 ## 0.5.1
 
 ### Patch Changes

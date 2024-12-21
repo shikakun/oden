@@ -19,7 +19,7 @@ export const root = style([
     alignItems: 'center',
     justifyContent: 'center',
     maxWidth: '100%',
-    fontFamily: Typography.fontFamily.sansSerif,
+    fontFamily: Typography.fontFamily.default,
     fontWeight: Typography.fontWeight.default,
     fontSize: Typography.fontSize.m,
     lineHeight: Typography.lineHeight.m.dense,

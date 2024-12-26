@@ -1,5 +1,11 @@
 # @shikakun/oden
 
+## 0.6.1
+
+### Patch Changes
+
+- [#22](https://github.com/shikakun/oden/pull/22) [`819c254`](https://github.com/shikakun/oden/commit/819c25462135b9221360c7653a493743ed6eda4e) Thanks [@shikakun](https://github.com/shikakun)! - OverlayWindow を import できない不具合を修正した
+
 ## 0.6.0
 
 ### Minor Changes

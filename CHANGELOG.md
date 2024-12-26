@@ -1,5 +1,11 @@
 # @shikakun/oden
 
+## 0.6.0
+
+### Minor Changes
+
+- [#20](https://github.com/shikakun/oden/pull/20) [`4a3a214`](https://github.com/shikakun/oden/commit/4a3a214759c2f09b7ab5b179f9e87ecc12fe94e9) Thanks [@shikakun](https://github.com/shikakun)! - OverlayWindow コンポーネントを追加した
+
 ## 0.5.2
 
 ### Patch Changes

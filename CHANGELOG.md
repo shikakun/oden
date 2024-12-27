@@ -1,5 +1,11 @@
 # @shikakun/oden
 
+## 0.6.2
+
+### Patch Changes
+
+- [#24](https://github.com/shikakun/oden/pull/24) [`a32dbd4`](https://github.com/shikakun/oden/commit/a32dbd4d6c274fc60459d254ab90d47b0e3dec37) Thanks [@shikakun](https://github.com/shikakun)! - ライブラリの依存関係の指定を見直した
+
 ## 0.6.1
 
 ### Patch Changes

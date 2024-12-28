@@ -1,5 +1,11 @@
 # @shikakun/oden
 
+## 0.7.0
+
+### Minor Changes
+
+- [#28](https://github.com/shikakun/oden/pull/28) [`8b8c808`](https://github.com/shikakun/oden/commit/8b8c80875469b90a8dbcca4e2e0a49f41fa0fd82) Thanks [@shikakun](https://github.com/shikakun)! - カスタムフック useContainerSize を追加した
+
 ## 0.6.3
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @shikakun/oden
 
+## 0.7.2
+
+### Patch Changes
+
+- [#32](https://github.com/shikakun/oden/pull/32) [`bb80726`](https://github.com/shikakun/oden/commit/bb80726780a07b3186429b4d7f73f42571cae866) Thanks [@shikakun](https://github.com/shikakun)! - Button コンポーネントのスタイリングを調整した
+
 ## 0.7.1
 
 ### Patch Changes

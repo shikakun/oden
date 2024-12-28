@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { IconType } from 'react-icons';
 import { Button } from '../Button';
 import * as styles from './OverlayWindow.css';
@@ -25,7 +25,7 @@ export const OverlayWindow: React.FC<OverlayWindowProps> = ({
 }) => {
   const dialogRef = useRef<HTMLDialogElement>(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (dialogRef.current) {
       if (isOpen) {
         dialogRef.current.showModal();

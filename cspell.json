@@ -1,3 +1,11 @@
 {
-  "ignoreWords": ["chikuwa", "dashi", "ganmodoki", "konjac", "oden", "shikakun"]
+  "ignoreWords": [
+    "autodocs",
+    "chikuwa",
+    "dashi",
+    "ganmodoki",
+    "konjac",
+    "oden",
+    "shikakun"
+  ]
 }

@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
-import { HiMiniXMark } from 'react-icons/hi2';
+import { MdClose } from 'react-icons/md';
 import { Button } from '../Button';
 import { OverlayWindow } from './OverlayWindow';
 
@@ -26,7 +26,7 @@ const OverlayDemo: React.FC = () => {
         position='bottom'
         isOpen={isOpen}
         onClose={handleClose}
-        CloseIcon={HiMiniXMark}
+        CloseIcon={MdClose}
       >
         <div style={{ padding: '1rem' }}>Overlay Content</div>
       </OverlayWindow>

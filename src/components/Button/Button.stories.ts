@@ -1,5 +1,5 @@
 import { fn } from '@storybook/test';
-import { HiArrowSmallRight, HiMagnifyingGlass } from 'react-icons/hi2';
+import { MdArrowForward, MdSearch } from 'react-icons/md';
 import { Button } from './Button';
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -17,7 +17,7 @@ const meta = {
       control: 'boolean',
       defaultValue: false,
       mapping: {
-        true: HiMagnifyingGlass,
+        true: MdSearch,
         false: null,
       },
     },
@@ -25,7 +25,7 @@ const meta = {
       control: 'boolean',
       defaultValue: false,
       mapping: {
-        true: HiMagnifyingGlass,
+        true: MdSearch,
         false: null,
       },
     },
@@ -33,7 +33,7 @@ const meta = {
       control: 'boolean',
       defaultValue: false,
       mapping: {
-        true: HiArrowSmallRight,
+        true: MdArrowForward,
         false: null,
       },
     },

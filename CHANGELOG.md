@@ -1,5 +1,11 @@
 # @shikakun/oden
 
+## 0.6.3
+
+### Patch Changes
+
+- [#26](https://github.com/shikakun/oden/pull/26) [`97334dc`](https://github.com/shikakun/oden/commit/97334dc52f6f2a4fc697589d832c85d1609211ca) Thanks [@shikakun](https://github.com/shikakun)! - react と react-dom を外部モジュールとして扱いバンドルに含めないように指定した
+
 ## 0.6.2
 
 ### Patch Changes

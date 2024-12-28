@@ -1,5 +1,11 @@
 # @shikakun/oden
 
+## 0.7.1
+
+### Patch Changes
+
+- [#30](https://github.com/shikakun/oden/pull/30) [`ed18d48`](https://github.com/shikakun/oden/commit/ed18d4813b50efb2e23ba732765d235a23bad4ee) Thanks [@shikakun](https://github.com/shikakun)! - useContainerSize を import できない不具合を修正した
+
 ## 0.7.0
 
 ### Minor Changes

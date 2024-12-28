@@ -2,6 +2,12 @@ import { Color, Size, Typography } from '@shikakun/dashi';
 import { style } from '@vanilla-extract/css';
 import { ellipsis, interactiveOverlay } from '../../styles/mixins.css';
 
+const RADIUS_SIZE = '0';
+const LABEL_PADDING_INLINE_SIZE_S = Size.spacing.s;
+const LABEL_PADDING_INLINE_SIZE_M = Size.spacing.m;
+const BORDER_SIZE = Size.border.l;
+const BORDER_COLOR = Color.border.muted.light;
+
 const unset = style({
   background: 'unset',
   border: 'unset',
@@ -48,11 +54,11 @@ export const appearanceFilled = style({
 export const appearanceOutlined = style({
   color: Color.text.link.light,
   backgroundColor: 'transparent',
-  boxShadow: `inset 0 0 0 ${Size.border.m} currentColor`,
+  boxShadow: `inset 0 0 0 ${BORDER_SIZE} ${BORDER_COLOR}`,
 });
 
 export const shapeSquare = style({
-  borderRadius: Size.radius.m,
+  borderRadius: RADIUS_SIZE,
 });
 
 export const shapeCircle = style({
@@ -61,12 +67,12 @@ export const shapeCircle = style({
 
 export const sizeS = style({
   minHeight: Size.interactiveComponent.s,
-  padding: `0 ${Size.spacing.s}`,
+  padding: `0 ${LABEL_PADDING_INLINE_SIZE_S}`,
 });
 
 export const sizeM = style({
   minHeight: Size.interactiveComponent.m,
-  padding: `0 ${Size.spacing.m}`,
+  padding: `0 ${LABEL_PADDING_INLINE_SIZE_M}`,
 });
 
 export const widthHug = style({
@@ -102,7 +108,7 @@ export const media = style({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  fontSize: '1.5em',
+  fontSize: '1.25em',
 });
 
 export const mediaSizeS = style({

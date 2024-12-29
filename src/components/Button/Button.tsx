@@ -4,11 +4,12 @@ import { IconType } from 'react-icons';
 import * as styles from './Button.css';
 
 export interface BaseButtonProps {
-  appearance?: 'text' | 'filled' | 'outlined';
+  appearance?: 'text' | 'outlined' | 'tinted' | 'filled';
   children?: React.ReactNode;
   shape?: 'square' | 'circle';
   size?: 's' | 'm';
   width?: 'hug' | 'full' | 'half' | 'third';
+  layout?: 'center' | 'start' | 'space-between';
   LeadingIcon?: IconType;
   TrailingIcon?: IconType;
 }
@@ -66,12 +67,14 @@ const ButtonContent: React.FC<ContentProps> = ({
 
   return (
     <>
-      {LeadingIcon && (
-        <div className={mediaClass}>
-          <LeadingIcon />
-        </div>
-      )}
-      <div className={labelClass}>{children}</div>
+      <div className={styles.body}>
+        {LeadingIcon && (
+          <div className={mediaClass}>
+            <LeadingIcon />
+          </div>
+        )}
+        <div className={labelClass}>{children}</div>
+      </div>
       {TrailingIcon && (
         <div className={mediaClass}>
           <TrailingIcon />
@@ -87,6 +90,7 @@ export const Button: React.FC<ButtonProps> = ({
   shape = 'square',
   size = 'm',
   width = 'hug',
+  layout = 'center',
   href,
   Icon,
   LeadingIcon,
@@ -96,8 +100,9 @@ export const Button: React.FC<ButtonProps> = ({
 }) => {
   const buttonClass = classNames(styles.root, {
     [styles.appearanceText]: appearance === 'text',
-    [styles.appearanceFilled]: appearance === 'filled',
     [styles.appearanceOutlined]: appearance === 'outlined',
+    [styles.appearanceTinted]: appearance === 'tinted',
+    [styles.appearanceFilled]: appearance === 'filled',
     [styles.shapeSquare]: shape === 'square',
     [styles.shapeCircle]: shape === 'circle',
     [styles.sizeS]: size === 's',
@@ -106,11 +111,13 @@ export const Button: React.FC<ButtonProps> = ({
     [styles.widthFull]: width === 'full',
     [styles.widthHalf]: width === 'half',
     [styles.widthThird]: width === 'third',
+    [styles.layoutCenter]: layout === 'center',
+    [styles.layoutStart]: layout === 'start',
+    [styles.layoutSpaceBetween]: layout === 'space-between',
     [styles.hasLeadingIcon]: !!LeadingIcon,
     [styles.hasTrailingIcon]: !!TrailingIcon,
     [styles.iconOnly]: !!Icon,
   });
-
   const labelClass = styles.label;
   const mediaClass = classNames(styles.media, {
     [styles.mediaSizeS]: size === 's',

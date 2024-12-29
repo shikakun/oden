@@ -23,7 +23,6 @@ export const root = style([
     display: 'inline-flex',
     flexWrap: 'nowrap',
     alignItems: 'center',
-    justifyContent: 'center',
     maxWidth: '100%',
     fontFamily: Typography.fontFamily.default,
     fontWeight: Typography.fontWeight.default,
@@ -33,9 +32,20 @@ export const root = style([
   },
 ]);
 
+export const body = style({
+  flex: '1',
+  minWidth: '0',
+  display: 'flex',
+  alignItems: 'center',
+  maxWidth: '100%',
+});
+
 export const label = style([
   ellipsis,
   {
+    flex: '1',
+    minWidth: '0',
+    maxWidth: '100%',
     display: 'block',
     wordBreak: 'break-all',
   },
@@ -46,15 +56,20 @@ export const appearanceText = style({
   backgroundColor: 'transparent',
 });
 
-export const appearanceFilled = style({
-  color: Color.semantic.interactive[0],
-  backgroundColor: Color.semantic.interactive[600],
-});
-
 export const appearanceOutlined = style({
   color: Color.text.link.light,
   backgroundColor: 'transparent',
   boxShadow: `inset 0 0 0 ${BORDER_SIZE} ${BORDER_COLOR}`,
+});
+
+export const appearanceTinted = style({
+  color: Color.semantic.interactive[900],
+  backgroundColor: Color.semantic.interactive[50],
+});
+
+export const appearanceFilled = style({
+  color: Color.semantic.interactive[0],
+  backgroundColor: Color.semantic.interactive[600],
 });
 
 export const shapeSquare = style({
@@ -89,6 +104,18 @@ export const widthHalf = style({
 
 export const widthThird = style({
   width: '33.333%',
+});
+
+export const layoutCenter = style({
+  justifyContent: 'center',
+});
+
+export const layoutStart = style({
+  justifyContent: 'flex-start',
+});
+
+export const layoutSpaceBetween = style({
+  justifyContent: 'space-between',
 });
 
 export const hasLeadingIcon = style({

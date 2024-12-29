@@ -45,8 +45,9 @@ interface ContentProps {
   LeadingIcon?: IconType;
   TrailingIcon?: IconType;
   children: React.ReactNode;
-  mediaClass: string;
+  bodyClass: string;
   labelClass: string;
+  mediaClass: string;
 }
 
 const ButtonContent: React.FC<ContentProps> = ({
@@ -54,8 +55,9 @@ const ButtonContent: React.FC<ContentProps> = ({
   LeadingIcon,
   TrailingIcon,
   children,
-  mediaClass,
+  bodyClass,
   labelClass,
+  mediaClass,
 }) => {
   if (Icon) {
     return (
@@ -67,7 +69,7 @@ const ButtonContent: React.FC<ContentProps> = ({
 
   return (
     <>
-      <div className={styles.body}>
+      <div className={bodyClass}>
         {LeadingIcon && (
           <div className={mediaClass}>
             <LeadingIcon />
@@ -113,10 +115,14 @@ export const Button: React.FC<ButtonProps> = ({
     [styles.widthThird]: width === 'third',
     [styles.layoutCenter]: layout === 'center',
     [styles.layoutStart]: layout === 'start',
-    [styles.layoutSpaceBetween]: layout === 'space-between',
     [styles.hasLeadingIcon]: !!LeadingIcon,
     [styles.hasTrailingIcon]: !!TrailingIcon,
     [styles.iconOnly]: !!Icon,
+  });
+  const bodyClass = classNames(styles.body, {
+    [styles.bodyLayoutCenter]: layout === 'center',
+    [styles.bodyLayoutStart]: layout === 'start',
+    [styles.bodyLayoutSpaceBetween]: layout === 'space-between',
   });
   const labelClass = styles.label;
   const mediaClass = classNames(styles.media, {
@@ -137,8 +143,9 @@ export const Button: React.FC<ButtonProps> = ({
           Icon={Icon}
           LeadingIcon={LeadingIcon}
           TrailingIcon={TrailingIcon}
-          mediaClass={mediaClass}
           labelClass={labelClass}
+          bodyClass={bodyClass}
+          mediaClass={mediaClass}
         >
           {children}
         </ButtonContent>
@@ -157,8 +164,9 @@ export const Button: React.FC<ButtonProps> = ({
         Icon={Icon}
         LeadingIcon={LeadingIcon}
         TrailingIcon={TrailingIcon}
-        mediaClass={mediaClass}
+        bodyClass={bodyClass}
         labelClass={labelClass}
+        mediaClass={mediaClass}
       >
         {children}
       </ButtonContent>

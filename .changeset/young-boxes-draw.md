@@ -1,5 +1,5 @@
 ---
-"@shikakun/oden": patch
+'@shikakun/oden': patch
 ---
 
-ContainerSize を export した
+ContainerSizeType を export した

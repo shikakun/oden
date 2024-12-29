@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 
-export type ContainerSize = '2xs' | 'xs' | 's' | 'm' | 'l' | 'xl' | '2xl';
+export type ContainerSizeType = '2xs' | 'xs' | 's' | 'm' | 'l' | 'xl' | '2xl';
 
-const determineContainerSize = (width: number): ContainerSize => {
+const determineContainerSize = (width: number): ContainerSizeType => {
   if (width < 330) return '2xs';
   if (width < 370) return 'xs';
   if (width < 600) return 's';
@@ -14,8 +14,8 @@ const determineContainerSize = (width: number): ContainerSize => {
 
 export const useContainerSize = (
   elementRef?: React.RefObject<HTMLElement>
-): ContainerSize => {
-  const [size, setSize] = useState<ContainerSize>('2xl');
+): ContainerSizeType => {
+  const [size, setSize] = useState<ContainerSizeType>('2xl');
 
   useEffect(() => {
     const updateSize = () => {

@@ -50,15 +50,20 @@ export const appearanceText = style({
   backgroundColor: 'transparent',
 });
 
-export const appearanceFilled = style({
-  color: Color.semantic.interactive[0],
-  backgroundColor: Color.semantic.interactive[600],
-});
-
 export const appearanceOutlined = style({
   color: Color.text.link.light,
   backgroundColor: 'transparent',
   boxShadow: `inset 0 0 0 ${BORDER_SIZE} ${BORDER_COLOR}`,
+});
+
+export const appearanceTinted = style({
+  color: Color.semantic.interactive[900],
+  backgroundColor: Color.semantic.interactive[50],
+});
+
+export const appearanceFilled = style({
+  color: Color.semantic.interactive[0],
+  backgroundColor: Color.semantic.interactive[600],
 });
 
 export const shapeSquare = style({

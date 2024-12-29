@@ -4,7 +4,7 @@ import { IconType } from 'react-icons';
 import * as styles from './Button.css';
 
 export interface BaseButtonProps {
-  appearance?: 'text' | 'filled' | 'outlined';
+  appearance?: 'text' | 'outlined' | 'tinted' | 'filled';
   children?: React.ReactNode;
   shape?: 'square' | 'circle';
   size?: 's' | 'm';
@@ -100,8 +100,9 @@ export const Button: React.FC<ButtonProps> = ({
 }) => {
   const buttonClass = classNames(styles.root, {
     [styles.appearanceText]: appearance === 'text',
-    [styles.appearanceFilled]: appearance === 'filled',
     [styles.appearanceOutlined]: appearance === 'outlined',
+    [styles.appearanceTinted]: appearance === 'tinted',
+    [styles.appearanceFilled]: appearance === 'filled',
     [styles.shapeSquare]: shape === 'square',
     [styles.shapeCircle]: shape === 'circle',
     [styles.sizeS]: size === 's',

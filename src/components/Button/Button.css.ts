@@ -33,18 +33,27 @@ export const root = style([
 ]);
 
 export const body = style({
-  flex: '1',
-  minWidth: '0',
   display: 'flex',
   alignItems: 'center',
   maxWidth: '100%',
 });
 
+export const bodyLayoutCenter = style({
+  justifyContent: 'center',
+});
+
+export const bodyLayoutStart = style({
+  justifyContent: 'flex-start',
+});
+
+export const bodyLayoutSpaceBetween = style({
+  flex: '1',
+  minWidth: '0',
+});
+
 export const label = style([
   ellipsis,
   {
-    flex: '1',
-    minWidth: '0',
     maxWidth: '100%',
     display: 'block',
     wordBreak: 'break-all',
@@ -112,10 +121,6 @@ export const layoutCenter = style({
 
 export const layoutStart = style({
   justifyContent: 'flex-start',
-});
-
-export const layoutSpaceBetween = style({
-  justifyContent: 'space-between',
 });
 
 export const hasLeadingIcon = style({

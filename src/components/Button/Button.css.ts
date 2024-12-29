@@ -23,7 +23,6 @@ export const root = style([
     display: 'inline-flex',
     flexWrap: 'nowrap',
     alignItems: 'center',
-    justifyContent: 'center',
     maxWidth: '100%',
     fontFamily: Typography.fontFamily.default,
     fontWeight: Typography.fontWeight.default,
@@ -32,6 +31,11 @@ export const root = style([
     cursor: 'pointer',
   },
 ]);
+
+export const body = style({
+  display: 'flex',
+  alignItems: 'center',
+});
 
 export const label = style([
   ellipsis,
@@ -89,6 +93,18 @@ export const widthHalf = style({
 
 export const widthThird = style({
   width: '33.333%',
+});
+
+export const layoutCenter = style({
+  justifyContent: 'center',
+});
+
+export const layoutStart = style({
+  justifyContent: 'flex-start',
+});
+
+export const layoutSpaceBetween = style({
+  justifyContent: 'space-between',
 });
 
 export const hasLeadingIcon = style({

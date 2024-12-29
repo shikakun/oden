@@ -9,6 +9,7 @@ export interface BaseButtonProps {
   shape?: 'square' | 'circle';
   size?: 's' | 'm';
   width?: 'hug' | 'full' | 'half' | 'third';
+  layout?: 'center' | 'start' | 'space-between';
   LeadingIcon?: IconType;
   TrailingIcon?: IconType;
 }
@@ -66,12 +67,14 @@ const ButtonContent: React.FC<ContentProps> = ({
 
   return (
     <>
-      {LeadingIcon && (
-        <div className={mediaClass}>
-          <LeadingIcon />
-        </div>
-      )}
-      <div className={labelClass}>{children}</div>
+      <div className={styles.body}>
+        {LeadingIcon && (
+          <div className={mediaClass}>
+            <LeadingIcon />
+          </div>
+        )}
+        <div className={labelClass}>{children}</div>
+      </div>
       {TrailingIcon && (
         <div className={mediaClass}>
           <TrailingIcon />
@@ -87,6 +90,7 @@ export const Button: React.FC<ButtonProps> = ({
   shape = 'square',
   size = 'm',
   width = 'hug',
+  layout = 'center',
   href,
   Icon,
   LeadingIcon,
@@ -106,6 +110,9 @@ export const Button: React.FC<ButtonProps> = ({
     [styles.widthFull]: width === 'full',
     [styles.widthHalf]: width === 'half',
     [styles.widthThird]: width === 'third',
+    [styles.layoutCenter]: layout === 'center',
+    [styles.layoutStart]: layout === 'start',
+    [styles.layoutSpaceBetween]: layout === 'space-between',
     [styles.hasLeadingIcon]: !!LeadingIcon,
     [styles.hasTrailingIcon]: !!TrailingIcon,
     [styles.iconOnly]: !!Icon,

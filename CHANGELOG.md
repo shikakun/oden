@@ -1,5 +1,11 @@
 # @shikakun/oden
 
+## 0.7.3
+
+### Patch Changes
+
+- [#34](https://github.com/shikakun/oden/pull/34) [`8dba255`](https://github.com/shikakun/oden/commit/8dba255b550b22f0776fd1571861ba27ec809eae) Thanks [@shikakun](https://github.com/shikakun)! - ContainerSizeType を export した
+
 ## 0.7.2
 
 ### Patch Changes

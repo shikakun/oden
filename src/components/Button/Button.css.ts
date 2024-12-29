@@ -33,13 +33,19 @@ export const root = style([
 ]);
 
 export const body = style({
+  flex: '1',
+  minWidth: '0',
   display: 'flex',
   alignItems: 'center',
+  maxWidth: '100%',
 });
 
 export const label = style([
   ellipsis,
   {
+    flex: '1',
+    minWidth: '0',
+    maxWidth: '100%',
     display: 'block',
     wordBreak: 'break-all',
   },

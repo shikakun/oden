@@ -118,7 +118,6 @@ export const Button: React.FC<ButtonProps> = ({
     [styles.hasTrailingIcon]: !!TrailingIcon,
     [styles.iconOnly]: !!Icon,
   });
-
   const labelClass = styles.label;
   const mediaClass = classNames(styles.media, {
     [styles.mediaSizeS]: size === 's',

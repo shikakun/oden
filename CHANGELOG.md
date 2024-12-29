@@ -1,5 +1,14 @@
 # @shikakun/oden
 
+## 0.8.0
+
+### Minor Changes
+
+- [#36](https://github.com/shikakun/oden/pull/36) [`e78ff95`](https://github.com/shikakun/oden/commit/e78ff95a72c5a419081e877c0d27c6b7bf4a29ba) Thanks [@shikakun](https://github.com/shikakun)! - Button コンポーネントの props を追加した
+
+  - `layout` でラベルとアイコンのレイアウトを指定できるようにしました
+  - `appearance` に `tinted` を追加しました
+
 ## 0.7.3
 
 ### Patch Changes

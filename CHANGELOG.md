@@ -1,5 +1,11 @@
 # @shikakun/oden
 
+## 0.9.0
+
+### Minor Changes
+
+- [#39](https://github.com/shikakun/oden/pull/39) [`00ccf97`](https://github.com/shikakun/oden/commit/00ccf97390a4031038fd92f138c65ed1ce06695f) Thanks [@shikakun](https://github.com/shikakun)! - TextField, FieldLabel コンポーネントを追加した
+
 ## 0.8.0
 
 ### Minor Changes

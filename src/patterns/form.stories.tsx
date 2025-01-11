@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { Button } from '../components/Button';
+import { FieldLabel } from '../components/FieldLabel';
 import { TextField } from '../components/TextField';
 import * as styles from './form.css';
 
@@ -17,9 +18,9 @@ const FormDemo: React.FC = () => {
     <>
       <div className={styles.form}>
         <div className={styles.field}>
-          <label className={styles.label} htmlFor='name'>
+          <FieldLabel htmlFor='name' required={true}>
             名前
-          </label>
+          </FieldLabel>
           <TextField
             width='full'
             id='name'
@@ -29,9 +30,7 @@ const FormDemo: React.FC = () => {
           />
         </div>
         <div className={styles.field}>
-          <label className={styles.label} htmlFor='email'>
-            メールアドレス
-          </label>
+          <FieldLabel htmlFor='email'>メールアドレス</FieldLabel>
           <TextField
             width='full'
             id='email'
@@ -41,9 +40,9 @@ const FormDemo: React.FC = () => {
           />
         </div>
         <div className={styles.field}>
-          <label className={styles.label} htmlFor='message'>
+          <FieldLabel htmlFor='message' required={true}>
             メッセージ
-          </label>
+          </FieldLabel>
           <TextField
             width='full'
             id='message'

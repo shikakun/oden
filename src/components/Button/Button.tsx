@@ -3,44 +3,46 @@ import React from 'react';
 import { IconType } from 'react-icons';
 import * as styles from './Button.css';
 
-export interface BaseButtonProps {
+type BaseButtonProps = {
   appearance?: 'text' | 'outlined' | 'tinted' | 'filled';
-  children?: React.ReactNode;
+  children?: string;
   shape?: 'square' | 'circle';
   size?: 's' | 'm';
-  width?: 'hug' | 'full' | 'half' | 'third';
+  width?: 'auto' | 'full' | 'half' | 'third';
   layout?: 'center' | 'start' | 'space-between';
   LeadingIcon?: IconType;
   TrailingIcon?: IconType;
-}
+};
 
-export interface IconButtonProps extends BaseButtonProps {
+type IconButtonProps = BaseButtonProps & {
   Icon: IconType;
-  ariaLabel: string;
-}
+  ariaLabel?: string;
+};
 
-export interface TextButtonProps extends BaseButtonProps {
+type TextButtonProps = BaseButtonProps & {
   Icon?: never;
   ariaLabel?: string;
-}
+};
 
-export interface LinkProps extends BaseButtonProps {
+type AnchorElementProps = BaseButtonProps & {
   href: string;
   target?: string;
+  type?: never;
   onClick?: never;
-}
+};
 
-export interface ClickProps extends BaseButtonProps {
+type ButtonElementProps = BaseButtonProps & {
   href?: never;
   target?: never;
+  type?: 'button' | 'submit' | 'reset';
   onClick?: () => void;
-}
+};
 
 export type ButtonProps =
-  | (LinkProps & (IconButtonProps | TextButtonProps))
-  | (ClickProps & (IconButtonProps | TextButtonProps));
+  | (AnchorElementProps & (IconButtonProps | TextButtonProps))
+  | (ButtonElementProps & (IconButtonProps | TextButtonProps));
 
-interface ContentProps {
+type ContentProps = {
   Icon?: IconType;
   LeadingIcon?: IconType;
   TrailingIcon?: IconType;
@@ -48,7 +50,7 @@ interface ContentProps {
   bodyClass: string;
   labelClass: string;
   mediaClass: string;
-}
+};
 
 const ButtonContent: React.FC<ContentProps> = ({
   Icon,
@@ -91,9 +93,11 @@ export const Button: React.FC<ButtonProps> = ({
   children,
   shape = 'square',
   size = 'm',
-  width = 'hug',
+  width = 'auto',
   layout = 'center',
   href,
+  target,
+  type = 'button',
   Icon,
   LeadingIcon,
   TrailingIcon,
@@ -109,7 +113,7 @@ export const Button: React.FC<ButtonProps> = ({
     [styles.shapeCircle]: shape === 'circle',
     [styles.sizeS]: size === 's',
     [styles.sizeM]: size === 'm',
-    [styles.widthHug]: width === 'hug',
+    [styles.widthAuto]: width === 'auto',
     [styles.widthFull]: width === 'full',
     [styles.widthHalf]: width === 'half',
     [styles.widthThird]: width === 'third',
@@ -129,13 +133,14 @@ export const Button: React.FC<ButtonProps> = ({
     [styles.mediaSizeS]: size === 's',
     [styles.mediaSizeM]: size === 'm',
   });
-  const ariaLabelText = ariaLabel || (Icon ? children?.toString() : undefined);
+  const ariaLabelText = ariaLabel || (Icon ? children : undefined);
 
   if (href) {
     return (
       <a
         className={buttonClass}
         href={href}
+        target={target}
         aria-label={ariaLabelText}
         {...props}
       >
@@ -155,7 +160,7 @@ export const Button: React.FC<ButtonProps> = ({
 
   return (
     <button
-      type='button'
+      type={type}
       className={buttonClass}
       aria-label={ariaLabelText}
       {...props}

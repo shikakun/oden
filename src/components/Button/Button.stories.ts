@@ -14,7 +14,7 @@ const meta = {
     },
     shape: { control: 'radio', options: ['square', 'circle'] },
     size: { control: 'radio', options: ['s', 'm'] },
-    width: { control: 'radio', options: ['hug', 'full', 'half', 'third'] },
+    width: { control: 'radio', options: ['auto', 'full', 'half', 'third'] },
     layout: { control: 'radio', options: ['center', 'start', 'space-between'] },
     children: { control: 'text' },
     Icon: {
@@ -55,7 +55,7 @@ export const InteractiveDemo: Story = {
     children: 'Submit',
     shape: 'square',
     size: 'm',
-    width: 'hug',
+    width: 'auto',
     layout: 'center',
     Icon: undefined,
     LeadingIcon: undefined,

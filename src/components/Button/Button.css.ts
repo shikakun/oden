@@ -67,7 +67,7 @@ export const appearanceText = style({
 
 export const appearanceOutlined = style({
   color: Color.text.link.light,
-  backgroundColor: 'transparent',
+  backgroundColor: Color.background.page.light,
   boxShadow: `inset 0 0 0 ${BORDER_SIZE} ${BORDER_COLOR}`,
 });
 
@@ -99,7 +99,7 @@ export const sizeM = style({
   padding: `0 ${LABEL_PADDING_INLINE_SIZE_M}`,
 });
 
-export const widthHug = style({
+export const widthAuto = style({
   width: 'auto',
 });
 

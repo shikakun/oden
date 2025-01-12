@@ -96,6 +96,7 @@ export const Button: React.FC<ButtonProps> = ({
   width = 'hug',
   layout = 'center',
   href,
+  target,
   type = 'button',
   Icon,
   LeadingIcon,
@@ -139,6 +140,7 @@ export const Button: React.FC<ButtonProps> = ({
       <a
         className={buttonClass}
         href={href}
+        target={target}
         aria-label={ariaLabelText}
         {...props}
       >

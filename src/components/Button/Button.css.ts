@@ -99,7 +99,7 @@ export const sizeM = style({
   padding: `0 ${LABEL_PADDING_INLINE_SIZE_M}`,
 });
 
-export const widthHug = style({
+export const widthAuto = style({
   width: 'auto',
 });
 

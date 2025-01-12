@@ -8,7 +8,7 @@ type BaseButtonProps = {
   children?: string;
   shape?: 'square' | 'circle';
   size?: 's' | 'm';
-  width?: 'hug' | 'full' | 'half' | 'third';
+  width?: 'auto' | 'full' | 'half' | 'third';
   layout?: 'center' | 'start' | 'space-between';
   LeadingIcon?: IconType;
   TrailingIcon?: IconType;
@@ -93,7 +93,7 @@ export const Button: React.FC<ButtonProps> = ({
   children,
   shape = 'square',
   size = 'm',
-  width = 'hug',
+  width = 'auto',
   layout = 'center',
   href,
   target,
@@ -113,7 +113,7 @@ export const Button: React.FC<ButtonProps> = ({
     [styles.shapeCircle]: shape === 'circle',
     [styles.sizeS]: size === 's',
     [styles.sizeM]: size === 'm',
-    [styles.widthHug]: width === 'hug',
+    [styles.widthAuto]: width === 'auto',
     [styles.widthFull]: width === 'full',
     [styles.widthHalf]: width === 'half',
     [styles.widthThird]: width === 'third',

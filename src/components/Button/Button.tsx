@@ -5,7 +5,7 @@ import * as styles from './Button.css';
 
 type BaseButtonProps = {
   appearance?: 'text' | 'outlined' | 'tinted' | 'filled';
-  children?: React.ReactNode;
+  children?: string;
   shape?: 'square' | 'circle';
   size?: 's' | 'm';
   width?: 'hug' | 'full' | 'half' | 'third';

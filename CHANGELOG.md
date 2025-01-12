@@ -1,5 +1,11 @@
 # @shikakun/oden
 
+## 0.9.1
+
+### Patch Changes
+
+- [#41](https://github.com/shikakun/oden/pull/41) [`68c9a9d`](https://github.com/shikakun/oden/commit/68c9a9d72fce3bc9d42795de4332c995adeadd42) Thanks [@shikakun](https://github.com/shikakun)! - Button コンポーネントの仕様やスタイルの不備を修正した
+
 ## 0.9.0
 
 ### Minor Changes

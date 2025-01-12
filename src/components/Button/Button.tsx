@@ -16,7 +16,7 @@ type BaseButtonProps = {
 
 type IconButtonProps = BaseButtonProps & {
   Icon: IconType;
-  ariaLabel: string;
+  ariaLabel?: string;
 };
 
 type TextButtonProps = BaseButtonProps & {
@@ -129,7 +129,7 @@ export const Button: React.FC<ButtonProps> = ({
     [styles.mediaSizeS]: size === 's',
     [styles.mediaSizeM]: size === 'm',
   });
-  const ariaLabelText = ariaLabel || (Icon ? children?.toString() : undefined);
+  const ariaLabelText = ariaLabel || (Icon ? children : undefined);
 
   if (href) {
     return (

@@ -27,12 +27,14 @@ type TextButtonProps = BaseButtonProps & {
 type AnchorElementProps = BaseButtonProps & {
   href: string;
   target?: string;
+  type?: never;
   onClick?: never;
 };
 
 type ButtonElementProps = BaseButtonProps & {
   href?: never;
   target?: never;
+  type?: 'button' | 'submit' | 'reset';
   onClick?: () => void;
 };
 
@@ -94,6 +96,7 @@ export const Button: React.FC<ButtonProps> = ({
   width = 'hug',
   layout = 'center',
   href,
+  type = 'button',
   Icon,
   LeadingIcon,
   TrailingIcon,
@@ -155,7 +158,7 @@ export const Button: React.FC<ButtonProps> = ({
 
   return (
     <button
-      type='button'
+      type={type}
       className={buttonClass}
       aria-label={ariaLabelText}
       {...props}

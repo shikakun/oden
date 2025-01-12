@@ -3,7 +3,7 @@ import React from 'react';
 import { IconType } from 'react-icons';
 import * as styles from './Button.css';
 
-export interface BaseButtonProps {
+type BaseButtonProps = {
   appearance?: 'text' | 'outlined' | 'tinted' | 'filled';
   children?: React.ReactNode;
   shape?: 'square' | 'circle';
@@ -12,35 +12,35 @@ export interface BaseButtonProps {
   layout?: 'center' | 'start' | 'space-between';
   LeadingIcon?: IconType;
   TrailingIcon?: IconType;
-}
+};
 
-export interface IconButtonProps extends BaseButtonProps {
+type IconButtonProps = BaseButtonProps & {
   Icon: IconType;
   ariaLabel: string;
-}
+};
 
-export interface TextButtonProps extends BaseButtonProps {
+type TextButtonProps = BaseButtonProps & {
   Icon?: never;
   ariaLabel?: string;
-}
+};
 
-export interface LinkProps extends BaseButtonProps {
+type LinkProps = BaseButtonProps & {
   href: string;
   target?: string;
   onClick?: never;
-}
+};
 
-export interface ClickProps extends BaseButtonProps {
+type ClickProps = BaseButtonProps & {
   href?: never;
   target?: never;
   onClick?: () => void;
-}
+};
 
 export type ButtonProps =
   | (LinkProps & (IconButtonProps | TextButtonProps))
   | (ClickProps & (IconButtonProps | TextButtonProps));
 
-interface ContentProps {
+type ContentProps = {
   Icon?: IconType;
   LeadingIcon?: IconType;
   TrailingIcon?: IconType;
@@ -48,7 +48,7 @@ interface ContentProps {
   bodyClass: string;
   labelClass: string;
   mediaClass: string;
-}
+};
 
 const ButtonContent: React.FC<ContentProps> = ({
   Icon,

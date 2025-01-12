@@ -67,7 +67,7 @@ export const appearanceText = style({
 
 export const appearanceOutlined = style({
   color: Color.text.link.light,
-  backgroundColor: 'transparent',
+  backgroundColor: Color.background.page.light,
   boxShadow: `inset 0 0 0 ${BORDER_SIZE} ${BORDER_COLOR}`,
 });
 

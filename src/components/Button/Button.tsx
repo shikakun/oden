@@ -24,21 +24,21 @@ type TextButtonProps = BaseButtonProps & {
   ariaLabel?: string;
 };
 
-type LinkProps = BaseButtonProps & {
+type AnchorElementProps = BaseButtonProps & {
   href: string;
   target?: string;
   onClick?: never;
 };
 
-type ClickProps = BaseButtonProps & {
+type ButtonElementProps = BaseButtonProps & {
   href?: never;
   target?: never;
   onClick?: () => void;
 };
 
 export type ButtonProps =
-  | (LinkProps & (IconButtonProps | TextButtonProps))
-  | (ClickProps & (IconButtonProps | TextButtonProps));
+  | (AnchorElementProps & (IconButtonProps | TextButtonProps))
+  | (ButtonElementProps & (IconButtonProps | TextButtonProps));
 
 type ContentProps = {
   Icon?: IconType;

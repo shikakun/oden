@@ -12,6 +12,8 @@ type BaseButtonProps = {
   layout?: 'center' | 'start' | 'space-between';
   LeadingIcon?: IconType;
   TrailingIcon?: IconType;
+  disabled?: boolean;
+  onClick?: () => void;
 };
 
 type IconButtonProps = BaseButtonProps & {
@@ -28,14 +30,12 @@ type AnchorElementProps = BaseButtonProps & {
   href: string;
   target?: string;
   type?: never;
-  onClick?: never;
 };
 
 type ButtonElementProps = BaseButtonProps & {
   href?: never;
   target?: never;
   type?: 'button' | 'submit' | 'reset';
-  onClick?: () => void;
 };
 
 export type ButtonProps =
@@ -102,6 +102,8 @@ export const Button: React.FC<ButtonProps> = ({
   LeadingIcon,
   TrailingIcon,
   ariaLabel,
+  disabled = false,
+  onClick,
   ...props
 }) => {
   const buttonClass = classNames(styles.root, {
@@ -122,17 +124,21 @@ export const Button: React.FC<ButtonProps> = ({
     [styles.hasLeadingIcon]: !!LeadingIcon,
     [styles.hasTrailingIcon]: !!TrailingIcon,
     [styles.iconOnly]: !!Icon,
+    [styles.disabled]: disabled,
   });
+
   const bodyClass = classNames(styles.body, {
     [styles.bodyLayoutCenter]: layout === 'center',
     [styles.bodyLayoutStart]: layout === 'start',
     [styles.bodyLayoutSpaceBetween]: layout === 'space-between',
   });
+
   const labelClass = styles.label;
   const mediaClass = classNames(styles.media, {
     [styles.mediaSizeS]: size === 's',
     [styles.mediaSizeM]: size === 'm',
   });
+
   const ariaLabelText = ariaLabel || (Icon ? children : undefined);
 
   if (href) {
@@ -142,6 +148,14 @@ export const Button: React.FC<ButtonProps> = ({
         href={href}
         target={target}
         aria-label={ariaLabelText}
+        onClick={(e: React.MouseEvent): void => {
+          if (disabled) {
+            e.preventDefault();
+          } else if (onClick) {
+            onClick();
+          }
+        }}
+        aria-disabled={disabled}
         {...props}
       >
         <ButtonContent
@@ -163,6 +177,8 @@ export const Button: React.FC<ButtonProps> = ({
       type={type}
       className={buttonClass}
       aria-label={ariaLabelText}
+      disabled={disabled}
+      onClick={onClick}
       {...props}
     >
       <ButtonContent

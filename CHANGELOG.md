@@ -1,5 +1,11 @@
 # @shikakun/oden
 
+## 0.9.2
+
+### Patch Changes
+
+- [#43](https://github.com/shikakun/oden/pull/43) [`8be8b86`](https://github.com/shikakun/oden/commit/8be8b86aabe02d1702889469da5643724205216f) Thanks [@shikakun](https://github.com/shikakun)! - Button コンポーネントに disabled 属性を指定できるようにした
+
 ## 0.9.1
 
 ### Patch Changes

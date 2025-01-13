@@ -152,3 +152,10 @@ export const mediaSizeM = style({
   minWidth: Size.interactiveComponent.m,
   minHeight: Size.interactiveComponent.m,
 });
+
+export const disabled = style({
+  cursor: 'not-allowed',
+
+  // TODO: ちゃんとdisabledの見た目を定義する
+  opacity: '0.5',
+});

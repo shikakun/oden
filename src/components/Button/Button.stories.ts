@@ -42,6 +42,7 @@ const meta = {
       },
     },
     ariaLabel: { control: 'text' },
+    disabled: { control: 'boolean' },
   },
   args: { onClick: fn() },
 } satisfies Meta<typeof Button>;
@@ -61,5 +62,9 @@ export const InteractiveDemo: Story = {
     LeadingIcon: undefined,
     TrailingIcon: undefined,
     ariaLabel: undefined,
+    disabled: false,
+    onClick: fn(() => {
+      alert('Button clicked');
+    }),
   },
 };

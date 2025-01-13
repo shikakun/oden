@@ -1,6 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
-import { MdClose } from 'react-icons/md';
 import { Button } from '../Button';
 import { OverlayWindow } from './OverlayWindow';
 
@@ -22,12 +21,7 @@ const OverlayDemo: React.FC = () => {
   return (
     <>
       <Button onClick={handleOpen}>Open</Button>
-      <OverlayWindow
-        position='bottom'
-        isOpen={isOpen}
-        onClose={handleClose}
-        CloseIcon={MdClose}
-      >
+      <OverlayWindow position='bottom' isOpen={isOpen} onClose={handleClose}>
         <div style={{ padding: '1rem' }}>Overlay Content</div>
       </OverlayWindow>
     </>

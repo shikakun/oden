@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React, { useEffect, useRef } from 'react';
-import { IconType } from 'react-icons';
+import { MdClose } from 'react-icons/md';
 import { Button } from '../Button';
 import * as styles from './OverlayWindow.css';
 
@@ -9,7 +9,6 @@ export interface OverlayWindowProps {
   position?: 'bottom';
   isOpen?: boolean;
   onClose?: () => void;
-  CloseIcon?: IconType;
   closeLabel?: string;
   children?: React.ReactNode;
 }
@@ -18,7 +17,6 @@ export const OverlayWindow: React.FC<OverlayWindowProps> = ({
   position = 'bottom',
   isOpen = false,
   onClose,
-  CloseIcon,
   closeLabel = '閉じる',
   children,
   ...props
@@ -62,12 +60,7 @@ export const OverlayWindow: React.FC<OverlayWindowProps> = ({
           {children}
           <div className={styles.closeButtonWrapper}>
             <div className={styles.closeButtonContainer}>
-              <Button
-                onClick={handleClose}
-                Icon={CloseIcon ?? undefined}
-                shape='circle'
-                ariaLabel={closeLabel}
-              >
+              <Button onClick={handleClose} Icon={MdClose} shape='circle'>
                 {closeLabel}
               </Button>
             </div>

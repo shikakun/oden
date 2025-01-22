@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { IconType } from 'react-icons';
 import * as styles from './Button.css';
 
@@ -88,111 +88,123 @@ const ButtonContent: React.FC<ContentProps> = ({
   );
 };
 
-export const Button: React.FC<ButtonProps> = ({
-  appearance = 'text',
-  children,
-  shape = 'square',
-  size = 'm',
-  width = 'auto',
-  layout = 'center',
-  href,
-  target,
-  type = 'button',
-  Icon,
-  LeadingIcon,
-  TrailingIcon,
-  ariaLabel,
-  disabled = false,
-  onClick,
-  ...props
-}) => {
-  const buttonClass = classNames(styles.root, {
-    [styles.appearanceText]: appearance === 'text',
-    [styles.appearanceOutlined]: appearance === 'outlined',
-    [styles.appearanceTinted]: appearance === 'tinted',
-    [styles.appearanceFilled]: appearance === 'filled',
-    [styles.shapeSquare]: shape === 'square',
-    [styles.shapeCircle]: shape === 'circle',
-    [styles.sizeS]: size === 's',
-    [styles.sizeM]: size === 'm',
-    [styles.widthAuto]: width === 'auto',
-    [styles.widthFull]: width === 'full',
-    [styles.widthHalf]: width === 'half',
-    [styles.widthThird]: width === 'third',
-    [styles.layoutCenter]: layout === 'center',
-    [styles.layoutStart]: layout === 'start',
-    [styles.hasLeadingIcon]: !!LeadingIcon,
-    [styles.hasTrailingIcon]: !!TrailingIcon,
-    [styles.iconOnly]: !!Icon,
-    [styles.disabled]: disabled,
-  });
+export const Button = forwardRef<
+  HTMLAnchorElement | HTMLButtonElement,
+  ButtonProps
+>(
+  (
+    {
+      appearance = 'text',
+      children,
+      shape = 'square',
+      size = 'm',
+      width = 'auto',
+      layout = 'center',
+      href,
+      target,
+      type = 'button',
+      Icon,
+      LeadingIcon,
+      TrailingIcon,
+      ariaLabel,
+      disabled = false,
+      onClick,
+      ...props
+    },
+    ref
+  ) => {
+    const buttonClass = classNames(styles.root, {
+      [styles.appearanceText]: appearance === 'text',
+      [styles.appearanceOutlined]: appearance === 'outlined',
+      [styles.appearanceTinted]: appearance === 'tinted',
+      [styles.appearanceFilled]: appearance === 'filled',
+      [styles.shapeSquare]: shape === 'square',
+      [styles.shapeCircle]: shape === 'circle',
+      [styles.sizeS]: size === 's',
+      [styles.sizeM]: size === 'm',
+      [styles.widthAuto]: width === 'auto',
+      [styles.widthFull]: width === 'full',
+      [styles.widthHalf]: width === 'half',
+      [styles.widthThird]: width === 'third',
+      [styles.layoutCenter]: layout === 'center',
+      [styles.layoutStart]: layout === 'start',
+      [styles.hasLeadingIcon]: !!LeadingIcon,
+      [styles.hasTrailingIcon]: !!TrailingIcon,
+      [styles.iconOnly]: !!Icon,
+      [styles.disabled]: disabled,
+    });
 
-  const bodyClass = classNames(styles.body, {
-    [styles.bodyLayoutCenter]: layout === 'center',
-    [styles.bodyLayoutStart]: layout === 'start',
-    [styles.bodyLayoutSpaceBetween]: layout === 'space-between',
-  });
+    const bodyClass = classNames(styles.body, {
+      [styles.bodyLayoutCenter]: layout === 'center',
+      [styles.bodyLayoutStart]: layout === 'start',
+      [styles.bodyLayoutSpaceBetween]: layout === 'space-between',
+    });
 
-  const labelClass = styles.label;
-  const mediaClass = classNames(styles.media, {
-    [styles.mediaSizeS]: size === 's',
-    [styles.mediaSizeM]: size === 'm',
-  });
+    const labelClass = styles.label;
+    const mediaClass = classNames(styles.media, {
+      [styles.mediaSizeS]: size === 's',
+      [styles.mediaSizeM]: size === 'm',
+    });
 
-  const ariaLabelText = ariaLabel || (Icon ? children : undefined);
+    const ariaLabelText = ariaLabel || (Icon ? children : undefined);
 
-  if (href) {
+    if (href) {
+      return (
+        <a
+          ref={ref as React.Ref<HTMLAnchorElement>}
+          className={buttonClass}
+          href={href}
+          target={target}
+          aria-label={ariaLabelText}
+          onClick={(e: React.MouseEvent): void => {
+            if (disabled) {
+              e.preventDefault();
+            } else if (onClick) {
+              onClick();
+            }
+          }}
+          aria-disabled={disabled}
+          {...props}
+        >
+          <ButtonContent
+            Icon={Icon}
+            LeadingIcon={LeadingIcon}
+            TrailingIcon={TrailingIcon}
+            labelClass={labelClass}
+            bodyClass={bodyClass}
+            mediaClass={mediaClass}
+          >
+            {children}
+          </ButtonContent>
+        </a>
+      );
+    }
+
     return (
-      <a
+      <button
+        ref={ref as React.Ref<HTMLButtonElement>}
+        type={type}
         className={buttonClass}
-        href={href}
-        target={target}
         aria-label={ariaLabelText}
-        onClick={(e: React.MouseEvent): void => {
-          if (disabled) {
-            e.preventDefault();
-          } else if (onClick) {
-            onClick();
-          }
-        }}
-        aria-disabled={disabled}
+        disabled={disabled}
+        onClick={onClick}
         {...props}
       >
         <ButtonContent
           Icon={Icon}
           LeadingIcon={LeadingIcon}
           TrailingIcon={TrailingIcon}
-          labelClass={labelClass}
           bodyClass={bodyClass}
+          labelClass={labelClass}
           mediaClass={mediaClass}
         >
           {children}
         </ButtonContent>
-      </a>
+      </button>
     );
   }
+);
 
-  return (
-    <button
-      type={type}
-      className={buttonClass}
-      aria-label={ariaLabelText}
-      disabled={disabled}
-      onClick={onClick}
-      {...props}
-    >
-      <ButtonContent
-        Icon={Icon}
-        LeadingIcon={LeadingIcon}
-        TrailingIcon={TrailingIcon}
-        bodyClass={bodyClass}
-        labelClass={labelClass}
-        mediaClass={mediaClass}
-      >
-        {children}
-      </ButtonContent>
-    </button>
-  );
-};
+Button.displayName = 'Button';
 
 export default Button;

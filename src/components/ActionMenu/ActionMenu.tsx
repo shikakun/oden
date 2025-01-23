@@ -14,11 +14,19 @@ interface ActionMenuContextProps {
   isOpen: boolean;
   toggle: () => void;
   close: () => void;
+  position: 'top' | 'bottom';
 }
 
 const ActionMenuContext = createContext<ActionMenuContextProps | null>(null);
 
-const ActionMenuProvider: React.FC<PropsWithChildren> = ({ children }) => {
+interface ActionMenuProviderProps extends PropsWithChildren {
+  position?: 'top' | 'bottom';
+}
+
+const ActionMenuProvider: React.FC<ActionMenuProviderProps> = ({
+  children,
+  position = 'bottom',
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
   const buttonRef = useRef<HTMLButtonElement | null>(null);
@@ -51,7 +59,7 @@ const ActionMenuProvider: React.FC<PropsWithChildren> = ({ children }) => {
   }, []);
 
   return (
-    <ActionMenuContext.Provider value={{ isOpen, toggle, close }}>
+    <ActionMenuContext.Provider value={{ isOpen, toggle, close, position }}>
       <div
         ref={menuRef}
         className={styles.root}
@@ -92,9 +100,9 @@ const ActionMenuButton: React.FC<ButtonProps> = ({ children, ...props }) => {
 };
 
 const ActionMenuOverlay: React.FC<PropsWithChildren> = ({ children }) => {
-  const { isOpen } = useActionMenuContext();
+  const { isOpen, position } = useActionMenuContext();
   return isOpen ? (
-    <div className={styles.overlay} role='menu' aria-hidden={!isOpen}>
+    <div className={styles.overlay[position]} role='menu' aria-hidden={!isOpen}>
       {children}
     </div>
   ) : null;

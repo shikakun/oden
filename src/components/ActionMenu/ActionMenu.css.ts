@@ -7,7 +7,7 @@ export const root = style({
 });
 
 export const overlay = styleVariants({
-  bottom: {
+  'bottom-left': {
     position: 'absolute',
     top: '100%',
     left: 0,
@@ -15,10 +15,26 @@ export const overlay = styleVariants({
     boxShadow: Shadow.css[2].light,
     zIndex: 100,
   },
-  top: {
+  'bottom-right': {
+    position: 'absolute',
+    top: '100%',
+    right: 0,
+    backgroundColor: Color.background.page.light,
+    boxShadow: Shadow.css[2].light,
+    zIndex: 100,
+  },
+  'top-left': {
     position: 'absolute',
     bottom: '100%',
     left: 0,
+    backgroundColor: Color.background.page.light,
+    boxShadow: Shadow.css[2].light,
+    zIndex: 100,
+  },
+  'top-right': {
+    position: 'absolute',
+    bottom: '100%',
+    right: 0,
     backgroundColor: Color.background.page.light,
     boxShadow: Shadow.css[2].light,
     zIndex: 100,

@@ -1,4 +1,10 @@
-import { autoUpdate, flip, shift, useFloating } from '@floating-ui/react-dom';
+import {
+  autoUpdate,
+  flip,
+  shift,
+  useFloating,
+  UseFloatingReturn,
+} from '@floating-ui/react-dom';
 import React, {
   createContext,
   PropsWithChildren,
@@ -11,15 +17,43 @@ import { Button } from '../Button';
 import * as styles from './ActionMenu.css';
 import type { ButtonProps } from '../Button';
 
-interface ActionMenuContextProps {
+type FloatingUIContext = Pick<UseFloatingReturn, 'refs' | 'floatingStyles'>;
+
+type ActionMenuContextProps = FloatingUIContext & {
   isOpen: boolean;
   toggle: () => void;
   close: () => void;
-  refs: ReturnType<typeof useFloating>['refs'];
-  floatingStyles: ReturnType<typeof useFloating>['floatingStyles'];
-}
+};
 
 const ActionMenuContext = createContext<ActionMenuContextProps | null>(null);
+
+const useOutsideAndEscapeHandler = (
+  isOpen: boolean,
+  close: () => void,
+  ref: React.RefObject<HTMLDivElement>
+) => {
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleClickOutside = (event: MouseEvent) => {
+      if (ref.current && !ref.current.contains(event.target as Node)) {
+        close();
+      }
+    };
+
+    const handleEscapeKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') close();
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('keydown', handleEscapeKey);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleEscapeKey);
+    };
+  }, [isOpen, close, ref]);
+};
 
 const ActionMenuProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,29 +67,7 @@ const ActionMenuProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const close = () => setIsOpen(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        close();
-      }
-    };
-
-    const handleEscapeKey = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        close();
-      }
-    };
-
-    if (isOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-      document.addEventListener('keydown', handleEscapeKey);
-    }
-
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-      document.removeEventListener('keydown', handleEscapeKey);
-    };
-  }, [isOpen]);
+  useOutsideAndEscapeHandler(isOpen, close, menuRef);
 
   return (
     <ActionMenuContext.Provider
@@ -97,18 +109,19 @@ const ActionMenuButton: React.FC<ButtonProps> = ({ children, ...props }) => {
 const ActionMenuOverlay: React.FC<PropsWithChildren> = ({ children }) => {
   const { isOpen, refs, floatingStyles } = useActionMenuContext();
 
-  return isOpen ? (
+  if (!isOpen) return null;
+
+  return (
     <div
       className={styles.overlay}
       role='menu'
-      aria-hidden={!isOpen ? 'true' : undefined}
+      aria-hidden={!isOpen}
       ref={refs.setFloating}
       style={floatingStyles}
-      {...(isOpen ? {} : { inert: '' })}
     >
       {children}
     </div>
-  ) : null;
+  );
 };
 
 export const ActionMenu = Object.assign(ActionMenuProvider, {

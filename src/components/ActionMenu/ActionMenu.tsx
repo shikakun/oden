@@ -3,6 +3,8 @@ import React, {
   createContext,
   PropsWithChildren,
   useContext,
+  useEffect,
+  useRef,
   useState,
 } from 'react';
 import { Button } from '../Button';
@@ -27,15 +29,39 @@ const ActionMenuProvider: React.FC<PropsWithChildren> = ({ children }) => {
     whileElementsMounted: autoUpdate,
     placement: 'bottom-start',
   });
-
   const toggle = () => setIsOpen((prev) => !prev);
   const close = () => setIsOpen(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        close();
+      }
+    };
+
+    const handleEscapeKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        close();
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('keydown', handleEscapeKey);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleEscapeKey);
+    };
+  }, [isOpen]);
 
   return (
     <ActionMenuContext.Provider
       value={{ isOpen, toggle, close, refs, floatingStyles }}
     >
-      <div className={styles.root} role='menu' aria-hidden={!isOpen}>
+      <div className={styles.root} ref={menuRef}>
         {children}
       </div>
     </ActionMenuContext.Provider>
@@ -75,9 +101,10 @@ const ActionMenuOverlay: React.FC<PropsWithChildren> = ({ children }) => {
     <div
       className={styles.overlay}
       role='menu'
-      aria-hidden={!isOpen}
+      aria-hidden={!isOpen ? 'true' : undefined}
       ref={refs.setFloating}
       style={floatingStyles}
+      {...(isOpen ? {} : { inert: '' })}
     >
       {children}
     </div>

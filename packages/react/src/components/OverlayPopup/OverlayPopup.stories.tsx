@@ -1,23 +1,23 @@
 import { MdArrowDropDown } from 'react-icons/md';
-import { ActionMenu } from './ActionMenu';
+import { OverlayPopup } from './OverlayPopup';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta = {
-  title: 'Components/ActionMenu',
-  component: ActionMenu,
+  title: 'Components/OverlayPopup',
+  component: OverlayPopup,
   tags: ['autodocs'],
-} satisfies Meta<typeof ActionMenu>;
+} satisfies Meta<typeof OverlayPopup>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const InteractiveDemo: Story = {
   render: () => (
-    <ActionMenu>
-      <ActionMenu.Button appearance='outlined' TrailingIcon={MdArrowDropDown}>
+    <OverlayPopup>
+      <OverlayPopup.Button appearance='outlined' TrailingIcon={MdArrowDropDown}>
         Menu
-      </ActionMenu.Button>
-      <ActionMenu.Overlay>
+      </OverlayPopup.Button>
+      <OverlayPopup.Content>
         <div
           style={{
             boxSizing: 'border-box',
@@ -26,9 +26,9 @@ export const InteractiveDemo: Story = {
             padding: '1rem',
           }}
         >
-          Menu Content
+          Menu Contents
         </div>
-      </ActionMenu.Overlay>
-    </ActionMenu>
+      </OverlayPopup.Content>
+    </OverlayPopup>
   ),
 };

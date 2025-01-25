@@ -14,18 +14,20 @@ import React, {
   useState,
 } from 'react';
 import { Button } from '../Button';
-import * as styles from './ActionMenu.css';
+import * as styles from './OverlayPopup.css';
 import type { ButtonProps } from '../Button';
 
 type FloatingUIContext = Pick<UseFloatingReturn, 'refs' | 'floatingStyles'>;
 
-type ActionMenuContextProps = FloatingUIContext & {
+type OverlayPopupContextProps = FloatingUIContext & {
   isOpen: boolean;
   toggle: () => void;
   close: () => void;
 };
 
-const ActionMenuContext = createContext<ActionMenuContextProps | null>(null);
+const OverlayPopupContext = createContext<OverlayPopupContextProps | null>(
+  null
+);
 
 const useOutsideAndEscapeHandler = (
   isOpen: boolean,
@@ -55,7 +57,7 @@ const useOutsideAndEscapeHandler = (
   }, [isOpen, close, ref]);
 };
 
-const ActionMenuProvider: React.FC<PropsWithChildren> = ({ children }) => {
+const OverlayPopupProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
   const { refs, floatingStyles } = useFloating({
     open: isOpen,
@@ -70,28 +72,28 @@ const ActionMenuProvider: React.FC<PropsWithChildren> = ({ children }) => {
   useOutsideAndEscapeHandler(isOpen, close, menuRef);
 
   return (
-    <ActionMenuContext.Provider
+    <OverlayPopupContext.Provider
       value={{ isOpen, toggle, close, refs, floatingStyles }}
     >
       <div className={styles.root} ref={menuRef}>
         {children}
       </div>
-    </ActionMenuContext.Provider>
+    </OverlayPopupContext.Provider>
   );
 };
 
-const useActionMenuContext = (): ActionMenuContextProps => {
-  const context = useContext(ActionMenuContext);
+const useOverlayPopupContext = (): OverlayPopupContextProps => {
+  const context = useContext(OverlayPopupContext);
   if (!context) {
     throw new Error(
-      'useActionMenuContext must be used within an ActionMenuProvider'
+      'useOverlayPopupContext must be used within an OverlayPopupProvider'
     );
   }
   return context;
 };
 
-const ActionMenuButton: React.FC<ButtonProps> = ({ children, ...props }) => {
-  const { toggle, isOpen, refs } = useActionMenuContext();
+const OverlayPopupButton: React.FC<ButtonProps> = ({ children, ...props }) => {
+  const { toggle, isOpen, refs } = useOverlayPopupContext();
 
   return (
     <Button
@@ -106,8 +108,8 @@ const ActionMenuButton: React.FC<ButtonProps> = ({ children, ...props }) => {
   );
 };
 
-const ActionMenuOverlay: React.FC<PropsWithChildren> = ({ children }) => {
-  const { isOpen, refs, floatingStyles } = useActionMenuContext();
+const OverlayPopupContent: React.FC<PropsWithChildren> = ({ children }) => {
+  const { isOpen, refs, floatingStyles } = useOverlayPopupContext();
 
   if (!isOpen) return null;
 
@@ -124,9 +126,9 @@ const ActionMenuOverlay: React.FC<PropsWithChildren> = ({ children }) => {
   );
 };
 
-export const ActionMenu = Object.assign(ActionMenuProvider, {
-  Button: ActionMenuButton,
-  Overlay: ActionMenuOverlay,
+export const OverlayPopup = Object.assign(OverlayPopupProvider, {
+  Button: OverlayPopupButton,
+  Content: OverlayPopupContent,
 });
 
-export default ActionMenu;
+export default OverlayPopup;

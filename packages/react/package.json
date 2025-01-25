@@ -1,0 +1,42 @@
+{
+  "name": "@shikakun/oden",
+  "description": "A craft React UI component library.",
+  "version": "0.10.0",
+  "type": "module",
+  "main": "./dist/index.umd.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "author": "shikakun",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shikakun/oden.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "require": "./dist/index.umd.cjs",
+      "import": "./dist/index.js"
+    },
+    "./style": "./dist/style.css"
+  },
+  "scripts": {
+    "build": "tsc && vite build"
+  },
+  "dependencies": {
+    "@floating-ui/react-dom": "^2.1.2",
+    "@vanilla-extract/css": "^1.17.0",
+    "@vanilla-extract/vite-plugin": "^4.0.19",
+    "classnames": "^2.5.1"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-icons": "^5.4.0"
+  }
+}

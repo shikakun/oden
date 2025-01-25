@@ -21,5 +21,8 @@ jobs:
         if: ${{ steps.cache_dependency.outputs.cache-hit != 'true' }}
         run: npm ci --no-audit --progress=false --silent
 
+      - name: Build
+        run: npm run build --workspace=packages/design-tokens
+
       - name: Run ESLint
         run: npm run lint

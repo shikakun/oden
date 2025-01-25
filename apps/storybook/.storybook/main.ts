@@ -1,3 +1,4 @@
+import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
 import type { StorybookConfig } from '@storybook/react-vite';
 
 const config: StorybookConfig = {
@@ -17,6 +18,10 @@ const config: StorybookConfig = {
   },
   docs: {
     autodocs: 'tag',
+  },
+  async viteFinal(config) {
+    config.plugins = [...(config.plugins ?? []), vanillaExtractPlugin()];
+    return config;
   },
 };
 export default config;

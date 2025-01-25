@@ -22,7 +22,8 @@
       "import": "./dist/tokens.js",
       "types": "./dist/tokens.d.ts"
     },
-    "./css": "./dist/tokens.css"
+    "./css": "./dist/tokens.css",
+    "./scss": "./dist/tokens.scss"
   },
   "scripts": {
     "build": "style-dictionary build --config .style-dictionary/config.js",

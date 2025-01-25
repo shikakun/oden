@@ -1,5 +1,11 @@
 # @shikakun/oden
 
+## 0.10.0
+
+### Minor Changes
+
+- [#46](https://github.com/shikakun/oden/pull/46) [`2705da7`](https://github.com/shikakun/oden/commit/2705da7a8ca24bae8934d77e982247e2d6607edf) Thanks [@shikakun](https://github.com/shikakun)! - ActionMenu コンポーネントを追加した
+
 ## 0.9.2
 
 ### Patch Changes

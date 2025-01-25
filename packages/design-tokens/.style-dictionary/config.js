@@ -127,5 +127,16 @@ export default {
       ],
       options,
     },
+    scss: {
+      transformGroup: 'scss',
+      buildPath: buildPath,
+      files: [
+        {
+          destination: `${buildFileName}.scss`,
+          format: 'scss/variables',
+        },
+      ],
+      options,
+    },
   },
 };

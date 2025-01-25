@@ -1,0 +1,68 @@
+typography:
+  fontSize:
+    2xs:
+      value: '0.6875rem'
+      attributes:
+        category: typography
+        type: fontSize
+        item: 2xs
+    xs:
+      value: '0.75rem'
+      attributes:
+        category: typography
+        type: fontSize
+        item: xs
+    s:
+      value: '0.875rem'
+      attributes:
+        category: typography
+        type: fontSize
+        item: s
+    m:
+      value: '1rem'
+      attributes:
+        category: typography
+        type: fontSize
+        item: m
+    l:
+      value: '1.125rem'
+      attributes:
+        category: typography
+        type: fontSize
+        item: l
+    xl:
+      value: '1.3125rem'
+      attributes:
+        category: typography
+        type: fontSize
+        item: xl
+    2xl:
+      value: '1.625rem'
+      attributes:
+        category: typography
+        type: fontSize
+        item: 2xl
+    3xl:
+      value: '2rem'
+      attributes:
+        category: typography
+        type: fontSize
+        item: 3xl
+    4xl:
+      value: '2.6875rem'
+      attributes:
+        category: typography
+        type: fontSize
+        item: 4xl
+    5xl:
+      value: '4rem'
+      attributes:
+        category: typography
+        type: fontSize
+        item: 5xl
+    6xl:
+      value: '8rem'
+      attributes:
+        category: typography
+        type: fontSize
+        item: 6xl

@@ -1,0 +1,18 @@
+color:
+  border:
+    default:
+      light:
+        value: '{color.palette.gray.200}'
+        attributes:
+          category: color
+          type: border
+          item: default
+          theme: light
+    muted:
+      light:
+        value: '{color.palette.gray.100}'
+        attributes:
+          category: color
+          type: border
+          item: muted
+          theme: light

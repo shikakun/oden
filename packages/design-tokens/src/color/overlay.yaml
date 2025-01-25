@@ -1,0 +1,125 @@
+color:
+  overlay:
+    background:
+      enabled:
+        light:
+          value: 'rgba(0, 0, 0, 0)'
+          attributes:
+            category: color
+            type: overlay
+            item: background
+            state: enabled
+            theme: light
+        dark:
+          value: 'rgba(255, 255, 255, 0)'
+          attributes:
+            category: color
+            type: overlay
+            item: background
+            state: enabled
+            theme: dark
+      hover:
+        light:
+          value: 'rgba(0, 0, 0, 0.04)'
+          attributes:
+            category: color
+            type: overlay
+            item: background
+            state: hover
+            theme: light
+        dark:
+          value: 'rgba(255, 255, 255, 0.08)'
+          attributes:
+            category: color
+            type: overlay
+            item: background
+            state: hover
+            theme: dark
+      focus:
+        light:
+          value: 'rgba(0, 0, 0, 0.12)'
+          attributes:
+            category: color
+            type: overlay
+            item: background
+            state: focus
+            theme: light
+        dark:
+          value: 'rgba(255, 255, 255, 0.24)'
+          attributes:
+            category: color
+            type: overlay
+            item: background
+            state: focus
+            theme: dark
+      active:
+        light:
+          value: 'rgba(0, 0, 0, 0.12)'
+          attributes:
+            category: color
+            type: overlay
+            item: background
+            state: active
+            theme: light
+        dark:
+          value: 'rgba(255, 255, 255, 0.24)'
+          attributes:
+            category: color
+            type: overlay
+            item: background
+            state: active
+            theme: dark
+      disabled:
+        light:
+          value: 'rgba(0, 0, 0, 0)'
+          attributes:
+            category: color
+            type: overlay
+            item: background
+            state: disabled
+            theme: light
+        dark:
+          disabled:
+          value: 'rgba(255, 255, 255, 0)'
+          attributes:
+            category: color
+            type: overlay
+            item: background
+            state: disabled
+            theme: dark
+    image:
+      enabled:
+        value: 'rgba(0, 0, 0, 0)'
+        attributes:
+          category: color
+          type: overlay
+          item: image
+          state: enabled
+      hover:
+        value: 'rgba(0, 0, 0, 0.12)'
+        attributes:
+          category: color
+          type: overlay
+          item: image
+          state: hover
+      focus:
+        value: 'rgba(0, 0, 0, 0.36)'
+        attributes:
+          category: color
+          type: overlay
+          item: image
+          state: focus
+      active:
+        value: 'rgba(0, 0, 0, 0.36)'
+        attributes:
+          category: color
+          type: overlay
+          item: image
+          state: active
+      disabled:
+        value: 'rgba(0, 0, 0, 0)'
+        attributes:
+          category: color
+          type: overlay
+          item: image
+          state: disabled

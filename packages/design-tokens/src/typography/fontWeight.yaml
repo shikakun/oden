@@ -1,0 +1,14 @@
+typography:
+  fontWeight:
+    default:
+      value: 'normal'
+      attributes:
+        category: typography
+        type: fontWeight
+        item: default
+    bold:
+      value: 'bold'
+      attributes:
+        category: typography
+        type: fontWeight
+        item: bold

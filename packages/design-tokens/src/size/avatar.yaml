@@ -1,0 +1,20 @@
+size:
+  avatar:
+    xs:
+      value: '{size.scale.24}'
+      attributes:
+        category: size
+        type: avatar
+        item: xs
+    s:
+      value: '{size.scale.32}'
+      attributes:
+        category: size
+        type: avatar
+        item: s
+    m:
+      value: '{size.scale.40}'
+      attributes:
+        category: size
+        type: avatar
+        item: m

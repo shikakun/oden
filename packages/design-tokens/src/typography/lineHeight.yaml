@@ -1,0 +1,244 @@
+typography:
+  lineHeight:
+    2xs:
+      dense:
+        value: '1rem'
+        attributes:
+          category: size
+          type: lineHeight
+          item: 2xs
+          variant: dense
+      default:
+        value: '1.25rem'
+        attributes:
+          category: size
+          type: lineHeight
+          item: 2xs
+          variant: default
+      comfort:
+        value: '1.25rem'
+        attributes:
+          category: size
+          type: lineHeight
+          item: 2xs
+          variant: comfort
+    xs:
+      dense:
+        value: '1rem'
+        attributes:
+          category: size
+          type: lineHeight
+          item: xs
+          variant: dense
+      default:
+        value: '1.25rem'
+        attributes:
+          category: size
+          type: lineHeight
+          item: xs
+          variant: default
+      comfort:
+        value: '1.5rem'
+        attributes:
+          category: size
+          type: lineHeight
+          item: xs
+          variant: comfort
+    s:
+      dense:
+        value: '1.25rem'
+        attributes:
+          category: size
+          type: lineHeight
+          item: s
+          variant: dense
+      default:
+        value: '1.5rem'
+        attributes:
+          category: size
+          type: lineHeight
+          item: s
+          variant: default
+      comfort:
+        value: '1.75rem'
+        attributes:
+          category: size
+          type: lineHeight
+          item: s
+          variant: comfort
+    m:
+      dense:
+        value: '1.25rem'
+        attributes:
+          category: size
+          type: lineHeight
+          item: m
+          variant: dense
+      default:
+        value: '1.5rem'
+        attributes:
+          category: size
+          type: lineHeight
+          item: m
+          variant: default
+      comfort:
+        value: '1.75rem'
+        attributes:
+          category: size
+          type: lineHeight
+          item: m
+          variant: comfort
+    l:
+      dense:
+        value: '1.5rem'
+        attributes:
+          category: size
+          type: lineHeight
+          item: l
+          variant: dense
+      default:
+        value: '1.75rem'
+        attributes:
+          category: size
+          type: lineHeight
+          item: l
+          variant: default
+      comfort:
+        value: '2rem'
+        attributes:
+          category: size
+          type: lineHeight
+          item: l
+          variant: comfort
+    xl:
+      dense:
+        value: '1.75rem'
+        attributes:
+          category: size
+          type: lineHeight
+          item: xl
+          variant: dense
+      default:
+        value: '2rem'
+        attributes:
+          category: size
+          type: lineHeight
+          item: xl
+          variant: default
+      comfort:
+        value: '2.5rem'
+        attributes:
+          category: size
+          type: lineHeight
+          item: xl
+          variant: comfort
+    2xl:
+      dense:
+        value: '2.25rem'
+        attributes:
+          category: size
+          type: lineHeight
+          item: 2xl
+          variant: dense
+      default:
+        value: '2.5rem'
+        attributes:
+          category: size
+          type: lineHeight
+          item: 2xl
+          variant: default
+      comfort:
+        value: '3rem'
+        attributes:
+          category: size
+          type: lineHeight
+          item: 2xl
+          variant: comfort
+    3xl:
+      dense:
+        value: '2.5rem'
+        attributes:
+          category: size
+          type: lineHeight
+          item: 3xl
+          variant: dense
+      default:
+        value: '3rem'
+        attributes:
+          category: size
+          type: lineHeight
+          item: 3xl
+          variant: default
+      comfort:
+        value: '3.5rem'
+        attributes:
+          category: size
+          type: lineHeight
+          item: 3xl
+          variant: comfort
+    4xl:
+      dense:
+        value: '3.5rem'
+        attributes:
+          category: size
+          type: lineHeight
+          item: 4xl
+          variant: dense
+      default:
+        value: '4.25rem'
+        attributes:
+          category: size
+          type: lineHeight
+          item: 4xl
+          variant: default
+      comfort:
+        value: '4.75rem'
+        attributes:
+          category: size
+          type: lineHeight
+          item: 4xl
+          variant: comfort
+    5xl:
+      dense:
+        value: '5rem'
+        attributes:
+          category: size
+          type: lineHeight
+          item: 5xl
+          variant: dense
+      default:
+        value: '6rem'
+        attributes:
+          category: size
+          type: lineHeight
+          item: 5xl
+          variant: default
+      comfort:
+        value: '7rem'
+        attributes:
+          category: size
+          type: lineHeight
+          item: 5xl
+          variant: comfort
+    6xl:
+      dense:
+        value: '10rem'
+        attributes:
+          category: size
+          type: lineHeight
+          item: 6xl
+          variant: dense
+      default:
+        value: '12rem'
+        attributes:
+          category: size
+          type: lineHeight
+          item: 6xl
+          variant: default
+      comfort:
+        value: '14rem'
+        attributes:
+          category: size
+          type: lineHeight
+          item: 6xl
+          variant: comfort

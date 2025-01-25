@@ -1,0 +1,31 @@
+color:
+  background:
+    page:
+      light:
+        value: '{color.palette.gray.0}'
+        attributes:
+          category: color
+          type: background
+          item: page
+          theme: light
+    field:
+      enabled:
+        light:
+          value: '{color.palette.gray.0}'
+          attributes:
+            category: color
+            type: background
+            item: table
+            variant: field
+            state: enabled
+            theme: light
+      disabled:
+        light:
+          value: '{color.palette.gray.50}'
+          attributes:
+            category: color
+            type: background
+            item: table
+            variant: field
+            state: disabled
+            theme: light

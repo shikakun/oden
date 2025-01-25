@@ -34,6 +34,7 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
   },
   "dependencies": {
+    "@floating-ui/react-dom": "^2.1.2",
     "classnames": "^2.5.1"
   },
   "peerDependencies": {

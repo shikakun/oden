@@ -1,4 +1,5 @@
 import { fn } from '@storybook/test';
+import { useRef } from 'react';
 import { MdArrowForward, MdSearch } from 'react-icons/md';
 import { Button } from './Button';
 import type { Meta, StoryObj } from '@storybook/react';
@@ -66,5 +67,30 @@ export const InteractiveDemo: Story = {
     onClick: fn(() => {
       alert('Button clicked');
     }),
+  },
+};
+
+export const WithRef: Story = {
+  render: function WithRefComponent() {
+    const buttonRef = useRef<HTMLButtonElement | HTMLAnchorElement>(null);
+
+    const handleFocusClick = () => {
+      if (buttonRef.current) {
+        buttonRef.current.focus();
+        alert('Button focused');
+      }
+    };
+
+    return (
+      <div>
+        <Button appearance='outlined' onClick={handleFocusClick}>
+          Click to Focus the Target Button
+        </Button>
+
+        <Button appearance='text' ref={buttonRef}>
+          Target Button
+        </Button>
+      </div>
+    );
   },
 };

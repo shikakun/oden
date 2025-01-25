@@ -11,8 +11,5 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Build
-        run: npm run build --workspace=packages/design-tokens
-
       - name: Run ESLint
         run: npm run lint

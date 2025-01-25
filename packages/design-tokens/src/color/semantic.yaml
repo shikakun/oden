@@ -1,0 +1,427 @@
+color:
+  semantic:
+    neutral:
+      0:
+        value: '{color.palette.gray.0}'
+        attributes:
+          category: color
+          type: semantic
+          item: neutral
+          variant: 0
+      50:
+        value: '{color.palette.gray.50}'
+        attributes:
+          category: color
+          type: semantic
+          item: neutral
+          variant: 50
+      100:
+        value: '{color.palette.gray.100}'
+        attributes:
+          category: color
+          type: semantic
+          item: neutral
+          variant: 100
+      200:
+        value: '{color.palette.gray.200}'
+        attributes:
+          category: color
+          type: semantic
+          item: neutral
+          variant: 200
+      300:
+        value: '{color.palette.gray.300}'
+        attributes:
+          category: color
+          type: semantic
+          item: neutral
+          variant: 300
+      400:
+        value: '{color.palette.gray.400}'
+        attributes:
+          category: color
+          type: semantic
+          item: neutral
+          variant: 400
+      500:
+        value: '{color.palette.gray.500}'
+        attributes:
+          category: color
+          type: semantic
+          item: neutral
+          variant: 500
+      600:
+        value: '{color.palette.gray.600}'
+        attributes:
+          category: color
+          type: semantic
+          item: neutral
+          variant: 600
+      700:
+        value: '{color.palette.gray.700}'
+        attributes:
+          category: color
+          type: semantic
+          item: neutral
+          variant: 700
+      800:
+        value: '{color.palette.gray.800}'
+        attributes:
+          category: color
+          type: semantic
+          item: neutral
+          variant: 800
+      900:
+        value: '{color.palette.gray.900}'
+        attributes:
+          category: color
+          type: semantic
+          item: neutral
+          variant: 900
+      1000:
+        value: '{color.palette.gray.1000}'
+        attributes:
+          category: color
+          type: semantic
+          item: neutral
+          variant: 1000
+    primary:
+      0:
+        value: '{color.palette.blue.0}'
+        attributes:
+          category: color
+          type: semantic
+          item: primary
+          variant: 0
+      50:
+        value: '{color.palette.blue.50}'
+        attributes:
+          category: color
+          type: semantic
+          item: primary
+          variant: 50
+      100:
+        value: '{color.palette.blue.100}'
+        attributes:
+          category: color
+          type: semantic
+          item: primary
+          variant: 100
+      200:
+        value: '{color.palette.blue.200}'
+        attributes:
+          category: color
+          type: semantic
+          item: primary
+          variant: 200
+      300:
+        value: '{color.palette.blue.300}'
+        attributes:
+          category: color
+          type: semantic
+          item: primary
+          variant: 300
+      400:
+        value: '{color.palette.blue.400}'
+        attributes:
+          category: color
+          type: semantic
+          item: primary
+          variant: 400
+      500:
+        value: '{color.palette.blue.500}'
+        attributes:
+          category: color
+          type: semantic
+          item: primary
+          variant: 500
+      600:
+        value: '{color.palette.blue.600}'
+        attributes:
+          category: color
+          type: semantic
+          item: primary
+          variant: 600
+      700:
+        value: '{color.palette.blue.700}'
+        attributes:
+          category: color
+          type: semantic
+          item: primary
+          variant: 700
+      800:
+        value: '{color.palette.blue.800}'
+        attributes:
+          category: color
+          type: semantic
+          item: primary
+          variant: 800
+      900:
+        value: '{color.palette.blue.900}'
+        attributes:
+          category: color
+          type: semantic
+          item: primary
+          variant: 900
+      1000:
+        value: '{color.palette.blue.1000}'
+        attributes:
+          category: color
+          type: semantic
+          item: primary
+          variant: 1000
+    positive:
+      0:
+        value: '{color.palette.green.0}'
+        attributes:
+          category: color
+          type: semantic
+          item: positive
+          variant: 0
+      50:
+        value: '{color.palette.green.50}'
+        attributes:
+          category: color
+          type: semantic
+          item: positive
+          variant: 50
+      100:
+        value: '{color.palette.green.100}'
+        attributes:
+          category: color
+          type: semantic
+          item: positive
+          variant: 100
+      200:
+        value: '{color.palette.green.200}'
+        attributes:
+          category: color
+          type: semantic
+          item: positive
+          variant: 200
+      300:
+        value: '{color.palette.green.300}'
+        attributes:
+          category: color
+          type: semantic
+          item: positive
+          variant: 300
+      400:
+        value: '{color.palette.green.400}'
+        attributes:
+          category: color
+          type: semantic
+          item: positive
+          variant: 400
+      500:
+        value: '{color.palette.green.500}'
+        attributes:
+          category: color
+          type: semantic
+          item: positive
+          variant: 500
+      600:
+        value: '{color.palette.green.600}'
+        attributes:
+          category: color
+          type: semantic
+          item: positive
+          variant: 600
+      700:
+        value: '{color.palette.green.700}'
+        attributes:
+          category: color
+          type: semantic
+          item: positive
+          variant: 700
+      800:
+        value: '{color.palette.green.800}'
+        attributes:
+          category: color
+          type: semantic
+          item: positive
+          variant: 800
+      900:
+        value: '{color.palette.green.900}'
+        attributes:
+          category: color
+          type: semantic
+          item: positive
+          variant: 900
+      1000:
+        value: '{color.palette.green.1000}'
+        attributes:
+          category: color
+          type: semantic
+          item: positive
+          variant: 1000
+    negative:
+      0:
+        value: '{color.palette.red.0}'
+        attributes:
+          category: color
+          type: semantic
+          item: negative
+          variant: 0
+      50:
+        value: '{color.palette.red.50}'
+        attributes:
+          category: color
+          type: semantic
+          item: negative
+          variant: 50
+      100:
+        value: '{color.palette.red.100}'
+        attributes:
+          category: color
+          type: semantic
+          item: negative
+          variant: 100
+      200:
+        value: '{color.palette.red.200}'
+        attributes:
+          category: color
+          type: semantic
+          item: negative
+          variant: 200
+      300:
+        value: '{color.palette.red.300}'
+        attributes:
+          category: color
+          type: semantic
+          item: negative
+          variant: 300
+      400:
+        value: '{color.palette.red.400}'
+        attributes:
+          category: color
+          type: semantic
+          item: negative
+          variant: 400
+      500:
+        value: '{color.palette.red.500}'
+        attributes:
+          category: color
+          type: semantic
+          item: negative
+          variant: 500
+      600:
+        value: '{color.palette.red.600}'
+        attributes:
+          category: color
+          type: semantic
+          item: negative
+          variant: 600
+      700:
+        value: '{color.palette.red.700}'
+        attributes:
+          category: color
+          type: semantic
+          item: negative
+          variant: 700
+      800:
+        value: '{color.palette.red.800}'
+        attributes:
+          category: color
+          type: semantic
+          item: negative
+          variant: 800
+      900:
+        value: '{color.palette.red.900}'
+        attributes:
+          category: color
+          type: semantic
+          item: negative
+          variant: 900
+      1000:
+        value: '{color.palette.red.1000}'
+        attributes:
+          category: color
+          type: semantic
+          item: negative
+          variant: 1000
+    interactive:
+      0:
+        value: '{color.palette.blue.0}'
+        attributes:
+          category: color
+          type: semantic
+          item: interactive
+          variant: 0
+      50:
+        value: '{color.palette.blue.50}'
+        attributes:
+          category: color
+          type: semantic
+          item: interactive
+          variant: 50
+      100:
+        value: '{color.palette.blue.100}'
+        attributes:
+          category: color
+          type: semantic
+          item: interactive
+          variant: 100
+      200:
+        value: '{color.palette.blue.200}'
+        attributes:
+          category: color
+          type: semantic
+          item: interactive
+          variant: 200
+      300:
+        value: '{color.palette.blue.300}'
+        attributes:
+          category: color
+          type: semantic
+          item: interactive
+          variant: 300
+      400:
+        value: '{color.palette.blue.400}'
+        attributes:
+          category: color
+          type: semantic
+          item: interactive
+          variant: 400
+      500:
+        value: '{color.palette.blue.500}'
+        attributes:
+          category: color
+          type: semantic
+          item: interactive
+          variant: 500
+      600:
+        value: '{color.palette.blue.600}'
+        attributes:
+          category: color
+          type: semantic
+          item: interactive
+          variant: 600
+      700:
+        value: '{color.palette.blue.700}'
+        attributes:
+          category: color
+          type: semantic
+          item: interactive
+          variant: 700
+      800:
+        value: '{color.palette.blue.800}'
+        attributes:
+          category: color
+          type: semantic
+          item: interactive
+          variant: 800
+      900:
+        value: '{color.palette.blue.900}'
+        attributes:
+          category: color
+          type: semantic
+          item: interactive
+          variant: 900
+      1000:
+        value: '{color.palette.blue.1000}'
+        attributes:
+          category: color
+          type: semantic
+          item: interactive
+          variant: 1000

@@ -1,0 +1,354 @@
+color:
+  palette:
+    black:
+      value: '#000000'
+      attributes:
+        category: color
+        type: palette
+        item: black
+    white:
+      value: '#ffffff'
+      attributes:
+        category: color
+        type: palette
+        item: white
+    gray:
+      0:
+        value: '{color.palette.white}'
+        attributes:
+          category: color
+          type: palette
+          item: gray
+          variant: 0
+      50:
+        value: '#f3f3f3'
+        attributes:
+          category: color
+          type: palette
+          item: gray
+          variant: 50
+      100:
+        value: '#dddddd'
+        attributes:
+          category: color
+          type: palette
+          item: gray
+          variant: 100
+      200:
+        value: '#c6c6c6'
+        attributes:
+          category: color
+          type: palette
+          item: gray
+          variant: 200
+      300:
+        value: '#b0b0b0'
+        attributes:
+          category: color
+          type: palette
+          item: gray
+          variant: 300
+      400:
+        value: '#9b9b9b'
+        attributes:
+          category: color
+          type: palette
+          item: gray
+          variant: 400
+      500:
+        value: '#868686'
+        attributes:
+          category: color
+          type: palette
+          item: gray
+          variant: 500
+      600:
+        value: '#727272'
+        attributes:
+          category: color
+          type: palette
+          item: gray
+          variant: 600
+      700:
+        value: '#5e5e5e'
+        attributes:
+          category: color
+          type: palette
+          item: gray
+          variant: 700
+      800:
+        value: '#4b4b4b'
+        attributes:
+          category: color
+          type: palette
+          item: gray
+          variant: 800
+      900:
+        value: '#393939'
+        attributes:
+          category: color
+          type: palette
+          item: gray
+          variant: 900
+      1000:
+        value: '{color.palette.black}'
+        attributes:
+          category: color
+          type: palette
+          item: gray
+          variant: 1000
+    blue:
+      0:
+        value: '{color.palette.white}'
+        attributes:
+          category: color
+          type: palette
+          item: blue
+          variant: 0
+      50:
+        value: '#ebfbff'
+        attributes:
+          category: color
+          type: palette
+          item: blue
+          variant: 50
+      100:
+        value: '#c2e2f1'
+        attributes:
+          category: color
+          type: palette
+          item: blue
+          variant: 100
+      200:
+        value: '#99cee5'
+        attributes:
+          category: color
+          type: palette
+          item: blue
+          variant: 200
+      300:
+        value: '#6fbad9'
+        attributes:
+          category: color
+          type: palette
+          item: blue
+          variant: 300
+      400:
+        value: '#42a6c9'
+        attributes:
+          category: color
+          type: palette
+          item: blue
+          variant: 400
+      500:
+        value: '#0399bf'
+        attributes:
+          category: color
+          type: palette
+          item: blue
+          variant: 500
+      600:
+        value: '#027a97'
+        attributes:
+          category: color
+          type: palette
+          item: blue
+          variant: 600
+      700:
+        value: '#00698b'
+        attributes:
+          category: color
+          type: palette
+          item: blue
+          variant: 700
+      800:
+        value: '#005471'
+        attributes:
+          category: color
+          type: palette
+          item: blue
+          variant: 800
+      900:
+        value: '#004057'
+        attributes:
+          category: color
+          type: palette
+          item: blue
+          variant: 900
+      1000:
+        value: '{color.palette.black}'
+        attributes:
+          category: color
+          type: palette
+          item: blue
+          variant: 1000
+    green:
+      0:
+        value: '{color.palette.white}'
+        attributes:
+          category: color
+          type: palette
+          item: green
+          variant: 0
+      50:
+        value: '#e7fdf6'
+        attributes:
+          category: color
+          type: palette
+          item: green
+          variant: 50
+      100:
+        value: '#bde6d0'
+        attributes:
+          category: color
+          type: palette
+          item: green
+          variant: 100
+      200:
+        value: '#91d5b2'
+        attributes:
+          category: color
+          type: palette
+          item: green
+          variant: 200
+      300:
+        value: '#67c297'
+        attributes:
+          category: color
+          type: palette
+          item: green
+          variant: 300
+      400:
+        value: '#3cae7e'
+        attributes:
+          category: color
+          type: palette
+          item: green
+          variant: 400
+      500:
+        value: '#02a16d'
+        attributes:
+          category: color
+          type: palette
+          item: green
+          variant: 500
+      600:
+        value: '#008055'
+        attributes:
+          category: color
+          type: palette
+          item: green
+          variant: 600
+      700:
+        value: '#006f42'
+        attributes:
+          category: color
+          type: palette
+          item: green
+          variant: 700
+      800:
+        value: '#005933'
+        attributes:
+          category: color
+          type: palette
+          item: green
+          variant: 800
+      900:
+        value: '#004426'
+        attributes:
+          category: color
+          type: palette
+          item: green
+          variant: 900
+      1000:
+        value: '{color.palette.black}'
+        attributes:
+          category: color
+          type: palette
+          item: green
+          variant: 1000
+    red:
+      0:
+        value: '{color.palette.white}'
+        attributes:
+          category: color
+          type: palette
+          item: red
+          variant: 0
+      50:
+        value: '#fff2f2'
+        attributes:
+          category: color
+          type: palette
+          item: red
+          variant: 50
+      100:
+        value: '#ffcbc3'
+        attributes:
+          category: color
+          type: palette
+          item: red
+          variant: 100
+      200:
+        value: '#ffa99e'
+        attributes:
+          category: color
+          type: palette
+          item: red
+          variant: 200
+      300:
+        value: '#ff887e'
+        attributes:
+          category: color
+          type: palette
+          item: red
+          variant: 300
+      400:
+        value: '#ff6761'
+        attributes:
+          category: color
+          type: palette
+          item: red
+          variant: 400
+      500:
+        value: '#fa4d4d'
+        attributes:
+          category: color
+          type: palette
+          item: red
+          variant: 500
+      600:
+        value: '#d92c36'
+        attributes:
+          category: color
+          type: palette
+          item: red
+          variant: 600
+      700:
+        value: '#bc1327'
+        attributes:
+          category: color
+          type: palette
+          item: red
+          variant: 700
+      800:
+        value: '#9a041c'
+        attributes:
+          category: color
+          type: palette
+          item: red
+          variant: 800
+      900:
+        value: '#770614'
+        attributes:
+          category: color
+          type: palette
+          item: red
+          variant: 900
+      1000:
+        value: '{color.palette.black}'
+        attributes:
+          category: color
+          type: palette
+          item: red
+          variant: 1000

@@ -1,0 +1,14 @@
+size:
+  interactiveComponent:
+    s:
+      value: '{size.scale.32}'
+      attributes:
+        category: size
+        type: interactiveComponent
+        item: s
+    m:
+      value: '{size.scale.40}'
+      attributes:
+        category: size
+        type: interactiveComponent
+        item: m

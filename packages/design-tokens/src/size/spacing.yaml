@@ -1,0 +1,44 @@
+size:
+  spacing:
+    2xs:
+      value: '{size.scale.4}'
+      attributes:
+        category: size
+        type: spacing
+        item: 2xs
+    xs:
+      value: '{size.scale.8}'
+      attributes:
+        category: size
+        type: spacing
+        item: xs
+    s:
+      value: '{size.scale.12}'
+      attributes:
+        category: size
+        type: spacing
+        item: s
+    m:
+      value: '{size.scale.16}'
+      attributes:
+        category: size
+        type: spacing
+        item: m
+    l:
+      value: '{size.scale.24}'
+      attributes:
+        category: size
+        type: spacing
+        item: l
+    xl:
+      value: '{size.scale.32}'
+      attributes:
+        category: size
+        type: spacing
+        item: xl
+    2xl:
+      value: '{size.scale.48}'
+      attributes:
+        category: size
+        type: spacing
+        item: 2xl

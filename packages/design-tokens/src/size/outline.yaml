@@ -1,0 +1,14 @@
+size:
+  outline:
+    offset:
+      value: '{size.scale.minus1}'
+      attributes:
+        category: size
+        type: outline
+        item: offset
+    size:
+      value: '{size.scale.1}'
+      attributes:
+        category: size
+        type: outline
+        item: size

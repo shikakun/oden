@@ -1,0 +1,26 @@
+size:
+  radius:
+    m:
+      value: '{size.scale.4}'
+      attributes:
+        category: size
+        type: radius
+        item: m
+    l:
+      value: '{size.scale.8}'
+      attributes:
+        category: size
+        type: radius
+        item: l
+    xl:
+      value: '{size.scale.12}'
+      attributes:
+        category: size
+        type: radius
+        item: xl
+    full:
+      value: '{size.scale.9999}'
+      attributes:
+        category: size
+        type: radius
+        item: full

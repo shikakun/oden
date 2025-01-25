@@ -1,0 +1,20 @@
+size:
+  border:
+    m:
+      value: '{size.scale.1}'
+      attributes:
+        category: size
+        type: border
+        item: m
+    l:
+      value: '{size.scale.2}'
+      attributes:
+        category: size
+        type: border
+        item: l
+    xl:
+      value: '{size.scale.4}'
+      attributes:
+        category: size
+        type: border
+        item: xl

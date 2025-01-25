@@ -1,0 +1,31 @@
+{
+  "name": "@shikakun/dashi",
+  "description": "A design token collection for use with oden.",
+  "version": "1.4.1",
+  "type": "module",
+  "main": "./dist/tokens.js",
+  "types": "./dist/tokens.d.ts",
+  "author": "shikakun",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shikakun/oden.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/tokens.js",
+      "types": "./dist/tokens.d.ts"
+    },
+    "./css": "./dist/tokens.css"
+  },
+  "scripts": {
+    "build": "style-dictionary build --config .style-dictionary/config.js",
+    "prebuild": "style-dictionary clean --config .style-dictionary/config.js"
+  }
+}

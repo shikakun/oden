@@ -13,6 +13,8 @@
     "build:docs": "npm run build --workspace=apps/docs",
     "build:react": "npm run build --workspace=packages/react",
     "build:storybook": "npm run build --workspace=apps/storybook",
+    "deploy": "npm run build && npm run deploy:docs",
+    "deploy:docs": "npm run deploy --workspace=apps/docs",
     "changeset-version": "changeset version",
     "changeset-publish": "npm run build && changeset publish",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"

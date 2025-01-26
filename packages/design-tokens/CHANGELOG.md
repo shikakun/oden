@@ -1,5 +1,11 @@
 # @shikakun/dashi
 
+## 1.5.0
+
+### Minor Changes
+
+- [#52](https://github.com/shikakun/oden/pull/52) [`db60bcb`](https://github.com/shikakun/oden/commit/db60bcbdefac508236c23dc7e2794d921dd5c495) Thanks [@shikakun](https://github.com/shikakun)! - SCSS ファイルをサポートした
+
 ## 1.4.1
 
 ### Patch Changes

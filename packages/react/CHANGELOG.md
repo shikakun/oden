@@ -1,12 +1,5 @@
 # @shikakun/oden
 
-## 1.0.0
-
-### Patch Changes
-
-- Updated dependencies [[`db60bcb`](https://github.com/shikakun/oden/commit/db60bcbdefac508236c23dc7e2794d921dd5c495)]:
-  - @shikakun/dashi@1.5.0
-
 ## 0.10.1
 
 ### Patch Changes

@@ -7,7 +7,12 @@
   ],
   "scripts": {
     "dev": "npm run dev --workspace=apps/storybook",
-    "build": "npm run build --workspace=packages/design-tokens && npm run build --workspace=packages/react && npm run build --workspace=apps/storybook",
+    "docs": "npm run dev --workspace=apps/docs",
+    "build": "npm run build:design-tokens && npm run build:react && npm run build:storybook && npm run build:docs",
+    "build:design-tokens": "npm run build --workspace=packages/design-tokens",
+    "build:docs": "npm run build --workspace=apps/docs",
+    "build:react": "npm run build --workspace=packages/react",
+    "build:storybook": "npm run build --workspace=apps/storybook",
     "changeset-version": "changeset version",
     "changeset-publish": "npm run build && changeset publish",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"

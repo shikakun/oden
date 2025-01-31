@@ -1,26 +1,38 @@
-import classNames from 'classnames';
-import React, { useEffect, useRef } from 'react';
+import React, {
+  createContext,
+  PropsWithChildren,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import { MdClose } from 'react-icons/md';
 import { Button } from '../Button';
 import * as styles from './OverlayWindow.css';
+import type { ButtonProps } from '../Button';
 
-export interface OverlayWindowProps {
-  // とりあえずbottomだけ用意する
-  position?: 'bottom';
-  isOpen?: boolean;
-  onClose?: () => void;
-  closeLabel?: string;
-  children?: React.ReactNode;
-}
+type OverlayWindowContextProps = {
+  isOpen: boolean;
+  toggle: () => void;
+  close: () => void;
+};
 
-export const OverlayWindow: React.FC<OverlayWindowProps> = ({
-  position = 'bottom',
-  isOpen = false,
-  onClose,
-  closeLabel = '閉じる',
-  children,
-  ...props
-}) => {
+const OverlayWindowContext = createContext<OverlayWindowContextProps | null>(
+  null
+);
+
+const useOverlayWindowContext = (): OverlayWindowContextProps => {
+  const context = useContext(OverlayWindowContext);
+  if (!context) {
+    throw new Error(
+      'useOverlayWindowContext must be used within an OverlayWindowProvider'
+    );
+  }
+  return context;
+};
+
+const OverlayWindowProvider: React.FC<PropsWithChildren> = ({ children }) => {
+  const [isOpen, setIsOpen] = useState(false);
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
@@ -35,48 +47,66 @@ export const OverlayWindow: React.FC<OverlayWindowProps> = ({
     }
   }, [isOpen]);
 
-  const handleClose = () => {
-    dialogRef.current?.close();
-    onClose?.();
-  };
+  const toggle = () => setIsOpen((prev) => !prev);
+  const close = () => setIsOpen(false);
 
   return (
-    <dialog
-      className={styles.root}
-      ref={dialogRef}
-      onClose={handleClose}
+    <OverlayWindowContext.Provider value={{ isOpen, toggle, close }}>
+      {children}
+      <dialog className={styles.root} ref={dialogRef} onClose={close}>
+        <OverlayWindowContent>{children}</OverlayWindowContent>
+      </dialog>
+    </OverlayWindowContext.Provider>
+  );
+};
+
+const OverlayWindowButton: React.FC<ButtonProps> = ({ children, ...props }) => {
+  const { toggle, isOpen } = useOverlayWindowContext();
+
+  return (
+    <Button
+      onClick={toggle}
+      aria-haspopup='dialog'
+      aria-expanded={isOpen}
       {...props}
     >
-      <div
-        className={classNames(styles.container, {
-          [styles.containerPositionBottom]: position === 'bottom',
-        })}
-      >
-        <div
-          className={classNames(styles.body, {
-            [styles.bodyPositionBottom]: position === 'bottom',
-          })}
-        >
+      {children}
+    </Button>
+  );
+};
+
+const OverlayWindowContent: React.FC<PropsWithChildren> = ({ children }) => {
+  const { isOpen, close } = useOverlayWindowContext();
+
+  if (!isOpen) return null;
+
+  return (
+    <div className={styles.root}>
+      <div className={styles.container}>
+        <div className={styles.body}>
           {children}
           <div className={styles.closeButtonWrapper}>
             <div className={styles.closeButtonContainer}>
-              <Button onClick={handleClose} Icon={MdClose} shape='circle'>
-                {closeLabel}
+              <Button onClick={close} Icon={MdClose} shape='circle'>
+                閉じる
               </Button>
             </div>
           </div>
         </div>
         <div
-          className={classNames(styles.backdrop, {
-            [styles.backdropPositionBottom]: position === 'bottom',
-          })}
+          className={styles.backdrop}
           aria-hidden='true'
           role='button'
-          onClick={handleClose}
+          onClick={close}
         />
       </div>
-    </dialog>
+    </div>
   );
 };
+
+export const OverlayWindow = Object.assign(OverlayWindowProvider, {
+  Button: OverlayWindowButton,
+  Content: OverlayWindowContent,
+});
 
 export default OverlayWindow;

@@ -29,9 +29,6 @@ export const root = style([
 
 export const container = style({
   display: 'flex',
-});
-
-export const containerPositionBottom = style({
   flexDirection: 'column-reverse',
 });
 
@@ -39,18 +36,12 @@ export const body = style({
   boxSizing: 'border-box',
   position: 'relative',
   backgroundColor: Color.background.page.light,
-});
-
-export const bodyPositionBottom = style({
   width: '100vw',
   minHeight: '50vh',
 });
 
 export const backdrop = style({
   backgroundColor: 'rgba(0, 0, 0, 0.12)',
-});
-
-export const backdropPositionBottom = style({
   height: '50vh',
 });
 

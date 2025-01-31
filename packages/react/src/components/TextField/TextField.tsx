@@ -1,6 +1,6 @@
 import { Size } from '@shikakun/dashi';
 import classNames from 'classnames';
-import React from 'react';
+import React, { forwardRef } from 'react';
 import * as styles from './TextField.css';
 
 type AutocompleteAttributeType =
@@ -99,39 +99,69 @@ type MultiLineTextFieldProps = BaseTextFieldProps & {
 
 export type TextFieldProps = SingleLineTextFieldProps | MultiLineTextFieldProps;
 
-export const TextField: React.FC<TextFieldProps> = ({
-  ariaLabelledby,
-  autoComplete,
-  children,
-  disabled,
-  error,
-  id,
-  inputMode,
-  name,
-  required,
-  rows,
-  type = 'text',
-  value,
-  width = 'auto',
-  ...props
-}) => {
-  const rootClass = classNames(styles.root, {
-    [styles.error]: error,
-    [styles.isMultiLine]: rows && rows > 1,
-    [styles.widthAuto]: width === 'auto',
-    [styles.widthFull]: width === 'full',
-    [styles.widthHalf]: width === 'half',
-    [styles.widthThird]: width === 'third',
-  });
+export const TextField = forwardRef<
+  HTMLTextAreaElement | HTMLInputElement,
+  TextFieldProps
+>(
+  (
+    {
+      ariaLabelledby,
+      autoComplete,
+      children,
+      disabled,
+      error,
+      id,
+      inputMode,
+      name,
+      required,
+      rows,
+      type = 'text',
+      value,
+      width = 'auto',
+      ...props
+    },
+    ref
+  ) => {
+    const rootClass = classNames(styles.root, {
+      [styles.error]: error,
+      [styles.isMultiLine]: rows && rows > 1,
+      [styles.widthAuto]: width === 'auto',
+      [styles.widthFull]: width === 'full',
+      [styles.widthHalf]: width === 'half',
+      [styles.widthThird]: width === 'third',
+    });
 
-  const valueText = value || children || undefined;
-  const textAreaHeight = rows
-    ? `calc(${rows}lh + ${Size.spacing['xs']} * 2)`
-    : undefined;
+    const valueText = value || children || undefined;
+    const textAreaHeight = rows
+      ? `calc(${rows}lh + ${Size.spacing['xs']} * 2)`
+      : undefined;
 
-  if (rows && rows > 1) {
+    if (rows && rows > 1) {
+      return (
+        <textarea
+          ref={ref as React.Ref<HTMLTextAreaElement>}
+          aria-labelledby={ariaLabelledby}
+          autoComplete={autoComplete}
+          className={rootClass}
+          disabled={disabled}
+          id={id}
+          inputMode={inputMode}
+          name={name}
+          required={required}
+          rows={rows}
+          style={{
+            height: textAreaHeight,
+          }}
+          {...props}
+        >
+          {valueText}
+        </textarea>
+      );
+    }
+
     return (
-      <textarea
+      <input
+        ref={ref as React.Ref<HTMLInputElement>}
         aria-labelledby={ariaLabelledby}
         autoComplete={autoComplete}
         className={rootClass}
@@ -140,32 +170,14 @@ export const TextField: React.FC<TextFieldProps> = ({
         inputMode={inputMode}
         name={name}
         required={required}
-        rows={rows}
-        style={{
-          height: textAreaHeight,
-        }}
+        type={type}
+        value={valueText}
         {...props}
-      >
-        {valueText}
-      </textarea>
+      />
     );
   }
+);
 
-  return (
-    <input
-      aria-labelledby={ariaLabelledby}
-      autoComplete={autoComplete}
-      className={rootClass}
-      disabled={disabled}
-      id={id}
-      inputMode={inputMode}
-      name={name}
-      required={required}
-      type={type}
-      value={valueText}
-      {...props}
-    />
-  );
-};
+TextField.displayName = 'TextField';
 
 export default TextField;

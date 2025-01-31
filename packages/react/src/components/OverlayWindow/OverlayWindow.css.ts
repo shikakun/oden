@@ -1,5 +1,5 @@
 import { Color, Size } from '@shikakun/dashi';
-import { style } from '@vanilla-extract/css';
+import { style, styleVariants } from '@vanilla-extract/css';
 
 const unset = style([
   {
@@ -21,28 +21,56 @@ export const root = style([
   {
     position: 'fixed',
     inset: 0,
+    width: '100vw',
     height: '100lvh',
     backgroundColor: 'transparent',
     overflowY: 'scroll',
   },
 ]);
 
-export const container = style({
-  display: 'flex',
-  flexDirection: 'column-reverse',
+export const container = styleVariants({
+  bottom: {
+    display: 'flex',
+    flexDirection: 'column-reverse',
+  },
+  right: {
+    display: 'flex',
+    flexDirection: 'row-reverse',
+  },
 });
 
 export const body = style({
   boxSizing: 'border-box',
   position: 'relative',
   backgroundColor: Color.background.page.light,
-  width: '100vw',
-  minHeight: '50vh',
+});
+
+export const bodyPosition = styleVariants({
+  bottom: {
+    width: '100vw',
+    minHeight: '50vh',
+  },
+  right: {
+    width: 'calc(100vw - 4rem)',
+    maxWidth: '22.5rem',
+  },
 });
 
 export const backdrop = style({
+  flex: '1',
+  minWidth: '0',
+  minHeight: '0',
   backgroundColor: 'rgba(0, 0, 0, 0.12)',
   height: '50vh',
+});
+
+export const backdropPosition = styleVariants({
+  bottom: {
+    height: '50vh',
+  },
+  right: {
+    height: '100lvh',
+  },
 });
 
 export const closeButtonWrapper = style({

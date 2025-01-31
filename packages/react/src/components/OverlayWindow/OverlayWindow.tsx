@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React, {
   createContext,
   PropsWithChildren,
@@ -15,6 +16,7 @@ type OverlayWindowContextProps = {
   isOpen: boolean;
   toggle: () => void;
   close: () => void;
+  position: 'bottom' | 'right';
 };
 
 const OverlayWindowContext = createContext<OverlayWindowContextProps | null>(
@@ -31,7 +33,14 @@ const useOverlayWindowContext = (): OverlayWindowContextProps => {
   return context;
 };
 
-const OverlayWindowProvider: React.FC<PropsWithChildren> = ({ children }) => {
+type OverlayWindowProviderProps = PropsWithChildren & {
+  position?: 'bottom' | 'right';
+};
+
+const OverlayWindowProvider: React.FC<OverlayWindowProviderProps> = ({
+  children,
+  position = 'bottom',
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const dialogRef = useRef<HTMLDialogElement>(null);
 
@@ -51,11 +60,8 @@ const OverlayWindowProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const close = () => setIsOpen(false);
 
   return (
-    <OverlayWindowContext.Provider value={{ isOpen, toggle, close }}>
+    <OverlayWindowContext.Provider value={{ isOpen, toggle, close, position }}>
       {children}
-      <dialog className={styles.root} ref={dialogRef} onClose={close}>
-        <OverlayWindowContent>{children}</OverlayWindowContent>
-      </dialog>
     </OverlayWindowContext.Provider>
   );
 };
@@ -75,32 +81,39 @@ const OverlayWindowButton: React.FC<ButtonProps> = ({ children, ...props }) => {
   );
 };
 
-const OverlayWindowContent: React.FC<PropsWithChildren> = ({ children }) => {
-  const { isOpen, close } = useOverlayWindowContext();
+const OverlayWindowContent: React.FC<PropsWithChildren> = ({
+  children,
+  ...props
+}) => {
+  const { isOpen, close, position } = useOverlayWindowContext();
 
   if (!isOpen) return null;
 
   return (
-    <div className={styles.root}>
-      <div className={styles.container}>
-        <div className={styles.body}>
-          {children}
-          <div className={styles.closeButtonWrapper}>
-            <div className={styles.closeButtonContainer}>
-              <Button onClick={close} Icon={MdClose} shape='circle'>
-                閉じる
-              </Button>
-            </div>
+    <dialog
+      className={classNames(styles.root, styles.container[position])}
+      {...props}
+    >
+      <div className={classNames(styles.body, styles.bodyPosition[position])}>
+        {children}
+        <div className={styles.closeButtonWrapper}>
+          <div className={styles.closeButtonContainer}>
+            <Button onClick={close} Icon={MdClose} shape='circle'>
+              閉じる
+            </Button>
           </div>
         </div>
-        <div
-          className={styles.backdrop}
-          aria-hidden='true'
-          role='button'
-          onClick={close}
-        />
       </div>
-    </div>
+      <div
+        className={classNames(
+          styles.backdrop,
+          styles.backdropPosition[position]
+        )}
+        aria-hidden='true'
+        role='button'
+        onClick={close}
+      />
+    </dialog>
   );
 };
 

@@ -5,25 +5,17 @@ import * as styles from './Button.css';
 
 type BaseButtonProps = {
   appearance?: 'text' | 'outlined' | 'tinted' | 'filled';
-  children?: string;
+  ariaLabel?: string;
+  children: string;
+  disabled?: boolean;
+  Icon?: IconType;
+  LeadingIcon?: IconType;
+  TrailingIcon?: IconType;
+  layout?: 'center' | 'start' | 'space-between';
+  onClick?: () => void;
   shape?: 'square' | 'circle';
   size?: 's' | 'm';
   width?: 'auto' | 'full' | 'half' | 'third';
-  layout?: 'center' | 'start' | 'space-between';
-  LeadingIcon?: IconType;
-  TrailingIcon?: IconType;
-  disabled?: boolean;
-  onClick?: () => void;
-};
-
-type IconButtonProps = BaseButtonProps & {
-  Icon: IconType;
-  ariaLabel?: string;
-};
-
-type TextButtonProps = BaseButtonProps & {
-  Icon?: never;
-  ariaLabel?: string;
 };
 
 type AnchorElementProps = BaseButtonProps & {
@@ -38,26 +30,24 @@ type ButtonElementProps = BaseButtonProps & {
   type?: 'button' | 'submit' | 'reset';
 };
 
-export type ButtonProps =
-  | (AnchorElementProps & (IconButtonProps | TextButtonProps))
-  | (ButtonElementProps & (IconButtonProps | TextButtonProps));
+export type ButtonProps = AnchorElementProps | ButtonElementProps;
 
 type ContentProps = {
+  bodyClass: string;
+  children: React.ReactNode;
   Icon?: IconType;
   LeadingIcon?: IconType;
   TrailingIcon?: IconType;
-  children: React.ReactNode;
-  bodyClass: string;
   labelClass: string;
   mediaClass: string;
 };
 
 const ButtonContent: React.FC<ContentProps> = ({
+  bodyClass,
+  children,
   Icon,
   LeadingIcon,
   TrailingIcon,
-  children,
-  bodyClass,
   labelClass,
   mediaClass,
 }) => {
@@ -95,20 +85,20 @@ export const Button = forwardRef<
   (
     {
       appearance = 'text',
+      ariaLabel,
       children,
-      shape = 'square',
-      size = 'm',
-      width = 'auto',
-      layout = 'center',
+      disabled = false,
       href,
-      target,
-      type = 'button',
       Icon,
       LeadingIcon,
       TrailingIcon,
-      ariaLabel,
-      disabled = false,
+      layout = 'center',
       onClick,
+      shape = 'square',
+      size = 'm',
+      target,
+      type = 'button',
+      width = 'auto',
       ...props
     },
     ref

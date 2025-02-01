@@ -4,22 +4,24 @@ import type { Meta, StoryObj } from '@storybook/react';
 const meta = {
   title: 'Components/OverlayWindow',
   component: OverlayWindow,
-  tags: ['autodocs'],
   argTypes: {
     position: {
       control: 'radio',
       options: ['bottom', 'right'],
     },
   },
+  args: {
+    position: 'bottom',
+  },
 } satisfies Meta<typeof OverlayWindow>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const InteractiveDemo: Story = {
-  render: ({ position }) => {
+export const Default: Story = {
+  render: (args) => {
     return (
-      <OverlayWindow position={position}>
+      <OverlayWindow {...args}>
         <OverlayWindow.Button appearance='outlined'>Open</OverlayWindow.Button>
         <OverlayWindow.Content>
           <div
@@ -38,8 +40,5 @@ export const InteractiveDemo: Story = {
         </OverlayWindow.Content>
       </OverlayWindow>
     );
-  },
-  args: {
-    position: 'bottom',
   },
 };

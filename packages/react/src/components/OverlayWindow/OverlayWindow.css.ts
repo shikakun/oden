@@ -56,7 +56,7 @@ export const bodyPosition = styleVariants({
     minHeight: '50vh',
   },
   right: {
-    width: 'calc(100vw - 4rem)',
+    width: `calc(100vw - ${Size.scale[56]})`,
     maxWidth: '22.5rem',
   },
 });
@@ -75,18 +75,9 @@ export const backdropPosition = styleVariants({
   },
 });
 
-export const closeButtonWrapper = style({
+export const closeButton = style({
   boxSizing: 'border-box',
-  position: 'absolute',
-  top: 0,
-  right: 0,
-  height: '100%',
-  padding: Size.spacing.xs,
-  pointerEvents: 'none',
-});
-
-export const closeButtonContainer = style({
-  position: 'sticky',
+  position: 'fixed',
   top: Size.spacing.xs,
-  pointerEvents: 'auto',
+  right: Size.spacing.xs,
 });

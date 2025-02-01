@@ -107,13 +107,6 @@ const OverlayWindowContent: React.FC<PropsWithChildren> = ({
       >
         <div className={classNames(styles.body, styles.bodyPosition[position])}>
           {children}
-          <div className={styles.closeButtonWrapper}>
-            <div className={styles.closeButtonContainer}>
-              <Button onClick={close} Icon={MdClose} shape='circle'>
-                閉じる
-              </Button>
-            </div>
-          </div>
         </div>
         <div
           className={classNames(
@@ -124,6 +117,11 @@ const OverlayWindowContent: React.FC<PropsWithChildren> = ({
           role='button'
           onClick={close}
         />
+      </div>
+      <div className={styles.closeButton}>
+        <Button onClick={close} Icon={MdClose} shape='circle'>
+          閉じる
+        </Button>
       </div>
     </dialog>
   );

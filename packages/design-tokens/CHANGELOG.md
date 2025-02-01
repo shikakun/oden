@@ -1,5 +1,11 @@
 # @shikakun/dashi
 
+## 1.6.0
+
+### Minor Changes
+
+- [#57](https://github.com/shikakun/oden/pull/57) [`f6ee6b4`](https://github.com/shikakun/oden/commit/f6ee6b4c0eba04db5f41465827e3ef8a27c1ee43) Thanks [@shikakun](https://github.com/shikakun)! - background と text にダークモードの配色を指定した
+
 ## 1.5.0
 
 ### Minor Changes

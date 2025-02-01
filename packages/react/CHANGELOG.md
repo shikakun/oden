@@ -1,5 +1,11 @@
 # @shikakun/oden
 
+## 0.10.2
+
+### Patch Changes
+
+- [#55](https://github.com/shikakun/oden/pull/55) [`209cec8`](https://github.com/shikakun/oden/commit/209cec816bd37bdf41d5ed5d34dbb296be9983ed) Thanks [@shikakun](https://github.com/shikakun)! - コンポーネントの設計を整理した
+
 ## 0.10.1
 
 ### Patch Changes

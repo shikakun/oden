@@ -1,5 +1,12 @@
 # @shikakun/oden
 
+## 1.0.0
+
+### Patch Changes
+
+- Updated dependencies [[`f6ee6b4`](https://github.com/shikakun/oden/commit/f6ee6b4c0eba04db5f41465827e3ef8a27c1ee43)]:
+  - @shikakun/dashi@1.6.0
+
 ## 0.10.2
 
 ### Patch Changes

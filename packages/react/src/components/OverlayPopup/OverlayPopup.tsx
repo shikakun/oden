@@ -8,6 +8,7 @@ import {
 import React, {
   createContext,
   PropsWithChildren,
+  useCallback,
   useContext,
   useEffect,
   useRef,
@@ -17,9 +18,9 @@ import { Button } from '../Button';
 import * as styles from './OverlayPopup.css';
 import type { ButtonProps } from '../Button';
 
-type FloatingUIContext = Pick<UseFloatingReturn, 'refs' | 'floatingStyles'>;
+type FloatingUIContextType = Pick<UseFloatingReturn, 'refs' | 'floatingStyles'>;
 
-type OverlayPopupContextProps = FloatingUIContext & {
+type OverlayPopupContextProps = FloatingUIContextType & {
   isOpen: boolean;
   toggle: () => void;
   close: () => void;
@@ -28,6 +29,16 @@ type OverlayPopupContextProps = FloatingUIContext & {
 const OverlayPopupContext = createContext<OverlayPopupContextProps | null>(
   null
 );
+
+const useOverlayPopupContext = (): OverlayPopupContextProps => {
+  const context = useContext(OverlayPopupContext);
+  if (!context) {
+    throw new Error(
+      'useOverlayPopupContext must be used within OverlayPopupProvider'
+    );
+  }
+  return context;
+};
 
 const useOutsideAndEscapeHandler = (
   isOpen: boolean,
@@ -65,8 +76,8 @@ const OverlayPopupProvider: React.FC<PropsWithChildren> = ({ children }) => {
     whileElementsMounted: autoUpdate,
     placement: 'bottom-start',
   });
-  const toggle = () => setIsOpen((prev) => !prev);
-  const close = () => setIsOpen(false);
+  const toggle = useCallback(() => setIsOpen((prev) => !prev), []);
+  const close = useCallback(() => setIsOpen(false), []);
   const menuRef = useRef<HTMLDivElement>(null);
 
   useOutsideAndEscapeHandler(isOpen, close, menuRef);
@@ -80,16 +91,6 @@ const OverlayPopupProvider: React.FC<PropsWithChildren> = ({ children }) => {
       </div>
     </OverlayPopupContext.Provider>
   );
-};
-
-const useOverlayPopupContext = (): OverlayPopupContextProps => {
-  const context = useContext(OverlayPopupContext);
-  if (!context) {
-    throw new Error(
-      'useOverlayPopupContext must be used within an OverlayPopupProvider'
-    );
-  }
-  return context;
 };
 
 const OverlayPopupButton: React.FC<ButtonProps> = ({ children, ...props }) => {
@@ -111,9 +112,7 @@ const OverlayPopupButton: React.FC<ButtonProps> = ({ children, ...props }) => {
 const OverlayPopupContent: React.FC<PropsWithChildren> = ({ children }) => {
   const { isOpen, refs, floatingStyles } = useOverlayPopupContext();
 
-  if (!isOpen) return null;
-
-  return (
+  return isOpen ? (
     <div
       className={styles.overlay}
       role='menu'
@@ -123,7 +122,7 @@ const OverlayPopupContent: React.FC<PropsWithChildren> = ({ children }) => {
     >
       {children}
     </div>
-  );
+  ) : null;
 };
 
 export const OverlayPopup = Object.assign(OverlayPopupProvider, {

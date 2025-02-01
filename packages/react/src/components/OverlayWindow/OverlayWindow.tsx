@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import React, {
   createContext,
   PropsWithChildren,
+  useCallback,
   useContext,
   useEffect,
   useRef,
@@ -12,30 +13,39 @@ import { Button } from '../Button';
 import * as styles from './OverlayWindow.css';
 import type { ButtonProps } from '../Button';
 
+type PositionType = 'bottom' | 'right';
+
 type OverlayWindowContextProps = {
   isOpen: boolean;
   toggle: () => void;
   close: () => void;
-  position: 'bottom' | 'right';
+  position: PositionType;
   dialogRef: React.RefObject<HTMLDialogElement>;
 };
 
-const OverlayWindowContext = createContext<OverlayWindowContextProps | null>(
-  null
-);
+const defaultContext: OverlayWindowContextProps = {
+  isOpen: false,
+  toggle: () => {},
+  close: () => {},
+  position: 'bottom',
+  dialogRef: { current: null },
+};
 
-const useOverlayWindowContext = (): OverlayWindowContextProps => {
+const OverlayWindowContext =
+  createContext<OverlayWindowContextProps>(defaultContext);
+
+const useOverlayWindowContext = () => {
   const context = useContext(OverlayWindowContext);
   if (!context) {
     throw new Error(
-      'useOverlayWindowContext must be used within an OverlayWindowProvider'
+      'useOverlayWindowContext must be used within OverlayWindowProvider'
     );
   }
   return context;
 };
 
 type OverlayWindowProviderProps = PropsWithChildren & {
-  position?: 'bottom' | 'right';
+  position?: PositionType;
 };
 
 const OverlayWindowProvider: React.FC<OverlayWindowProviderProps> = ({
@@ -46,24 +56,18 @@ const OverlayWindowProvider: React.FC<OverlayWindowProviderProps> = ({
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
-    const dialog = dialogRef.current;
-    if (dialog) {
-      if (isOpen) {
-        if (!dialog.open) {
-          dialog.showModal();
-        }
-        document.body.style.overflow = 'hidden';
-      } else {
-        if (dialog.open) {
-          dialog.close();
-        }
-        document.body.style.overflow = '';
-      }
+    if (!dialogRef.current) return;
+    if (isOpen) {
+      dialogRef.current.showModal();
+      document.body.style.overflow = 'hidden';
+    } else {
+      dialogRef.current.close();
+      document.body.style.overflow = '';
     }
   }, [isOpen]);
 
-  const toggle = () => setIsOpen((prev) => !prev);
-  const close = () => setIsOpen(false);
+  const toggle = useCallback(() => setIsOpen((prev) => !prev), []);
+  const close = useCallback(() => setIsOpen(false), []);
 
   return (
     <OverlayWindowContext.Provider
@@ -76,7 +80,6 @@ const OverlayWindowProvider: React.FC<OverlayWindowProviderProps> = ({
 
 const OverlayWindowButton: React.FC<ButtonProps> = ({ children, ...props }) => {
   const { toggle, isOpen } = useOverlayWindowContext();
-
   return (
     <Button
       onClick={toggle}
@@ -93,9 +96,7 @@ const OverlayWindowContent: React.FC<PropsWithChildren> = ({
   children,
   ...props
 }) => {
-  const { isOpen, close, position, dialogRef } = useOverlayWindowContext();
-
-  if (!isOpen) return null;
+  const { close, position, dialogRef } = useOverlayWindowContext();
 
   return (
     <dialog ref={dialogRef} className={styles.root} {...props}>

@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { Button } from '../components/Button';
-import { FieldLabel } from '../components/FieldLabel';
+import { FormControl } from '../components/FormControl';
 import { TextField } from '../components/TextField';
 import * as styles from './form.css';
 
@@ -17,32 +17,21 @@ const FormDemo: React.FC = () => {
   return (
     <>
       <div className={styles.form}>
-        <div className={styles.field}>
-          <FieldLabel htmlFor='name' required={true}>
-            名前
-          </FieldLabel>
+        <FormControl required={true}>
+          <FormControl.Label htmlFor='name'>名前</FormControl.Label>
+          <TextField id='name' required={true} />
+        </FormControl>
+        <FormControl>
+          <FormControl.Label htmlFor='email'>メールアドレス</FormControl.Label>
           <TextField
-            width='full'
-            id='name'
-            name='name'
-            autoComplete='name'
-            required={true}
-          />
-        </div>
-        <div className={styles.field}>
-          <FieldLabel htmlFor='email'>メールアドレス</FieldLabel>
-          <TextField
-            width='full'
             id='email'
-            name='email'
             type='email'
             autoComplete='email'
+            required={true}
           />
-        </div>
-        <div className={styles.field}>
-          <FieldLabel htmlFor='message' required={true}>
-            メッセージ
-          </FieldLabel>
+        </FormControl>
+        <FormControl required={true}>
+          <FormControl.Label htmlFor='message'>メッセージ</FormControl.Label>
           <TextField
             width='full'
             id='message'
@@ -50,7 +39,7 @@ const FormDemo: React.FC = () => {
             rows={4}
             required={true}
           />
-        </div>
+        </FormControl>
         <div className={styles.action}>
           <Button appearance='filled'>送信</Button>
           <Button appearance='text'>リセット</Button>

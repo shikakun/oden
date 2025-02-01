@@ -1,4 +1,4 @@
-import { Color, Size, Typography } from '@shikakun/dashi';
+import { Size } from '@shikakun/dashi';
 import { createContainer, style } from '@vanilla-extract/css';
 
 const formContainer = createContainer();
@@ -10,18 +10,6 @@ export const form = style({
   flexDirection: 'column',
   gap: Size.spacing['m'],
   maxWidth: '30rem',
-});
-
-export const field = style({
-  display: 'flex',
-  flexDirection: 'column',
-  gap: Size.spacing['2xs'],
-});
-
-export const label = style({
-  color: Color.text.default.light,
-  fontSize: Typography.fontSize['m'],
-  lineHeight: Typography.lineHeight['m'].dense,
 });
 
 export const action = style([

@@ -17,6 +17,7 @@ type OverlayWindowContextProps = {
   toggle: () => void;
   close: () => void;
   position: 'bottom' | 'right';
+  dialogRef: React.RefObject<HTMLDialogElement>;
 };
 
 const OverlayWindowContext = createContext<OverlayWindowContextProps | null>(
@@ -45,12 +46,17 @@ const OverlayWindowProvider: React.FC<OverlayWindowProviderProps> = ({
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
-    if (dialogRef.current) {
+    const dialog = dialogRef.current;
+    if (dialog) {
       if (isOpen) {
-        dialogRef.current.showModal();
+        if (!dialog.open) {
+          dialog.showModal();
+        }
         document.body.style.overflow = 'hidden';
       } else {
-        dialogRef.current.close();
+        if (dialog.open) {
+          dialog.close();
+        }
         document.body.style.overflow = '';
       }
     }
@@ -60,7 +66,9 @@ const OverlayWindowProvider: React.FC<OverlayWindowProviderProps> = ({
   const close = () => setIsOpen(false);
 
   return (
-    <OverlayWindowContext.Provider value={{ isOpen, toggle, close, position }}>
+    <OverlayWindowContext.Provider
+      value={{ isOpen, toggle, close, position, dialogRef }}
+    >
       {children}
     </OverlayWindowContext.Provider>
   );
@@ -85,34 +93,38 @@ const OverlayWindowContent: React.FC<PropsWithChildren> = ({
   children,
   ...props
 }) => {
-  const { isOpen, close, position } = useOverlayWindowContext();
+  const { isOpen, close, position, dialogRef } = useOverlayWindowContext();
 
   if (!isOpen) return null;
 
   return (
-    <dialog
-      className={classNames(styles.root, styles.container[position])}
-      {...props}
-    >
-      <div className={classNames(styles.body, styles.bodyPosition[position])}>
-        {children}
-        <div className={styles.closeButtonWrapper}>
-          <div className={styles.closeButtonContainer}>
-            <Button onClick={close} Icon={MdClose} shape='circle'>
-              閉じる
-            </Button>
-          </div>
-        </div>
-      </div>
+    <dialog ref={dialogRef} className={styles.root} {...props}>
       <div
         className={classNames(
-          styles.backdrop,
-          styles.backdropPosition[position]
+          styles.container,
+          styles.containerPosition[position]
         )}
-        aria-hidden='true'
-        role='button'
-        onClick={close}
-      />
+      >
+        <div className={classNames(styles.body, styles.bodyPosition[position])}>
+          {children}
+          <div className={styles.closeButtonWrapper}>
+            <div className={styles.closeButtonContainer}>
+              <Button onClick={close} Icon={MdClose} shape='circle'>
+                閉じる
+              </Button>
+            </div>
+          </div>
+        </div>
+        <div
+          className={classNames(
+            styles.backdrop,
+            styles.backdropPosition[position]
+          )}
+          aria-hidden='true'
+          role='button'
+          onClick={close}
+        />
+      </div>
     </dialog>
   );
 };

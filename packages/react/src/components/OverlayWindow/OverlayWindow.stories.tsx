@@ -22,7 +22,19 @@ export const InteractiveDemo: Story = {
       <OverlayWindow position={position}>
         <OverlayWindow.Button appearance='outlined'>Open</OverlayWindow.Button>
         <OverlayWindow.Content>
-          <div style={{ padding: '1rem' }}>Overlay Content</div>
+          <div
+            style={{
+              boxSizing: 'border-box',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              height: '200vh',
+              padding: '1rem',
+            }}
+          >
+            <span>Overlay Content</span>
+            <span>End of Content</span>
+          </div>
         </OverlayWindow.Content>
       </OverlayWindow>
     );

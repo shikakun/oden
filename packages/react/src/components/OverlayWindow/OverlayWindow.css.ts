@@ -28,14 +28,19 @@ export const root = style([
   },
 ]);
 
-export const container = styleVariants({
+export const container = style({
+  display: 'flex',
+  flexWrap: 'nowrap',
+  width: '100vw',
+});
+
+export const containerPosition = styleVariants({
   bottom: {
-    display: 'flex',
     flexDirection: 'column-reverse',
   },
   right: {
-    display: 'flex',
     flexDirection: 'row-reverse',
+    alignItems: 'stretch',
   },
 });
 
@@ -57,11 +62,7 @@ export const bodyPosition = styleVariants({
 });
 
 export const backdrop = style({
-  flex: '1',
-  minWidth: '0',
-  minHeight: '0',
   backgroundColor: 'rgba(0, 0, 0, 0.12)',
-  height: '50vh',
 });
 
 export const backdropPosition = styleVariants({
@@ -69,7 +70,8 @@ export const backdropPosition = styleVariants({
     height: '50vh',
   },
   right: {
-    height: '100lvh',
+    flex: 1,
+    minWidth: 0,
   },
 });
 

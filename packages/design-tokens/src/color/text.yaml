@@ -8,6 +8,13 @@ color:
           type: text
           item: default
           theme: light
+      dark:
+        value: '{color.palette.gray.100}'
+        attributes:
+          category: color
+          type: text
+          item: default
+          theme: dark
     muted:
       light:
         value: '{color.palette.gray.800}'
@@ -16,6 +23,13 @@ color:
           type: text
           item: muted
           theme: light
+      dark:
+        value: '{color.palette.gray.200}'
+        attributes:
+          category: color
+          type: text
+          item: muted
+          theme: dark
     subtle:
       light:
         value: '{color.palette.gray.700}'
@@ -32,6 +46,13 @@ color:
           type: text
           item: whispered
           theme: light
+      dark:
+        value: '{color.palette.gray.300}'
+        attributes:
+          category: color
+          type: text
+          item: whispered
+          theme: dark
     emphasis:
       light:
         value: '{color.palette.gray.1000}'
@@ -40,6 +61,13 @@ color:
           type: text
           item: emphasis
           theme: light
+      dark:
+        value: '{color.palette.gray.0}'
+        attributes:
+          category: color
+          type: text
+          item: emphasis
+          theme: dark
     link:
       light:
         value: '{color.semantic.interactive.700}'
@@ -48,3 +76,10 @@ color:
           type: text
           item: link
           theme: light
+      dark:
+        value: '{color.semantic.interactive.300}'
+        attributes:
+          category: color
+          type: text
+          item: link
+          theme: dark

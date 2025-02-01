@@ -8,6 +8,13 @@ color:
           type: background
           item: page
           theme: light
+      dark:
+        value: '{color.palette.gray.900}'
+        attributes:
+          category: color
+          type: background
+          item: page
+          theme: dark
     field:
       enabled:
         light:
@@ -19,6 +26,15 @@ color:
             variant: field
             state: enabled
             theme: light
+        dark:
+          value: '{color.palette.gray.900}'
+          attributes:
+            category: color
+            type: background
+            item: table
+            variant: field
+            state: enabled
+            theme: dark
       disabled:
         light:
           value: '{color.palette.gray.50}'
@@ -29,3 +45,12 @@ color:
             variant: field
             state: disabled
             theme: light
+        dark:
+          value: '{color.palette.gray.800}'
+          attributes:
+            category: color
+            type: background
+            item: table
+            variant: field
+            state: disabled
+            theme: dark

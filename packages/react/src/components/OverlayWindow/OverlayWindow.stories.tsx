@@ -1,33 +1,44 @@
-import { Meta, StoryObj } from '@storybook/react';
-import { useState } from 'react';
-import { Button } from '../Button';
 import { OverlayWindow } from './OverlayWindow';
+import type { Meta, StoryObj } from '@storybook/react';
 
-const meta: Meta<typeof OverlayWindow> = {
+const meta = {
   title: 'Components/OverlayWindow',
   component: OverlayWindow,
-  tags: ['autodocs'],
-};
+  argTypes: {
+    position: {
+      control: 'radio',
+      options: ['bottom', 'right'],
+    },
+  },
+  args: {
+    position: 'bottom',
+  },
+} satisfies Meta<typeof OverlayWindow>;
 
 export default meta;
-
 type Story = StoryObj<typeof meta>;
 
-const OverlayDemo: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const handleOpen = () => setIsOpen(true);
-  const handleClose = () => setIsOpen(false);
-
-  return (
-    <>
-      <Button onClick={handleOpen}>Open</Button>
-      <OverlayWindow position='bottom' isOpen={isOpen} onClose={handleClose}>
-        <div style={{ padding: '1rem' }}>Overlay Content</div>
+export const Default: Story = {
+  render: (args) => {
+    return (
+      <OverlayWindow {...args}>
+        <OverlayWindow.Button appearance='outlined'>Open</OverlayWindow.Button>
+        <OverlayWindow.Content>
+          <div
+            style={{
+              boxSizing: 'border-box',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              height: '200vh',
+              padding: '1rem',
+            }}
+          >
+            <span>Overlay Content</span>
+            <span>End of Content</span>
+          </div>
+        </OverlayWindow.Content>
       </OverlayWindow>
-    </>
-  );
-};
-
-export const InteractiveDemo: Story = {
-  render: () => <OverlayDemo />,
+    );
+  },
 };

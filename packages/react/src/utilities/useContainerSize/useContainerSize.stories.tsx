@@ -56,13 +56,15 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-const ContainerSizeDemo: React.FC = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const size = useContainerSize(containerRef);
+export const Default: Story = {
+  render: () => {
+    const ContainerSizeComponent = () => {
+      const containerRef = useRef<HTMLDivElement>(null);
+      const size = useContainerSize(containerRef);
 
-  return size;
-};
+      return <div>{size}</div>;
+    };
 
-export const InteractiveDemo: Story = {
-  render: () => <ContainerSizeDemo />,
+    return <ContainerSizeComponent />;
+  },
 };

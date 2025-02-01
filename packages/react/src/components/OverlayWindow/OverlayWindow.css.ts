@@ -1,5 +1,5 @@
 import { Color, Size } from '@shikakun/dashi';
-import { style } from '@vanilla-extract/css';
+import { style, styleVariants } from '@vanilla-extract/css';
 
 const unset = style([
   {
@@ -21,6 +21,7 @@ export const root = style([
   {
     position: 'fixed',
     inset: 0,
+    width: '100vw',
     height: '100lvh',
     backgroundColor: 'transparent',
     overflowY: 'scroll',
@@ -29,10 +30,18 @@ export const root = style([
 
 export const container = style({
   display: 'flex',
+  flexWrap: 'nowrap',
+  width: '100vw',
 });
 
-export const containerPositionBottom = style({
-  flexDirection: 'column-reverse',
+export const containerPosition = styleVariants({
+  bottom: {
+    flexDirection: 'column-reverse',
+  },
+  right: {
+    flexDirection: 'row-reverse',
+    alignItems: 'stretch',
+  },
 });
 
 export const body = style({
@@ -41,31 +50,34 @@ export const body = style({
   backgroundColor: Color.background.page.light,
 });
 
-export const bodyPositionBottom = style({
-  width: '100vw',
-  minHeight: '50vh',
+export const bodyPosition = styleVariants({
+  bottom: {
+    width: '100vw',
+    minHeight: '50vh',
+  },
+  right: {
+    width: `calc(100vw - ${Size.scale[56]})`,
+    maxWidth: '22.5rem',
+  },
 });
 
 export const backdrop = style({
   backgroundColor: 'rgba(0, 0, 0, 0.12)',
 });
 
-export const backdropPositionBottom = style({
-  height: '50vh',
+export const backdropPosition = styleVariants({
+  bottom: {
+    height: '50vh',
+  },
+  right: {
+    flex: 1,
+    minWidth: 0,
+  },
 });
 
-export const closeButtonWrapper = style({
+export const closeButton = style({
   boxSizing: 'border-box',
-  position: 'absolute',
-  top: 0,
-  right: 0,
-  height: '100%',
-  padding: Size.spacing.xs,
-  pointerEvents: 'none',
-});
-
-export const closeButtonContainer = style({
-  position: 'sticky',
+  position: 'fixed',
   top: Size.spacing.xs,
-  pointerEvents: 'auto',
+  right: Size.spacing.xs,
 });

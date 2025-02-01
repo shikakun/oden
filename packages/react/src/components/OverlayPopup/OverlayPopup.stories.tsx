@@ -5,13 +5,12 @@ import type { Meta, StoryObj } from '@storybook/react';
 const meta = {
   title: 'Components/OverlayPopup',
   component: OverlayPopup,
-  tags: ['autodocs'],
 } satisfies Meta<typeof OverlayPopup>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const InteractiveDemo: Story = {
+export const Default: Story = {
   render: () => (
     <OverlayPopup>
       <OverlayPopup.Button appearance='outlined' TrailingIcon={MdArrowDropDown}>

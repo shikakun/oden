@@ -1,5 +1,6 @@
 import { Color } from '@shikakun/dashi';
 import { fn } from '@storybook/test';
+import { useEffect } from 'react';
 import {
   MdAdd,
   MdArrowDropDown,
@@ -70,40 +71,36 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
 
-export const ThemePreview: Story = {};
+export const ThemeDark: Story = {};
 
 const ThemeWrapper: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const { theme, toggleTheme } = useTheme();
+  useEffect(() => {
+    if (theme !== 'dark') {
+      toggleTheme();
+    }
+  }, [theme, toggleTheme]);
 
   return (
-    <>
-      <div style={{ marginBlockEnd: '1rem' }}>
-        <Button
-          appearance={theme === 'dark' ? 'filled' : 'outlined'}
-          size='s'
-          onClick={toggleTheme}
-        >
-          {`Current Theme: ${theme}`}
-        </Button>
-      </div>
-      <div
-        style={{
-          padding: '1rem',
-          backgroundColor:
-            theme === 'dark'
-              ? Color.background.page.dark
-              : Color.background.page.light,
-        }}
-      >
-        {children}
-      </div>
-    </>
+    <div
+      style={{
+        position: 'absolute',
+        inset: 0,
+        padding: '1rem',
+        backgroundColor:
+          theme === 'dark'
+            ? Color.background.page.dark
+            : Color.background.page.light,
+      }}
+    >
+      {children}
+    </div>
   );
 };
 
-ThemePreview.decorators = [
+ThemeDark.decorators = [
   (Story) => {
     return (
       <ThemeProvider>

@@ -1,3 +1,4 @@
+import { Color } from '@shikakun/dashi';
 import { fn } from '@storybook/test';
 import {
   MdAdd,
@@ -5,6 +6,7 @@ import {
   MdChevronRight,
   MdSearch,
 } from 'react-icons/md';
+import { ThemeProvider, useTheme } from '../ThemeProvider';
 import { Button } from './Button';
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -67,3 +69,48 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
+
+export const ThemePreview: Story = {};
+
+const ThemeWrapper: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
+  const { theme, toggleTheme } = useTheme();
+
+  return (
+    <>
+      <div style={{ marginBlockEnd: '1rem' }}>
+        <Button
+          appearance={theme === 'dark' ? 'filled' : 'outlined'}
+          size='s'
+          onClick={toggleTheme}
+        >
+          {`Current Theme: ${theme}`}
+        </Button>
+      </div>
+      <div
+        style={{
+          padding: '1rem',
+          backgroundColor:
+            theme === 'dark'
+              ? Color.background.page.dark
+              : Color.background.page.light,
+        }}
+      >
+        {children}
+      </div>
+    </>
+  );
+};
+
+ThemePreview.decorators = [
+  (Story) => {
+    return (
+      <ThemeProvider>
+        <ThemeWrapper>
+          <Story />
+        </ThemeWrapper>
+      </ThemeProvider>
+    );
+  },
+];

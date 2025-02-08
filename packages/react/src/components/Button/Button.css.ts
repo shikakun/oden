@@ -6,7 +6,6 @@ const RADIUS_SIZE = '0';
 const LABEL_PADDING_INLINE_SIZE_S = Size.spacing.s;
 const LABEL_PADDING_INLINE_SIZE_M = Size.spacing.m;
 const BORDER_SIZE = Size.border.l;
-const BORDER_COLOR = Color.border.muted.light;
 
 export const root = style([
   interactiveOverlay,
@@ -28,20 +27,43 @@ export const root = style([
   },
 ]);
 
-export const appearance = styleVariants({
-  text: { color: Color.text.link.light, backgroundColor: 'transparent' },
-  outlined: {
+export const appearanceText = styleVariants({
+  light: { color: Color.text.link.light, backgroundColor: 'transparent' },
+  dark: { color: Color.text.link.dark, backgroundColor: 'transparent' },
+});
+
+export const appearanceOutlined = styleVariants({
+  light: {
     color: Color.text.link.light,
     backgroundColor: Color.background.page.light,
-    boxShadow: `inset 0 0 0 ${BORDER_SIZE} ${BORDER_COLOR}`,
+    boxShadow: `inset 0 0 0 ${BORDER_SIZE} ${Color.border.muted.light}`,
   },
-  tinted: {
+  dark: {
+    color: Color.text.link.dark,
+    backgroundColor: Color.background.page.dark,
+    boxShadow: `inset 0 0 0 ${BORDER_SIZE} ${Color.palette.gray[600]}`,
+  },
+});
+
+export const appearanceTinted = styleVariants({
+  light: {
     color: Color.semantic.interactive[900],
     backgroundColor: Color.semantic.interactive[50],
   },
-  filled: {
+  dark: {
+    color: Color.semantic.interactive[50],
+    backgroundColor: Color.semantic.interactive[800],
+  },
+});
+
+export const appearanceFilled = styleVariants({
+  light: {
     color: Color.semantic.interactive[0],
     backgroundColor: Color.semantic.interactive[600],
+  },
+  dark: {
+    color: Color.semantic.interactive[600],
+    backgroundColor: Color.semantic.interactive[0],
   },
 });
 

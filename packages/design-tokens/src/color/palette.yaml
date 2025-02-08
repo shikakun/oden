@@ -21,75 +21,82 @@ color:
           item: gray
           variant: 0
       50:
-        value: '#f3f3f3'
+        value: '#fafafa'
         attributes:
           category: color
           type: palette
           item: gray
           variant: 50
       100:
-        value: '#dddddd'
+        value: '#f5f5f5'
         attributes:
           category: color
           type: palette
           item: gray
           variant: 100
       200:
-        value: '#c6c6c6'
+        value: '#e5e5e5'
         attributes:
           category: color
           type: palette
           item: gray
           variant: 200
       300:
-        value: '#b0b0b0'
+        value: '#d4d4d4'
         attributes:
           category: color
           type: palette
           item: gray
           variant: 300
       400:
-        value: '#9b9b9b'
+        value: '#a1a1a1'
         attributes:
           category: color
           type: palette
           item: gray
           variant: 400
       500:
-        value: '#868686'
+        value: '#737373'
         attributes:
           category: color
           type: palette
           item: gray
           variant: 500
       600:
-        value: '#727272'
+        value: '#525252'
         attributes:
           category: color
           type: palette
           item: gray
           variant: 600
       700:
-        value: '#5e5e5e'
+        value: '#404040'
         attributes:
           category: color
           type: palette
           item: gray
           variant: 700
       800:
-        value: '#4b4b4b'
+        value: '#262626'
         attributes:
           category: color
           type: palette
           item: gray
           variant: 800
       900:
-        value: '#393939'
+        value: '#171717'
         attributes:
           category: color
           type: palette
           item: gray
           variant: 900
+      950:
+        value: '#0a0a0a'
+        attributes:
+          category: color
+          type: palette
+          item: gray
+          variant: 950
       1000:
         value: '{color.palette.black}'
         attributes:
@@ -106,75 +113,82 @@ color:
           item: blue
           variant: 0
       50:
-        value: '#ebfbff'
+        value: '#ecfeff'
         attributes:
           category: color
           type: palette
           item: blue
           variant: 50
       100:
-        value: '#c2e2f1'
+        value: '#cefafe'
         attributes:
           category: color
           type: palette
           item: blue
           variant: 100
       200:
-        value: '#99cee5'
+        value: '#a2f4fd'
         attributes:
           category: color
           type: palette
           item: blue
           variant: 200
       300:
-        value: '#6fbad9'
+        value: '#53eafd'
         attributes:
           category: color
           type: palette
           item: blue
           variant: 300
       400:
-        value: '#42a6c9'
+        value: '#00d3f2'
         attributes:
           category: color
           type: palette
           item: blue
           variant: 400
       500:
-        value: '#0399bf'
+        value: '#00b8db'
         attributes:
           category: color
           type: palette
           item: blue
           variant: 500
       600:
-        value: '#027a97'
+        value: '#0092b8'
         attributes:
           category: color
           type: palette
           item: blue
           variant: 600
       700:
-        value: '#00698b'
+        value: '#007595'
         attributes:
           category: color
           type: palette
           item: blue
           variant: 700
       800:
-        value: '#005471'
+        value: '#005f78'
         attributes:
           category: color
           type: palette
           item: blue
           variant: 800
       900:
-        value: '#004057'
+        value: '#104e64'
         attributes:
           category: color
           type: palette
           item: blue
           variant: 900
+      950:
+        value: '#053345'
+        attributes:
+          category: color
+          type: palette
+          item: blue
+          variant: 950
       1000:
         value: '{color.palette.black}'
         attributes:
@@ -191,75 +205,82 @@ color:
           item: green
           variant: 0
       50:
-        value: '#e7fdf6'
+        value: '#ecfdf5'
         attributes:
           category: color
           type: palette
           item: green
           variant: 50
       100:
-        value: '#bde6d0'
+        value: '#d0fae5'
         attributes:
           category: color
           type: palette
           item: green
           variant: 100
       200:
-        value: '#91d5b2'
+        value: '#a4f4cf'
         attributes:
           category: color
           type: palette
           item: green
           variant: 200
       300:
-        value: '#67c297'
+        value: '#5ee9b5'
         attributes:
           category: color
           type: palette
           item: green
           variant: 300
       400:
-        value: '#3cae7e'
+        value: '#00d492'
         attributes:
           category: color
           type: palette
           item: green
           variant: 400
       500:
-        value: '#02a16d'
+        value: '#00bc7d'
         attributes:
           category: color
           type: palette
           item: green
           variant: 500
       600:
-        value: '#008055'
+        value: '#009966'
         attributes:
           category: color
           type: palette
           item: green
           variant: 600
       700:
-        value: '#006f42'
+        value: '#007a55'
         attributes:
           category: color
           type: palette
           item: green
           variant: 700
       800:
-        value: '#005933'
+        value: '#006045'
         attributes:
           category: color
           type: palette
           item: green
           variant: 800
       900:
-        value: '#004426'
+        value: '#004f3b'
         attributes:
           category: color
           type: palette
           item: green
           variant: 900
+      950:
+        value: '#002c22'
+        attributes:
+          category: color
+          type: palette
+          item: green
+          variant: 950
       1000:
         value: '{color.palette.black}'
         attributes:
@@ -276,75 +297,82 @@ color:
           item: red
           variant: 0
       50:
-        value: '#fff2f2'
+        value: '#fff1f2'
         attributes:
           category: color
           type: palette
           item: red
           variant: 50
       100:
-        value: '#ffcbc3'
+        value: '#ffe4e6'
         attributes:
           category: color
           type: palette
           item: red
           variant: 100
       200:
-        value: '#ffa99e'
+        value: '#ffccd3'
         attributes:
           category: color
           type: palette
           item: red
           variant: 200
       300:
-        value: '#ff887e'
+        value: '#ffa1ad'
         attributes:
           category: color
           type: palette
           item: red
           variant: 300
       400:
-        value: '#ff6761'
+        value: '#ff637e'
         attributes:
           category: color
           type: palette
           item: red
           variant: 400
       500:
-        value: '#fa4d4d'
+        value: '#ff2056'
         attributes:
           category: color
           type: palette
           item: red
           variant: 500
       600:
-        value: '#d92c36'
+        value: '#ec003f'
         attributes:
           category: color
           type: palette
           item: red
           variant: 600
       700:
-        value: '#bc1327'
+        value: '#c70036'
         attributes:
           category: color
           type: palette
           item: red
           variant: 700
       800:
-        value: '#9a041c'
+        value: '#a50036'
         attributes:
           category: color
           type: palette
           item: red
           variant: 800
       900:
-        value: '#770614'
+        value: '#8b0836'
         attributes:
           category: color
           type: palette
           item: red
           variant: 900
+      950:
+        value: '#4d0218'
+        attributes:
+          category: color
+          type: palette
+          item: red
+          variant: 950
       1000:
         value: '{color.palette.black}'
         attributes:

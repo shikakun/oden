@@ -1,7 +1,9 @@
 import { Size } from '@shikakun/dashi';
 import classNames from 'classnames';
 import React, { forwardRef } from 'react';
+import { useTheme } from '../ThemeProvider';
 import * as styles from './TextField.css';
+import type { ThemeType } from '../ThemeProvider';
 
 type AutocompleteAttributeType =
   | 'additional-name'
@@ -122,8 +124,10 @@ export const TextField = forwardRef<
     },
     ref
   ) => {
-    const rootClass = classNames(styles.root, {
-      [styles.error]: error,
+    const { theme } = useTheme() as { theme: ThemeType };
+
+    const rootClass = classNames(styles.root, styles.rootColor[theme], {
+      [styles.error[theme]]: error,
       [styles.isMultiLine]: rows && rows > 1,
       [styles.widthAuto]: width === 'auto',
       [styles.widthFull]: width === 'full',

@@ -1,5 +1,11 @@
 # @shikakun/dashi
 
+## 1.7.0
+
+### Minor Changes
+
+- [#59](https://github.com/shikakun/oden/pull/59) [`f206635`](https://github.com/shikakun/oden/commit/f206635bb2d3900f6fd51d6eb8822d7145159cac) Thanks [@shikakun](https://github.com/shikakun)! - dark テーマを追加した
+
 ## 1.6.0
 
 ### Minor Changes

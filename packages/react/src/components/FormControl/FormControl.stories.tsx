@@ -1,3 +1,4 @@
+import { withThemeDark } from '../../storybook/decorators';
 import { TextField } from '../TextField/TextField';
 import { FormControl } from './FormControl';
 import type { Meta, StoryObj } from '@storybook/react';
@@ -26,4 +27,14 @@ export const Default: Story = {
       <TextField id='example-id' />
     </FormControl>
   ),
+};
+
+export const ThemeDark: Story = {
+  render: (args) => (
+    <FormControl {...args}>
+      <FormControl.Label htmlFor='example-id'>名前</FormControl.Label>
+      <TextField id='example-id' />
+    </FormControl>
+  ),
+  decorators: [withThemeDark],
 };

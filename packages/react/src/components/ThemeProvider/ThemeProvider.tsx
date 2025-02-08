@@ -2,6 +2,8 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 
 export type ThemeType = 'light' | 'dark';
 
+const defaultTheme: ThemeType = 'light';
+
 type ThemeContextType = {
   theme: ThemeType;
   toggleTheme: () => void;
@@ -11,8 +13,7 @@ const ThemeContext = createContext<ThemeContextType | null>(null);
 
 export const ThemeProvider: React.FC<{
   children: React.ReactNode;
-  defaultTheme?: ThemeType;
-}> = ({ children, defaultTheme = 'light' }) => {
+}> = ({ children }) => {
   const [theme, setTheme] = useState<ThemeType>(() => {
     return (localStorage.getItem('theme') as ThemeType) || defaultTheme;
   });
@@ -35,7 +36,7 @@ export const ThemeProvider: React.FC<{
 export const useTheme = () => {
   const context = useContext(ThemeContext);
   if (!context) {
-    return { theme: 'light', toggleTheme: () => {} };
+    return { theme: defaultTheme, toggleTheme: () => {} };
   }
   return context;
 };

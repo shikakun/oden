@@ -1,7 +1,7 @@
 {
   "name": "@shikakun/dashi",
   "description": "A design token collection for use with oden.",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "type": "module",
   "main": "./dist/tokens.js",
   "types": "./dist/tokens.d.ts",

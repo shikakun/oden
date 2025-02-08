@@ -1,5 +1,5 @@
 import { Color, Shadow } from '@shikakun/dashi';
-import { style } from '@vanilla-extract/css';
+import { style, styleVariants } from '@vanilla-extract/css';
 
 export const root = style({
   position: 'relative',
@@ -11,7 +11,18 @@ export const overlay = style({
   width: 'max-content',
   maxWidth: '100vw',
   overflowWrap: 'break-word',
-  backgroundColor: Color.background.page.light,
-  boxShadow: Shadow.css[2].light,
   zIndex: 100,
+});
+
+export const overlayColor = styleVariants({
+  light: {
+    color: Color.text.default.light,
+    backgroundColor: Color.background.page.light,
+    boxShadow: Shadow.css[2].light,
+  },
+  dark: {
+    color: Color.text.default.dark,
+    backgroundColor: Color.background.page.dark,
+    boxShadow: Shadow.css[2].dark,
+  },
 });

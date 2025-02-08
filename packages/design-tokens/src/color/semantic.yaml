@@ -78,6 +78,13 @@ color:
           type: semantic
           item: neutral
           variant: 900
+      950:
+        value: '{color.palette.gray.950}'
+        attributes:
+          category: color
+          type: semantic
+          item: neutral
+          variant: 950
       1000:
         value: '{color.palette.gray.1000}'
         attributes:
@@ -163,6 +170,13 @@ color:
           type: semantic
           item: primary
           variant: 900
+      950:
+        value: '{color.palette.blue.950}'
+        attributes:
+          category: color
+          type: semantic
+          item: primary
+          variant: 950
       1000:
         value: '{color.palette.blue.1000}'
         attributes:
@@ -248,6 +262,13 @@ color:
           type: semantic
           item: positive
           variant: 900
+      950:
+        value: '{color.palette.green.950}'
+        attributes:
+          category: color
+          type: semantic
+          item: positive
+          variant: 950
       1000:
         value: '{color.palette.green.1000}'
         attributes:
@@ -333,6 +354,13 @@ color:
           type: semantic
           item: negative
           variant: 900
+      950:
+        value: '{color.palette.red.950}'
+        attributes:
+          category: color
+          type: semantic
+          item: negative
+          variant: 950
       1000:
         value: '{color.palette.red.1000}'
         attributes:
@@ -418,6 +446,13 @@ color:
           type: semantic
           item: interactive
           variant: 900
+      950:
+        value: '{color.palette.blue.950}'
+        attributes:
+          category: color
+          type: semantic
+          item: interactive
+          variant: 950
       1000:
         value: '{color.palette.blue.1000}'
         attributes:

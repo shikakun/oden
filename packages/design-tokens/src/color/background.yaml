@@ -9,7 +9,7 @@ color:
           item: page
           theme: light
       dark:
-        value: '{color.palette.gray.900}'
+        value: '{color.palette.gray.800}'
         attributes:
           category: color
           type: background
@@ -27,7 +27,7 @@ color:
             state: enabled
             theme: light
         dark:
-          value: '{color.palette.gray.900}'
+          value: '{color.palette.gray.800}'
           attributes:
             category: color
             type: background
@@ -37,7 +37,7 @@ color:
             theme: dark
       disabled:
         light:
-          value: '{color.palette.gray.50}'
+          value: '{color.palette.gray.200}'
           attributes:
             category: color
             type: background
@@ -46,7 +46,7 @@ color:
             state: disabled
             theme: light
         dark:
-          value: '{color.palette.gray.800}'
+          value: '{color.palette.gray.600}'
           attributes:
             category: color
             type: background

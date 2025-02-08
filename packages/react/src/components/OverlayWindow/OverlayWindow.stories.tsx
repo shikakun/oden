@@ -1,3 +1,4 @@
+import { withThemeDark } from '../../storybook/decorators';
 import { OverlayWindow } from './OverlayWindow';
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -41,4 +42,30 @@ export const Default: Story = {
       </OverlayWindow>
     );
   },
+};
+
+export const ThemeDark: Story = {
+  render: (args) => {
+    return (
+      <OverlayWindow {...args}>
+        <OverlayWindow.Button appearance='outlined'>Open</OverlayWindow.Button>
+        <OverlayWindow.Content>
+          <div
+            style={{
+              boxSizing: 'border-box',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              height: '200vh',
+              padding: '1rem',
+            }}
+          >
+            <span>Overlay Content</span>
+            <span>End of Content</span>
+          </div>
+        </OverlayWindow.Content>
+      </OverlayWindow>
+    );
+  },
+  decorators: [withThemeDark],
 };

@@ -1,10 +1,19 @@
 import { Color, Size, Typography } from '@shikakun/dashi';
-import { style } from '@vanilla-extract/css';
+import { style, styleVariants } from '@vanilla-extract/css';
 
 export const root = style({
   display: 'flex',
   flexDirection: 'column',
   gap: Size.spacing['2xs'],
+});
+
+export const rootColor = styleVariants({
+  light: {
+    color: Color.text.default.light,
+  },
+  dark: {
+    color: Color.text.default.dark,
+  },
 });
 
 export const label = style({

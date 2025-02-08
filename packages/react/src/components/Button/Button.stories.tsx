@@ -5,6 +5,7 @@ import {
   MdChevronRight,
   MdSearch,
 } from 'react-icons/md';
+import { withThemeDark } from '../../storybook/decorators';
 import { Button } from './Button';
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -18,6 +19,10 @@ const meta = {
     },
     ariaLabel: { control: 'text' },
     children: { control: 'text' },
+    color: {
+      control: 'radio',
+      options: ['default', 'muted', 'interactive', 'negative'],
+    },
     disabled: { control: 'boolean' },
     Icon: {
       control: 'radio',
@@ -46,6 +51,7 @@ const meta = {
     appearance: 'text',
     ariaLabel: undefined,
     children: 'Submit',
+    color: 'default',
     disabled: false,
     Icon: undefined,
     LeadingIcon: undefined,
@@ -67,3 +73,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
+
+export const ThemeDark: Story = {
+  decorators: [withThemeDark],
+};

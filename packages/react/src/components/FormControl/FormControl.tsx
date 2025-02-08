@@ -1,5 +1,8 @@
+import classNames from 'classnames';
 import React, { createContext, useContext } from 'react';
+import { useTheme } from '../ThemeProvider';
 import * as styles from './FormControl.css';
+import type { ThemeType } from '../ThemeProvider';
 
 export type FormControlProps = {
   children: React.ReactNode;
@@ -13,11 +16,17 @@ const FormControlContext = createContext<{ required?: boolean } | undefined>(
 const FormControlBase: React.FC<FormControlProps> = ({
   children,
   required,
-}) => (
-  <FormControlContext.Provider value={{ required }}>
-    <div className={styles.root}>{children}</div>
-  </FormControlContext.Provider>
-);
+}) => {
+  const { theme } = useTheme() as { theme: ThemeType };
+
+  return (
+    <FormControlContext.Provider value={{ required }}>
+      <div className={classNames(styles.root, styles.rootColor[theme])}>
+        {children}
+      </div>
+    </FormControlContext.Provider>
+  );
+};
 
 const Label: React.FC<{
   children?: string;

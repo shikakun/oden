@@ -1,12 +1,15 @@
 import classNames from 'classnames';
 import React, { forwardRef } from 'react';
 import { IconType } from 'react-icons';
+import { useTheme } from '../ThemeProvider';
 import * as styles from './Button.css';
+import type { ThemeType } from '../ThemeProvider';
 
 type BaseButtonProps = {
   appearance?: 'text' | 'outlined' | 'tinted' | 'filled';
   ariaLabel?: string;
-  children: string;
+  children?: React.ReactNode;
+  color?: 'default' | 'muted' | 'interactive' | 'negative';
   disabled?: boolean;
   Icon?: IconType;
   LeadingIcon?: IconType;
@@ -32,52 +35,6 @@ type ButtonElementProps = BaseButtonProps & {
 
 export type ButtonProps = AnchorElementProps | ButtonElementProps;
 
-type ContentProps = {
-  bodyClass: string;
-  children: React.ReactNode;
-  Icon?: IconType;
-  LeadingIcon?: IconType;
-  TrailingIcon?: IconType;
-  labelClass: string;
-  mediaClass: string;
-};
-
-const ButtonContent: React.FC<ContentProps> = ({
-  bodyClass,
-  children,
-  Icon,
-  LeadingIcon,
-  TrailingIcon,
-  labelClass,
-  mediaClass,
-}) => {
-  if (Icon) {
-    return (
-      <div className={mediaClass}>
-        <Icon />
-      </div>
-    );
-  }
-
-  return (
-    <>
-      <div className={bodyClass}>
-        {LeadingIcon && (
-          <div className={mediaClass}>
-            <LeadingIcon />
-          </div>
-        )}
-        <div className={labelClass}>{children}</div>
-      </div>
-      {TrailingIcon && (
-        <div className={mediaClass}>
-          <TrailingIcon />
-        </div>
-      )}
-    </>
-  );
-};
-
 export const Button = forwardRef<
   HTMLAnchorElement | HTMLButtonElement,
   ButtonProps
@@ -87,6 +44,7 @@ export const Button = forwardRef<
       appearance = 'text',
       ariaLabel,
       children,
+      color = 'default',
       disabled = false,
       href,
       Icon,
@@ -103,40 +61,89 @@ export const Button = forwardRef<
     },
     ref
   ) => {
-    const buttonClass = classNames(styles.root, {
-      [styles.appearanceText]: appearance === 'text',
-      [styles.appearanceOutlined]: appearance === 'outlined',
-      [styles.appearanceTinted]: appearance === 'tinted',
-      [styles.appearanceFilled]: appearance === 'filled',
-      [styles.shapeSquare]: shape === 'square',
-      [styles.shapeCircle]: shape === 'circle',
-      [styles.sizeS]: size === 's',
-      [styles.sizeM]: size === 'm',
-      [styles.widthAuto]: width === 'auto',
-      [styles.widthFull]: width === 'full',
-      [styles.widthHalf]: width === 'half',
-      [styles.widthThird]: width === 'third',
-      [styles.layoutCenter]: layout === 'center',
-      [styles.layoutStart]: layout === 'start',
-      [styles.hasLeadingIcon]: !!LeadingIcon,
-      [styles.hasTrailingIcon]: !!TrailingIcon,
-      [styles.iconOnly]: !!Icon,
-      [styles.disabled]: disabled,
-    });
+    const { theme } = useTheme() as { theme: ThemeType };
 
-    const bodyClass = classNames(styles.body, {
-      [styles.bodyLayoutCenter]: layout === 'center',
-      [styles.bodyLayoutStart]: layout === 'start',
-      [styles.bodyLayoutSpaceBetween]: layout === 'space-between',
-    });
+    const buttonClass = classNames(
+      styles.root,
+      styles.rootOverlay[theme],
+      styles.shape[shape],
+      styles.size[size],
+      styles.width[width],
+      {
+        [styles.appearanceText]: appearance === 'text',
+        [styles.appearanceTextDefault[theme]]:
+          appearance === 'text' && color === 'default',
+        [styles.appearanceTextMuted[theme]]:
+          appearance === 'text' && color === 'muted',
+        [styles.appearanceTextInteractive[theme]]:
+          appearance === 'text' && color === 'interactive',
+        [styles.appearanceTextNegative[theme]]:
+          appearance === 'text' && color === 'negative',
+        [styles.appearanceOutlined[theme]]: appearance === 'outlined',
+        [styles.appearanceOutlinedDefault[theme]]:
+          appearance === 'outlined' && color === 'default',
+        [styles.appearanceOutlinedMuted[theme]]:
+          appearance === 'outlined' && color === 'muted',
+        [styles.appearanceOutlinedInteractive[theme]]:
+          appearance === 'outlined' && color === 'interactive',
+        [styles.appearanceOutlinedNegative[theme]]:
+          appearance === 'outlined' && color === 'negative',
+        [styles.appearanceTintedDefault[theme]]:
+          appearance === 'tinted' && color === 'default',
+        [styles.appearanceTintedMuted[theme]]:
+          appearance === 'tinted' && color === 'muted',
+        [styles.appearanceTintedInteractive[theme]]:
+          appearance === 'tinted' && color === 'interactive',
+        [styles.appearanceTintedNegative[theme]]:
+          appearance === 'tinted' && color === 'negative',
+        [styles.appearanceFilledDefault[theme]]:
+          appearance === 'filled' && color === 'default',
+        [styles.appearanceFilledMuted[theme]]:
+          appearance === 'filled' && color === 'muted',
+        [styles.appearanceFilledInteractive[theme]]:
+          appearance === 'filled' && color === 'interactive',
+        [styles.appearanceFilledNegative[theme]]:
+          appearance === 'filled' && color === 'negative',
+        [styles.layoutCenter]: layout === 'center',
+        [styles.hasLeadingIcon]: !!LeadingIcon,
+        [styles.hasTrailingIcon]: !!TrailingIcon,
+        [styles.iconOnly]: !!Icon,
+        [styles.disabled]: disabled,
+      }
+    );
 
+    const bodyClass = classNames(styles.body, styles.bodyLayout[layout]);
     const labelClass = styles.label;
-    const mediaClass = classNames(styles.media, {
-      [styles.mediaSizeS]: size === 's',
-      [styles.mediaSizeM]: size === 'm',
-    });
+    const mediaClass = classNames(styles.media, styles.mediaSize[size]);
 
-    const ariaLabelText = ariaLabel || (Icon ? children : undefined);
+    const ariaLabelText =
+      ariaLabel || (Icon ? children?.toString() : undefined);
+
+    const ButtonContent = (
+      <>
+        {Icon ? (
+          <div className={mediaClass}>
+            <Icon />
+          </div>
+        ) : (
+          <>
+            <div className={bodyClass}>
+              {LeadingIcon && (
+                <div className={mediaClass}>
+                  <LeadingIcon />
+                </div>
+              )}
+              <div className={labelClass}>{children}</div>
+            </div>
+            {TrailingIcon && (
+              <div className={mediaClass}>
+                <TrailingIcon />
+              </div>
+            )}
+          </>
+        )}
+      </>
+    );
 
     if (href) {
       return (
@@ -146,26 +153,17 @@ export const Button = forwardRef<
           href={href}
           target={target}
           aria-label={ariaLabelText}
-          onClick={(e: React.MouseEvent): void => {
+          onClick={(e: React.MouseEvent) => {
             if (disabled) {
               e.preventDefault();
-            } else if (onClick) {
-              onClick();
+            } else {
+              onClick?.();
             }
           }}
           aria-disabled={disabled}
           {...props}
         >
-          <ButtonContent
-            Icon={Icon}
-            LeadingIcon={LeadingIcon}
-            TrailingIcon={TrailingIcon}
-            labelClass={labelClass}
-            bodyClass={bodyClass}
-            mediaClass={mediaClass}
-          >
-            {children}
-          </ButtonContent>
+          {ButtonContent}
         </a>
       );
     }
@@ -180,21 +178,11 @@ export const Button = forwardRef<
         onClick={onClick}
         {...props}
       >
-        <ButtonContent
-          Icon={Icon}
-          LeadingIcon={LeadingIcon}
-          TrailingIcon={TrailingIcon}
-          bodyClass={bodyClass}
-          labelClass={labelClass}
-          mediaClass={mediaClass}
-        >
-          {children}
-        </ButtonContent>
+        {ButtonContent}
       </button>
     );
   }
 );
 
 Button.displayName = 'Button';
-
 export default Button;

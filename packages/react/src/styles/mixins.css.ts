@@ -1,5 +1,5 @@
 import { Animation, Color, Typography } from '@shikakun/dashi';
-import { style } from '@vanilla-extract/css';
+import { style, styleVariants } from '@vanilla-extract/css';
 
 const breakpoints = {
   '2xs': '330px',
@@ -27,32 +27,63 @@ export const mqBoundary = (
   return { [`@media ${condition}`]: styles };
 };
 
-export const interactiveOverlay = style({
-  position: 'relative',
-  '::after': {
-    content: '""',
-    display: 'block',
-    position: 'absolute',
-    top: 0,
-    right: 0,
-    bottom: 0,
-    left: 0,
-    borderRadius: 'inherit',
-    backgroundColor: Color.overlay.background.enabled.light,
-    transition: `background-color ${Animation.duration.default}`,
+export const interactiveOverlay = styleVariants({
+  light: {
+    position: 'relative',
+    '::after': {
+      content: '""',
+      display: 'block',
+      position: 'absolute',
+      top: 0,
+      right: 0,
+      bottom: 0,
+      left: 0,
+      borderRadius: 'inherit',
+      backgroundColor: Color.overlay.background.enabled.light,
+      transition: `background-color ${Animation.duration.default}`,
+    },
+    selectors: {
+      '&:hover::after': {
+        backgroundColor: Color.overlay.background.hover.light,
+      },
+      '&:active::after': {
+        backgroundColor: Color.overlay.background.active.light,
+      },
+      '&:focus::after': {
+        backgroundColor: Color.overlay.background.focus.light,
+      },
+      '&:disabled::after': {
+        backgroundColor: Color.overlay.background.disabled.light,
+      },
+    },
   },
-  selectors: {
-    '&:hover::after': {
-      backgroundColor: Color.overlay.background.hover.light,
+  dark: {
+    position: 'relative',
+    '::after': {
+      content: '""',
+      display: 'block',
+      position: 'absolute',
+      top: 0,
+      right: 0,
+      bottom: 0,
+      left: 0,
+      borderRadius: 'inherit',
+      backgroundColor: Color.overlay.background.enabled.dark,
+      transition: `background-color ${Animation.duration.default}`,
     },
-    '&:active::after': {
-      backgroundColor: Color.overlay.background.active.light,
-    },
-    '&:focus::after': {
-      backgroundColor: Color.overlay.background.focus.light,
-    },
-    '&:disabled::after': {
-      backgroundColor: Color.overlay.background.disabled.light,
+    selectors: {
+      '&:hover::after': {
+        backgroundColor: Color.overlay.background.hover.dark,
+      },
+      '&:active::after': {
+        backgroundColor: Color.overlay.background.active.dark,
+      },
+      '&:focus::after': {
+        backgroundColor: Color.overlay.background.focus.dark,
+      },
+      '&:disabled::after': {
+        backgroundColor: Color.overlay.background.disabled.dark,
+      },
     },
   },
 });

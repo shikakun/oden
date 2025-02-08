@@ -9,6 +9,7 @@ type BaseButtonProps = {
   appearance?: 'text' | 'outlined' | 'tinted' | 'filled';
   ariaLabel?: string;
   children?: React.ReactNode;
+  color?: 'default' | 'muted' | 'interactive' | 'negative';
   disabled?: boolean;
   Icon?: IconType;
   LeadingIcon?: IconType;
@@ -41,20 +42,21 @@ export const Button = forwardRef<
   (
     {
       appearance = 'text',
-      shape = 'square',
-      size = 'm',
-      width = 'auto',
-      layout = 'center',
+      ariaLabel,
+      children,
+      color = 'default',
       disabled = false,
+      href,
       Icon,
       LeadingIcon,
       TrailingIcon,
-      href,
+      layout = 'center',
       onClick,
+      shape = 'square',
+      size = 'm',
       target,
       type = 'button',
-      ariaLabel,
-      children,
+      width = 'auto',
       ...props
     },
     ref
@@ -63,14 +65,41 @@ export const Button = forwardRef<
 
     const buttonClass = classNames(
       styles.root,
+      styles.rootOverlay[theme],
       styles.shape[shape],
       styles.size[size],
       styles.width[width],
       {
-        [styles.appearanceText[theme]]: appearance === 'text',
+        [styles.appearanceText]: appearance === 'text',
+        [styles.appearanceTextDefault[theme]]:
+          appearance === 'text' && color === 'default',
+        [styles.appearanceTextMuted[theme]]:
+          appearance === 'text' && color === 'muted',
+        [styles.appearanceTextInteractive[theme]]:
+          appearance === 'text' && color === 'interactive',
+        [styles.appearanceTextNegative[theme]]:
+          appearance === 'text' && color === 'negative',
         [styles.appearanceOutlined[theme]]: appearance === 'outlined',
-        [styles.appearanceTinted[theme]]: appearance === 'tinted',
-        [styles.appearanceFilled[theme]]: appearance === 'filled',
+        [styles.appearanceOutlinedDefault[theme]]:
+          appearance === 'outlined' && color === 'default',
+        [styles.appearanceOutlinedMuted[theme]]:
+          appearance === 'outlined' && color === 'muted',
+        [styles.appearanceOutlinedInteractive[theme]]:
+          appearance === 'outlined' && color === 'interactive',
+        [styles.appearanceOutlinedNegative[theme]]:
+          appearance === 'outlined' && color === 'negative',
+        [styles.appearanceTintedDefault[theme]]:
+          appearance === 'tinted' && color === 'default',
+        [styles.appearanceTintedMuted[theme]]:
+          appearance === 'tinted' && color === 'muted',
+        [styles.appearanceFilledDefault[theme]]:
+          appearance === 'filled' && color === 'default',
+        [styles.appearanceFilledMuted[theme]]:
+          appearance === 'filled' && color === 'muted',
+        [styles.appearanceFilledInteractive[theme]]:
+          appearance === 'filled' && color === 'interactive',
+        [styles.appearanceFilledNegative[theme]]:
+          appearance === 'filled' && color === 'negative',
         [styles.layoutCenter]: layout === 'center',
         [styles.hasLeadingIcon]: !!LeadingIcon,
         [styles.hasTrailingIcon]: !!TrailingIcon,

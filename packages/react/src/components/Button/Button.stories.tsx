@@ -21,6 +21,10 @@ const meta = {
     },
     ariaLabel: { control: 'text' },
     children: { control: 'text' },
+    color: {
+      control: 'radio',
+      options: ['default', 'muted', 'interactive', 'negative'],
+    },
     disabled: { control: 'boolean' },
     Icon: {
       control: 'radio',
@@ -49,6 +53,7 @@ const meta = {
     appearance: 'text',
     ariaLabel: undefined,
     children: 'Submit',
+    color: 'default',
     disabled: false,
     Icon: undefined,
     LeadingIcon: undefined,

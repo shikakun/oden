@@ -2,17 +2,31 @@ color:
   border:
     default:
       light:
-        value: '{color.palette.gray.200}'
+        value: '{color.palette.gray.400}'
         attributes:
           category: color
           type: border
           item: default
           theme: light
+      dark:
+        value: '{color.palette.gray.400}'
+        attributes:
+          category: color
+          type: border
+          item: default
+          theme: dark
     muted:
       light:
-        value: '{color.palette.gray.100}'
+        value: '{color.palette.gray.200}'
         attributes:
           category: color
           type: border
           item: muted
           theme: light
+      dark:
+        value: '{color.palette.gray.600}'
+        attributes:
+          category: color
+          type: border
+          item: muted
+          theme: dark

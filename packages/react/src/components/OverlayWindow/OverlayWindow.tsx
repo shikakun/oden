@@ -10,8 +10,10 @@ import React, {
 } from 'react';
 import { MdClose } from 'react-icons/md';
 import { Button } from '../Button';
+import { useTheme } from '../ThemeProvider';
 import * as styles from './OverlayWindow.css';
 import type { ButtonProps } from '../Button';
+import type { ThemeType } from '../ThemeProvider';
 
 type PositionType = 'bottom' | 'right';
 
@@ -97,6 +99,7 @@ const OverlayWindowContent: React.FC<PropsWithChildren> = ({
   ...props
 }) => {
   const { close, position, dialogRef } = useOverlayWindowContext();
+  const { theme } = useTheme() as { theme: ThemeType };
 
   return (
     <dialog ref={dialogRef} className={styles.root} {...props}>
@@ -106,12 +109,18 @@ const OverlayWindowContent: React.FC<PropsWithChildren> = ({
           styles.containerPosition[position]
         )}
       >
-        <div className={classNames(styles.body, styles.bodyPosition[position])}>
+        <div
+          className={classNames(
+            styles.body,
+            styles.bodyColor[theme],
+            styles.bodyPosition[position]
+          )}
+        >
           {children}
         </div>
         <div
           className={classNames(
-            styles.backdrop,
+            styles.backdropColor[theme],
             styles.backdropPosition[position]
           )}
           aria-hidden='true'

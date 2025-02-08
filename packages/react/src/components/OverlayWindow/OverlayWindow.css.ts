@@ -47,7 +47,17 @@ export const containerPosition = styleVariants({
 export const body = style({
   boxSizing: 'border-box',
   position: 'relative',
-  backgroundColor: Color.background.page.light,
+});
+
+export const bodyColor = styleVariants({
+  light: {
+    color: Color.text.default.light,
+    backgroundColor: Color.background.page.light,
+  },
+  dark: {
+    color: Color.text.default.dark,
+    backgroundColor: Color.background.page.dark,
+  },
 });
 
 export const bodyPosition = styleVariants({
@@ -61,8 +71,13 @@ export const bodyPosition = styleVariants({
   },
 });
 
-export const backdrop = style({
-  backgroundColor: 'rgba(0, 0, 0, 0.12)',
+export const backdropColor = styleVariants({
+  light: {
+    backgroundColor: 'rgba(0,0,0, 0.12)',
+  },
+  dark: {
+    backgroundColor: 'rgba(255, 255, 255, 0.12)',
+  },
 });
 
 export const backdropPosition = styleVariants({

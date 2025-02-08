@@ -5,6 +5,7 @@ import {
   useFloating,
   UseFloatingReturn,
 } from '@floating-ui/react-dom';
+import classNames from 'classnames';
 import React, {
   createContext,
   PropsWithChildren,
@@ -15,8 +16,10 @@ import React, {
   useState,
 } from 'react';
 import { Button } from '../Button';
+import { useTheme } from '../ThemeProvider';
 import * as styles from './OverlayPopup.css';
 import type { ButtonProps } from '../Button';
+import type { ThemeType } from '../ThemeProvider';
 
 type FloatingUIContextType = Pick<UseFloatingReturn, 'refs' | 'floatingStyles'>;
 
@@ -111,10 +114,11 @@ const OverlayPopupButton: React.FC<ButtonProps> = ({ children, ...props }) => {
 
 const OverlayPopupContent: React.FC<PropsWithChildren> = ({ children }) => {
   const { isOpen, refs, floatingStyles } = useOverlayPopupContext();
+  const { theme } = useTheme() as { theme: ThemeType };
 
   return isOpen ? (
     <div
-      className={styles.overlay}
+      className={classNames(styles.overlay, styles.overlayColor[theme])}
       role='menu'
       aria-hidden={!isOpen}
       ref={refs.setFloating}

@@ -2,7 +2,7 @@ color:
   text:
     default:
       light:
-        value: '{color.palette.gray.900}'
+        value: '{color.palette.gray.800}'
         attributes:
           category: color
           type: text
@@ -17,14 +17,14 @@ color:
           theme: dark
     muted:
       light:
-        value: '{color.palette.gray.800}'
+        value: '{color.palette.gray.600}'
         attributes:
           category: color
           type: text
           item: muted
           theme: light
       dark:
-        value: '{color.palette.gray.200}'
+        value: '{color.palette.gray.300}'
         attributes:
           category: color
           type: text
@@ -32,22 +32,29 @@ color:
           theme: dark
     subtle:
       light:
-        value: '{color.palette.gray.700}'
+        value: '{color.palette.gray.500}'
         attributes:
           category: color
           type: text
           item: subtle
           theme: light
+      dark:
+        value: '{color.palette.gray.400}'
+        attributes:
+          category: color
+          type: text
+          item: subtle
+          theme: dark
     whispered:
       light:
-        value: '{color.palette.gray.600}'
+        value: '{color.palette.gray.400}'
         attributes:
           category: color
           type: text
           item: whispered
           theme: light
       dark:
-        value: '{color.palette.gray.300}'
+        value: '{color.palette.gray.500}'
         attributes:
           category: color
           type: text
@@ -70,14 +77,14 @@ color:
           theme: dark
     link:
       light:
-        value: '{color.semantic.interactive.700}'
+        value: '{color.semantic.interactive.800}'
         attributes:
           category: color
           type: text
           item: link
           theme: light
       dark:
-        value: '{color.semantic.interactive.300}'
+        value: '{color.semantic.interactive.200}'
         attributes:
           category: color
           type: text

@@ -9,74 +9,74 @@ const BORDER_SIZE = Size.border.l;
 const LABEL_COLOR = {
   text: {
     default: {
-      light: Color.text.default.light,
-      dark: Color.text.default.dark,
+      light: Color.semantic.neutral[800],
+      dark: Color.semantic.neutral[100],
     },
     muted: {
-      light: Color.palette.gray[600],
-      dark: Color.text.muted.dark,
+      light: Color.semantic.neutral[600],
+      dark: Color.semantic.neutral[300],
     },
     interactive: {
-      light: Color.text.link.light,
-      dark: Color.text.link.dark,
+      light: Color.semantic.interactive[800],
+      dark: Color.semantic.interactive[200],
     },
     negative: {
-      light: Color.semantic.negative[600],
+      light: Color.semantic.negative[800],
       dark: Color.semantic.negative[200],
     },
   },
   outlined: {
     default: {
-      light: Color.text.default.light,
-      dark: Color.text.default.dark,
+      light: Color.semantic.neutral[800],
+      dark: Color.semantic.neutral[100],
     },
     muted: {
-      light: Color.palette.gray[600],
-      dark: Color.text.muted.dark,
+      light: Color.semantic.neutral[600],
+      dark: Color.semantic.neutral[300],
     },
     interactive: {
-      light: Color.text.link.light,
-      dark: Color.text.link.dark,
+      light: Color.semantic.interactive[800],
+      dark: Color.semantic.interactive[200],
     },
     negative: {
-      light: Color.semantic.negative[600],
+      light: Color.semantic.negative[800],
       dark: Color.semantic.negative[200],
     },
   },
   tinted: {
     default: {
-      light: Color.text.default.light,
-      dark: Color.text.default.dark,
+      light: Color.semantic.neutral[900],
+      dark: Color.semantic.neutral[0],
     },
     muted: {
-      light: Color.palette.gray[600],
-      dark: Color.text.muted.dark,
+      light: Color.semantic.neutral[700],
+      dark: Color.semantic.neutral[200],
     },
     interactive: {
-      light: Color.text.link.light,
-      dark: Color.text.link.dark,
+      light: Color.semantic.interactive[900],
+      dark: Color.semantic.interactive[100],
     },
     negative: {
-      light: Color.semantic.negative[600],
-      dark: Color.semantic.negative[200],
+      light: Color.semantic.negative[900],
+      dark: Color.semantic.negative[100],
     },
   },
   filled: {
     default: {
-      light: Color.semantic.interactive[0],
-      dark: Color.semantic.interactive[600],
+      light: Color.semantic.neutral[0],
+      dark: Color.semantic.neutral[800],
     },
     muted: {
-      light: Color.semantic.interactive[0],
-      dark: Color.semantic.interactive[600],
+      light: Color.semantic.neutral[0],
+      dark: Color.semantic.neutral[600],
     },
     interactive: {
       light: Color.semantic.interactive[0],
-      dark: Color.semantic.interactive[600],
+      dark: Color.semantic.interactive[800],
     },
     negative: {
-      light: Color.semantic.interactive[0],
-      dark: Color.semantic.interactive[600],
+      light: Color.semantic.negative[0],
+      dark: Color.semantic.negative[800],
     },
   },
 };
@@ -88,40 +88,44 @@ const BACKGROUND_COLOR = {
   },
   tinted: {
     default: {
-      light: Color.semantic.interactive[50],
-      dark: Color.semantic.interactive[800],
+      light: Color.semantic.neutral[100],
+      dark: Color.semantic.neutral[700],
     },
     muted: {
-      light: Color.semantic.interactive[50],
-      dark: Color.semantic.interactive[800],
+      light: Color.semantic.neutral[100],
+      dark: Color.semantic.neutral[700],
     },
     interactive: {
-      light: Color.semantic.interactive[50],
-      dark: Color.semantic.interactive[800],
+      light: Color.semantic.interactive[100],
+      dark: Color.semantic.interactive[900],
     },
     negative: {
-      light: Color.semantic.interactive[50],
-      dark: Color.semantic.interactive[800],
+      light: Color.semantic.negative[100],
+      dark: Color.semantic.negative[900],
     },
   },
   filled: {
     default: {
-      light: Color.semantic.interactive[600],
-      dark: Color.semantic.interactive[0],
+      light: Color.semantic.neutral[700],
+      dark: Color.semantic.neutral[0],
     },
     muted: {
-      light: Color.semantic.interactive[600],
-      dark: Color.semantic.interactive[0],
+      light: Color.semantic.neutral[500],
+      dark: Color.semantic.neutral[0],
     },
     interactive: {
-      light: Color.semantic.interactive[600],
+      light: Color.semantic.interactive[700],
       dark: Color.semantic.interactive[0],
     },
     negative: {
-      light: Color.semantic.interactive[600],
-      dark: Color.semantic.interactive[0],
+      light: Color.semantic.negative[700],
+      dark: Color.semantic.negative[0],
     },
   },
+};
+const BORDER_COLOR = {
+  light: Color.semantic.neutral[300],
+  dark: Color.semantic.neutral[500],
 };
 
 export const root = style({
@@ -173,32 +177,48 @@ export const appearanceTextNegative = styleVariants({
 export const appearanceOutlined = styleVariants({
   light: {
     backgroundColor: BACKGROUND_COLOR.outlined.light,
-    boxShadow: `inset 0 0 0 ${BORDER_SIZE} ${Color.border.muted.light}`,
+    boxShadow: `inset 0 0 0 ${BORDER_SIZE} ${BORDER_COLOR.light}`,
   },
   dark: {
     backgroundColor: BACKGROUND_COLOR.outlined.dark,
-    boxShadow: `inset 0 0 0 ${BORDER_SIZE} ${Color.palette.gray[600]}`,
+    boxShadow: `inset 0 0 0 ${BORDER_SIZE} ${BORDER_COLOR.dark}`,
   },
 });
 
 export const appearanceOutlinedDefault = styleVariants({
-  light: { color: LABEL_COLOR.outlined.default.light },
-  dark: { color: LABEL_COLOR.outlined.default.dark },
+  light: {
+    color: LABEL_COLOR.outlined.default.light,
+  },
+  dark: {
+    color: LABEL_COLOR.outlined.default.dark,
+  },
 });
 
 export const appearanceOutlinedMuted = styleVariants({
-  light: { color: LABEL_COLOR.outlined.muted.light },
-  dark: { color: LABEL_COLOR.outlined.muted.dark },
+  light: {
+    color: LABEL_COLOR.outlined.muted.light,
+  },
+  dark: {
+    color: LABEL_COLOR.outlined.muted.dark,
+  },
 });
 
 export const appearanceOutlinedInteractive = styleVariants({
-  light: { color: LABEL_COLOR.outlined.interactive.light },
-  dark: { color: LABEL_COLOR.outlined.interactive.dark },
+  light: {
+    color: LABEL_COLOR.outlined.interactive.light,
+  },
+  dark: {
+    color: LABEL_COLOR.outlined.interactive.dark,
+  },
 });
 
 export const appearanceOutlinedNegative = styleVariants({
-  light: { color: LABEL_COLOR.outlined.negative.light },
-  dark: { color: LABEL_COLOR.outlined.negative.dark },
+  light: {
+    color: LABEL_COLOR.outlined.negative.light,
+  },
+  dark: {
+    color: LABEL_COLOR.outlined.negative.dark,
+  },
 });
 
 export const appearanceTintedDefault = styleVariants({

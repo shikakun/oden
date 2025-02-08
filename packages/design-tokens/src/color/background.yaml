@@ -9,7 +9,7 @@ color:
           item: page
           theme: light
       dark:
-        value: '{color.palette.gray.900}'
+        value: '{color.palette.gray.800}'
         attributes:
           category: color
           type: background

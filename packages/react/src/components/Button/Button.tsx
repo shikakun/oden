@@ -92,6 +92,10 @@ export const Button = forwardRef<
           appearance === 'tinted' && color === 'default',
         [styles.appearanceTintedMuted[theme]]:
           appearance === 'tinted' && color === 'muted',
+        [styles.appearanceTintedInteractive[theme]]:
+          appearance === 'tinted' && color === 'interactive',
+        [styles.appearanceTintedNegative[theme]]:
+          appearance === 'tinted' && color === 'negative',
         [styles.appearanceFilledDefault[theme]]:
           appearance === 'filled' && color === 'default',
         [styles.appearanceFilledMuted[theme]]:

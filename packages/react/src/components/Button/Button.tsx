@@ -65,11 +65,16 @@ export const Button = forwardRef<
 
     const buttonClass = classNames(
       styles.root,
-      styles.rootOverlay[theme],
       styles.shape[shape],
       styles.size[size],
       styles.width[width],
       {
+        [styles.rootOverlay['light']]:
+          (theme === 'light' && appearance !== 'filled') ||
+          (theme === 'dark' && appearance === 'filled'),
+        [styles.rootOverlay['dark']]:
+          (theme === 'dark' && appearance !== 'filled') ||
+          (theme === 'light' && appearance === 'filled'),
         [styles.appearanceText]: appearance === 'text',
         [styles.appearanceTextDefault[theme]]:
           appearance === 'text' && color === 'default',

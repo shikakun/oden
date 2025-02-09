@@ -13,8 +13,8 @@ const LABEL_COLOR = {
       dark: Color.semantic.neutral[100],
     },
     muted: {
-      light: Color.semantic.neutral[600],
-      dark: Color.semantic.neutral[300],
+      light: Color.semantic.neutral[500],
+      dark: Color.semantic.neutral[400],
     },
     interactive: {
       light: Color.semantic.interactive[800],
@@ -31,8 +31,8 @@ const LABEL_COLOR = {
       dark: Color.semantic.neutral[100],
     },
     muted: {
-      light: Color.semantic.neutral[600],
-      dark: Color.semantic.neutral[300],
+      light: Color.semantic.neutral[500],
+      dark: Color.semantic.neutral[400],
     },
     interactive: {
       light: Color.semantic.interactive[800],
@@ -49,8 +49,8 @@ const LABEL_COLOR = {
       dark: Color.semantic.neutral[0],
     },
     muted: {
-      light: Color.semantic.neutral[700],
-      dark: Color.semantic.neutral[200],
+      light: Color.semantic.neutral[600],
+      dark: Color.semantic.neutral[300],
     },
     interactive: {
       light: Color.semantic.interactive[900],
@@ -68,7 +68,7 @@ const LABEL_COLOR = {
     },
     muted: {
       light: Color.semantic.neutral[0],
-      dark: Color.semantic.neutral[600],
+      dark: Color.semantic.neutral[500],
     },
     interactive: {
       light: Color.semantic.interactive[0],
@@ -88,19 +88,19 @@ const BACKGROUND_COLOR = {
   },
   tinted: {
     default: {
-      light: Color.semantic.neutral[100],
+      light: Color.semantic.neutral[50],
       dark: Color.semantic.neutral[700],
     },
     muted: {
-      light: Color.semantic.neutral[100],
+      light: Color.semantic.neutral[50],
       dark: Color.semantic.neutral[700],
     },
     interactive: {
-      light: Color.semantic.interactive[100],
+      light: Color.semantic.interactive[50],
       dark: Color.semantic.interactive[900],
     },
     negative: {
-      light: Color.semantic.negative[100],
+      light: Color.semantic.negative[50],
       dark: Color.semantic.negative[900],
     },
   },

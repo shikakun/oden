@@ -1,5 +1,11 @@
 # @shikakun/oden
 
+## 0.11.1
+
+### Patch Changes
+
+- [#61](https://github.com/shikakun/oden/pull/61) [`c3dd3ee`](https://github.com/shikakun/oden/commit/c3dd3ee673f266cb9039915fd172fc7b5e2fe9a6) Thanks [@shikakun](https://github.com/shikakun)! - コンポーネントの細かな配色やオプションを調整した
+
 ## 0.11.0
 
 ### Minor Changes

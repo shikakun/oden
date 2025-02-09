@@ -1,5 +1,11 @@
 # @shikakun/oden
 
+## 0.11.2
+
+### Patch Changes
+
+- [#63](https://github.com/shikakun/oden/pull/63) [`b9f2dfa`](https://github.com/shikakun/oden/commit/b9f2dfadaf1d16eb09b04a0fbef1911a8081fa36) Thanks [@shikakun](https://github.com/shikakun)! - ThemeProvider を export した
+
 ## 0.11.1
 
 ### Patch Changes

@@ -23,6 +23,7 @@ type OverlayWindowContextProps = {
   close: () => void;
   position: PositionType;
   dialogRef: React.RefObject<HTMLDialogElement>;
+  showCloseButton?: boolean;
 };
 
 const defaultContext: OverlayWindowContextProps = {
@@ -31,6 +32,7 @@ const defaultContext: OverlayWindowContextProps = {
   close: () => {},
   position: 'bottom',
   dialogRef: { current: null },
+  showCloseButton: true,
 };
 
 const OverlayWindowContext =
@@ -48,11 +50,13 @@ const useOverlayWindowContext = () => {
 
 type OverlayWindowProviderProps = PropsWithChildren & {
   position?: PositionType;
+  showCloseButton?: boolean;
 };
 
 const OverlayWindowProvider: React.FC<OverlayWindowProviderProps> = ({
   children,
   position = 'bottom',
+  showCloseButton = true,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -73,7 +77,7 @@ const OverlayWindowProvider: React.FC<OverlayWindowProviderProps> = ({
 
   return (
     <OverlayWindowContext.Provider
-      value={{ isOpen, toggle, close, position, dialogRef }}
+      value={{ isOpen, toggle, close, position, dialogRef, showCloseButton }}
     >
       {children}
     </OverlayWindowContext.Provider>
@@ -98,7 +102,8 @@ const OverlayWindowContent: React.FC<PropsWithChildren> = ({
   children,
   ...props
 }) => {
-  const { close, position, dialogRef } = useOverlayWindowContext();
+  const { close, position, dialogRef, showCloseButton } =
+    useOverlayWindowContext();
   const { theme } = useTheme() as { theme: ThemeType };
 
   return (
@@ -128,11 +133,13 @@ const OverlayWindowContent: React.FC<PropsWithChildren> = ({
           onClick={close}
         />
       </div>
-      <div className={styles.closeButton}>
-        <Button onClick={close} Icon={MdClose} shape='circle'>
-          閉じる
-        </Button>
-      </div>
+      {showCloseButton && (
+        <div className={styles.closeButton}>
+          <Button onClick={close} Icon={MdClose} shape='circle'>
+            閉じる
+          </Button>
+        </div>
+      )}
     </dialog>
   );
 };

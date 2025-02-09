@@ -10,9 +10,13 @@ const meta = {
       control: 'radio',
       options: ['bottom', 'right'],
     },
+    showCloseButton: {
+      control: 'boolean',
+    },
   },
   args: {
     position: 'bottom',
+    showCloseButton: true,
   },
 } satisfies Meta<typeof OverlayWindow>;
 

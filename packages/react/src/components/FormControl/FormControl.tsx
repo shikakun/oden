@@ -13,10 +13,10 @@ const FormControlContext = createContext<{ required?: boolean } | undefined>(
   undefined
 );
 
-const FormControlBase: React.FC<FormControlProps> = ({
+const FormControlBase = ({
   children,
   required,
-}) => {
+}: FormControlProps) => {
   const { theme } = useTheme() as { theme: ThemeType };
 
   return (
@@ -28,11 +28,11 @@ const FormControlBase: React.FC<FormControlProps> = ({
   );
 };
 
-const Label: React.FC<{
+const Label = ({ children, htmlFor, requiredFieldIndicator }: {
   children?: string;
   htmlFor?: string;
   requiredFieldIndicator?: React.ReactNode;
-}> = ({ children, htmlFor, requiredFieldIndicator }) => {
+}) => {
   const { required } = useContext(FormControlContext) || {};
   return (
     <div className={styles.label}>

@@ -22,7 +22,7 @@ type OverlayWindowContextProps = {
   toggle: () => void;
   close: () => void;
   position: PositionType;
-  dialogRef: React.RefObject<HTMLDialogElement>;
+  dialogRef: React.RefObject<HTMLDialogElement | null>;
   showCloseButton?: boolean;
 };
 
@@ -53,11 +53,11 @@ type OverlayWindowProviderProps = PropsWithChildren & {
   showCloseButton?: boolean;
 };
 
-const OverlayWindowProvider: React.FC<OverlayWindowProviderProps> = ({
+const OverlayWindowProvider = ({
   children,
   position = 'bottom',
   showCloseButton = true,
-}) => {
+}: OverlayWindowProviderProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const dialogRef = useRef<HTMLDialogElement>(null);
 
@@ -84,7 +84,7 @@ const OverlayWindowProvider: React.FC<OverlayWindowProviderProps> = ({
   );
 };
 
-const OverlayWindowButton: React.FC<ButtonProps> = ({ children, ...props }) => {
+const OverlayWindowButton = ({ children, ...props }: ButtonProps) => {
   const { toggle, isOpen } = useOverlayWindowContext();
   return (
     <Button
@@ -98,10 +98,10 @@ const OverlayWindowButton: React.FC<ButtonProps> = ({ children, ...props }) => {
   );
 };
 
-const OverlayWindowContent: React.FC<PropsWithChildren> = ({
+const OverlayWindowContent = ({
   children,
   ...props
-}) => {
+}: PropsWithChildren) => {
   const { close, position, dialogRef, showCloseButton } =
     useOverlayWindowContext();
   const { theme } = useTheme() as { theme: ThemeType };

@@ -59,7 +59,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   render: () => {
     const ContainerSizeComponent = () => {
-      const containerRef = useRef<HTMLDivElement>(null);
+      const containerRef = useRef<HTMLDivElement | null>(null);
       const size = useContainerSize(containerRef);
 
       return <div>{size}</div>;

@@ -1,5 +1,11 @@
 # @shikakun/oden
 
+## 0.12.0
+
+### Minor Changes
+
+- [#66](https://github.com/shikakun/oden/pull/66) [`5d781fc`](https://github.com/shikakun/oden/commit/5d781fcee3115a0db7b2937a84d36818e6d81502) Thanks [@shikakun](https://github.com/shikakun)! - React 19 へ更新した
+
 ## 0.11.2
 
 ### Patch Changes

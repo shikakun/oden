@@ -46,7 +46,7 @@ const useOverlayPopupContext = (): OverlayPopupContextProps => {
 const useOutsideAndEscapeHandler = (
   isOpen: boolean,
   close: () => void,
-  ref: React.RefObject<HTMLDivElement>
+  ref: React.RefObject<HTMLDivElement | null>
 ) => {
   useEffect(() => {
     if (!isOpen) return;
@@ -71,7 +71,7 @@ const useOutsideAndEscapeHandler = (
   }, [isOpen, close, ref]);
 };
 
-const OverlayPopupProvider: React.FC<PropsWithChildren> = ({ children }) => {
+const OverlayPopupProvider = ({ children }: PropsWithChildren) => {
   const [isOpen, setIsOpen] = useState(false);
   const { refs, floatingStyles } = useFloating({
     open: isOpen,
@@ -96,7 +96,7 @@ const OverlayPopupProvider: React.FC<PropsWithChildren> = ({ children }) => {
   );
 };
 
-const OverlayPopupButton: React.FC<ButtonProps> = ({ children, ...props }) => {
+const OverlayPopupButton = ({ children, ...props }: ButtonProps) => {
   const { toggle, isOpen, refs } = useOverlayPopupContext();
 
   return (
@@ -112,7 +112,7 @@ const OverlayPopupButton: React.FC<ButtonProps> = ({ children, ...props }) => {
   );
 };
 
-const OverlayPopupContent: React.FC<PropsWithChildren> = ({ children }) => {
+const OverlayPopupContent = ({ children }: PropsWithChildren) => {
   const { isOpen, refs, floatingStyles } = useOverlayPopupContext();
   const { theme } = useTheme() as { theme: ThemeType };
 

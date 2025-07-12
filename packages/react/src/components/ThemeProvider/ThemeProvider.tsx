@@ -11,9 +11,9 @@ type ThemeContextType = {
 
 const ThemeContext = createContext<ThemeContextType | null>(null);
 
-export const ThemeProvider: React.FC<{
+export const ThemeProvider = ({ children }: {
   children: React.ReactNode;
-}> = ({ children }) => {
+}) => {
   const [theme, setTheme] = useState<ThemeType>(() => {
     return (localStorage.getItem('theme') as ThemeType) || defaultTheme;
   });

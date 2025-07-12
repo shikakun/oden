@@ -2,9 +2,7 @@ import { Color } from '@shikakun/dashi';
 import { useEffect } from 'react';
 import { ThemeProvider, useTheme } from '../components/ThemeProvider';
 
-export const ThemeWrapper: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
+export const ThemeWrapper = ({ children }: { children: React.ReactNode }) => {
   const { theme, toggleTheme } = useTheme();
   useEffect(() => {
     if (theme !== 'dark') {
@@ -29,7 +27,7 @@ export const ThemeWrapper: React.FC<{ children: React.ReactNode }> = ({
   );
 };
 
-export const withThemeDark = (Story: React.FC) => (
+export const withThemeDark = (Story: () => React.JSX.Element) => (
   <ThemeProvider>
     <ThemeWrapper>
       <Story />

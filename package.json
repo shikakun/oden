@@ -6,13 +6,11 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "pnpm --filter oden-storybook dev",
     "docs": "pnpm --filter docs dev",
-    "build": "pnpm build:design-tokens && pnpm build:react && pnpm build:storybook && pnpm build:docs",
+    "build": "pnpm build:design-tokens && pnpm build:react && pnpm build:docs",
     "build:design-tokens": "pnpm --filter @shikakun/dashi build",
     "build:docs": "pnpm --filter docs build",
     "build:react": "pnpm --filter @shikakun/oden build",
-    "build:storybook": "pnpm --filter oden-storybook build",
     "deploy": "pnpm build && pnpm deploy:docs",
     "deploy:docs": "pnpm --filter docs deploy",
     "changeset-version": "changeset version",

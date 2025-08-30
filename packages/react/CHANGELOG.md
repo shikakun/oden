@@ -1,5 +1,11 @@
 # @shikakun/oden
 
+## 0.12.1
+
+### Patch Changes
+
+- [#68](https://github.com/shikakun/oden/pull/68) [`0e53353`](https://github.com/shikakun/oden/commit/0e53353ad124ed3449c6b88278fdc39307b3d2d0) Thanks [@shikakun](https://github.com/shikakun)! - OverlayWindow のアクセシビリティの課題を修正した
+
 ## 0.12.0
 
 ### Minor Changes

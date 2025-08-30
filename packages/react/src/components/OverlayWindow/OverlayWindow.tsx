@@ -127,7 +127,6 @@ const OverlayWindowContent = ({ children, ...props }: PropsWithChildren) => {
             styles.backdropPosition[position],
           )}
           aria-hidden="true"
-          role="button"
           onClick={close}
         />
       </div>

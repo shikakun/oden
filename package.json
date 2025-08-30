@@ -17,7 +17,9 @@
     "deploy:docs": "npm run deploy --workspace=apps/docs",
     "changeset-version": "changeset version",
     "changeset-publish": "npm run build && changeset publish",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
+    "lint": "biome lint .",
+    "format": "biome format . --write",
+    "check": "biome check . --write"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.2.2",

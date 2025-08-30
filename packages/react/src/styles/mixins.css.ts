@@ -13,7 +13,7 @@ const breakpoints = {
 export const mqBoundary = (
   breakpoint: keyof typeof breakpoints,
   styles: Record<string, string>,
-  boundaryType: 'above' | 'below' = 'above'
+  boundaryType: 'above' | 'below' = 'above',
 ) => {
   if (!breakpoints[breakpoint]) {
     throw new Error(`Invalid breakpoint: ${breakpoint}`);
@@ -110,7 +110,7 @@ export const visuallyHidden = style({
 });
 
 export const typography = (
-  type: 'heading1' | 'heading2' | 'entryTitle' | 'body' | 'footnote'
+  type: 'heading1' | 'heading2' | 'entryTitle' | 'body' | 'footnote',
 ) => {
   switch (type) {
     case 'heading1':
@@ -124,8 +124,8 @@ export const typography = (
       });
     case 'heading2':
       return style({
-        fontSize: Typography.fontSize['xl'],
-        lineHeight: Typography.lineHeight['xl'].dense,
+        fontSize: Typography.fontSize.xl,
+        lineHeight: Typography.lineHeight.xl.dense,
       });
     case 'entryTitle':
       return style({
@@ -138,13 +138,13 @@ export const typography = (
       });
     case 'body':
       return style({
-        fontSize: Typography.fontSize['m'],
-        lineHeight: Typography.lineHeight['m'].comfort,
+        fontSize: Typography.fontSize.m,
+        lineHeight: Typography.lineHeight.m.comfort,
       });
     case 'footnote':
       return style({
-        fontSize: Typography.fontSize['s'],
-        lineHeight: Typography.lineHeight['s'].default,
+        fontSize: Typography.fontSize.s,
+        lineHeight: Typography.lineHeight.s.default,
       });
     default:
       return {};

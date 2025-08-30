@@ -1,4 +1,5 @@
-import { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
+import { useId } from 'react';
 import { Button } from '../components/Button';
 import { FormControl } from '../components/FormControl';
 import { TextField } from '../components/TextField';
@@ -14,78 +15,92 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  render: () => (
-    <div className={styles.form}>
-      <FormControl required={true}>
-        <FormControl.Label htmlFor='name'>名前</FormControl.Label>
-        <TextField id='name' required={true} />
-      </FormControl>
-      <FormControl>
-        <FormControl.Label htmlFor='email'>メールアドレス</FormControl.Label>
-        <TextField
-          id='email'
-          type='email'
-          autoComplete='email'
-          required={true}
-        />
-      </FormControl>
-      <FormControl required={true}>
-        <FormControl.Label htmlFor='message'>メッセージ</FormControl.Label>
-        <TextField
-          width='full'
-          id='message'
-          name='message'
-          rows={4}
-          required={true}
-        />
-      </FormControl>
-      <div className={styles.action}>
-        <Button appearance='filled' color='interactive'>
-          送信
-        </Button>
-        <Button appearance='text' color='muted'>
-          リセット
-        </Button>
+  render: () => {
+    const nameId = useId();
+    const emailId = useId();
+    const messageId = useId();
+    return (
+      <div className={styles.form}>
+        <FormControl required={true}>
+          <FormControl.Label htmlFor={nameId}>名前</FormControl.Label>
+          <TextField id={nameId} required={true} />
+        </FormControl>
+        <FormControl>
+          <FormControl.Label htmlFor={emailId}>
+            メールアドレス
+          </FormControl.Label>
+          <TextField
+            id={emailId}
+            type="email"
+            autoComplete="email"
+            required={true}
+          />
+        </FormControl>
+        <FormControl required={true}>
+          <FormControl.Label htmlFor={messageId}>メッセージ</FormControl.Label>
+          <TextField
+            width="full"
+            id={messageId}
+            name="message"
+            rows={4}
+            required={true}
+          />
+        </FormControl>
+        <div className={styles.action}>
+          <Button appearance="filled" color="interactive">
+            送信
+          </Button>
+          <Button appearance="text" color="muted">
+            リセット
+          </Button>
+        </div>
       </div>
-    </div>
-  ),
+    );
+  },
 };
 
 export const ThemeDark: Story = {
-  render: () => (
-    <div className={styles.form}>
-      <FormControl required={true}>
-        <FormControl.Label htmlFor='name'>名前</FormControl.Label>
-        <TextField id='name' required={true} />
-      </FormControl>
-      <FormControl>
-        <FormControl.Label htmlFor='email'>メールアドレス</FormControl.Label>
-        <TextField
-          id='email'
-          type='email'
-          autoComplete='email'
-          required={true}
-        />
-      </FormControl>
-      <FormControl required={true}>
-        <FormControl.Label htmlFor='message'>メッセージ</FormControl.Label>
-        <TextField
-          width='full'
-          id='message'
-          name='message'
-          rows={4}
-          required={true}
-        />
-      </FormControl>
-      <div className={styles.action}>
-        <Button appearance='tinted' color='interactive'>
-          送信
-        </Button>
-        <Button appearance='text' color='muted'>
-          リセット
-        </Button>
+  render: () => {
+    const nameId = useId();
+    const emailId = useId();
+    const messageId = useId();
+    return (
+      <div className={styles.form}>
+        <FormControl required={true}>
+          <FormControl.Label htmlFor={nameId}>名前</FormControl.Label>
+          <TextField id={nameId} required={true} />
+        </FormControl>
+        <FormControl>
+          <FormControl.Label htmlFor={emailId}>
+            メールアドレス
+          </FormControl.Label>
+          <TextField
+            id={emailId}
+            type="email"
+            autoComplete="email"
+            required={true}
+          />
+        </FormControl>
+        <FormControl required={true}>
+          <FormControl.Label htmlFor={messageId}>メッセージ</FormControl.Label>
+          <TextField
+            width="full"
+            id={messageId}
+            name="message"
+            rows={4}
+            required={true}
+          />
+        </FormControl>
+        <div className={styles.action}>
+          <Button appearance="tinted" color="interactive">
+            送信
+          </Button>
+          <Button appearance="text" color="muted">
+            リセット
+          </Button>
+        </div>
       </div>
-    </div>
-  ),
+    );
+  },
   decorators: [withThemeDark],
 };

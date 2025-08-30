@@ -1,6 +1,6 @@
+import type { Meta, StoryObj } from '@storybook/react';
 import { withThemeDark } from '../../storybook/decorators';
 import { OverlayWindow } from './OverlayWindow';
-import type { Meta, StoryObj } from '@storybook/react';
 
 const meta = {
   title: 'Components/OverlayWindow',
@@ -27,7 +27,7 @@ export const Default: Story = {
   render: (args) => {
     return (
       <OverlayWindow {...args}>
-        <OverlayWindow.Button appearance='outlined'>Open</OverlayWindow.Button>
+        <OverlayWindow.Button appearance="outlined">Open</OverlayWindow.Button>
         <OverlayWindow.Content>
           <div
             style={{
@@ -52,7 +52,7 @@ export const ThemeDark: Story = {
   render: (args) => {
     return (
       <OverlayWindow {...args}>
-        <OverlayWindow.Button appearance='outlined'>Open</OverlayWindow.Button>
+        <OverlayWindow.Button appearance="outlined">Open</OverlayWindow.Button>
         <OverlayWindow.Content>
           <div
             style={{

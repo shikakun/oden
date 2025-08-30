@@ -1,8 +1,9 @@
 import classNames from 'classnames';
-import React, { createContext, useContext } from 'react';
+import type React from 'react';
+import { createContext, useContext } from 'react';
+import type { ThemeType } from '../ThemeProvider';
 import { useTheme } from '../ThemeProvider';
 import * as styles from './FormControl.css';
-import type { ThemeType } from '../ThemeProvider';
 
 export type FormControlProps = {
   children: React.ReactNode;
@@ -10,13 +11,10 @@ export type FormControlProps = {
 };
 
 const FormControlContext = createContext<{ required?: boolean } | undefined>(
-  undefined
+  undefined,
 );
 
-const FormControlBase = ({
-  children,
-  required,
-}: FormControlProps) => {
+const FormControlBase = ({ children, required }: FormControlProps) => {
   const { theme } = useTheme() as { theme: ThemeType };
 
   return (
@@ -28,7 +26,11 @@ const FormControlBase = ({
   );
 };
 
-const Label = ({ children, htmlFor, requiredFieldIndicator }: {
+const Label = ({
+  children,
+  htmlFor,
+  requiredFieldIndicator,
+}: {
   children?: string;
   htmlFor?: string;
   requiredFieldIndicator?: React.ReactNode;

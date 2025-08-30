@@ -1,7 +1,8 @@
 import classNames from 'classnames';
-import React, {
+import type React from 'react';
+import {
   createContext,
-  PropsWithChildren,
+  type PropsWithChildren,
   useCallback,
   useContext,
   useEffect,
@@ -9,11 +10,11 @@ import React, {
   useState,
 } from 'react';
 import { MdClose } from 'react-icons/md';
+import type { ButtonProps } from '../Button';
 import { Button } from '../Button';
+import type { ThemeType } from '../ThemeProvider';
 import { useTheme } from '../ThemeProvider';
 import * as styles from './OverlayWindow.css';
-import type { ButtonProps } from '../Button';
-import type { ThemeType } from '../ThemeProvider';
 
 type PositionType = 'bottom' | 'right';
 
@@ -42,7 +43,7 @@ const useOverlayWindowContext = () => {
   const context = useContext(OverlayWindowContext);
   if (!context) {
     throw new Error(
-      'useOverlayWindowContext must be used within OverlayWindowProvider'
+      'useOverlayWindowContext must be used within OverlayWindowProvider',
     );
   }
   return context;
@@ -89,7 +90,7 @@ const OverlayWindowButton = ({ children, ...props }: ButtonProps) => {
   return (
     <Button
       onClick={toggle}
-      aria-haspopup='dialog'
+      aria-haspopup="dialog"
       aria-expanded={isOpen}
       {...props}
     >
@@ -98,10 +99,7 @@ const OverlayWindowButton = ({ children, ...props }: ButtonProps) => {
   );
 };
 
-const OverlayWindowContent = ({
-  children,
-  ...props
-}: PropsWithChildren) => {
+const OverlayWindowContent = ({ children, ...props }: PropsWithChildren) => {
   const { close, position, dialogRef, showCloseButton } =
     useOverlayWindowContext();
   const { theme } = useTheme() as { theme: ThemeType };
@@ -111,14 +109,14 @@ const OverlayWindowContent = ({
       <div
         className={classNames(
           styles.container,
-          styles.containerPosition[position]
+          styles.containerPosition[position],
         )}
       >
         <div
           className={classNames(
             styles.body,
             styles.bodyColor[theme],
-            styles.bodyPosition[position]
+            styles.bodyPosition[position],
           )}
         >
           {children}
@@ -126,16 +124,15 @@ const OverlayWindowContent = ({
         <div
           className={classNames(
             styles.backdropColor[theme],
-            styles.backdropPosition[position]
+            styles.backdropPosition[position],
           )}
-          aria-hidden='true'
-          role='button'
+          aria-hidden="true"
           onClick={close}
         />
       </div>
       {showCloseButton && (
         <div className={styles.closeButton}>
-          <Button onClick={close} Icon={MdClose} shape='circle'>
+          <Button onClick={close} Icon={MdClose} shape="circle">
             閉じる
           </Button>
         </div>

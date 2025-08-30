@@ -2,24 +2,25 @@ import {
   autoUpdate,
   flip,
   shift,
+  type UseFloatingReturn,
   useFloating,
-  UseFloatingReturn,
 } from '@floating-ui/react-dom';
 import classNames from 'classnames';
-import React, {
+import type React from 'react';
+import {
   createContext,
-  PropsWithChildren,
+  type PropsWithChildren,
   useCallback,
   useContext,
   useEffect,
   useRef,
   useState,
 } from 'react';
+import type { ButtonProps } from '../Button';
 import { Button } from '../Button';
+import type { ThemeType } from '../ThemeProvider';
 import { useTheme } from '../ThemeProvider';
 import * as styles from './OverlayPopup.css';
-import type { ButtonProps } from '../Button';
-import type { ThemeType } from '../ThemeProvider';
 
 type FloatingUIContextType = Pick<UseFloatingReturn, 'refs' | 'floatingStyles'>;
 
@@ -30,14 +31,14 @@ type OverlayPopupContextProps = FloatingUIContextType & {
 };
 
 const OverlayPopupContext = createContext<OverlayPopupContextProps | null>(
-  null
+  null,
 );
 
 const useOverlayPopupContext = (): OverlayPopupContextProps => {
   const context = useContext(OverlayPopupContext);
   if (!context) {
     throw new Error(
-      'useOverlayPopupContext must be used within OverlayPopupProvider'
+      'useOverlayPopupContext must be used within OverlayPopupProvider',
     );
   }
   return context;
@@ -46,7 +47,7 @@ const useOverlayPopupContext = (): OverlayPopupContextProps => {
 const useOutsideAndEscapeHandler = (
   isOpen: boolean,
   close: () => void,
-  ref: React.RefObject<HTMLDivElement | null>
+  ref: React.RefObject<HTMLDivElement | null>,
 ) => {
   useEffect(() => {
     if (!isOpen) return;
@@ -102,7 +103,7 @@ const OverlayPopupButton = ({ children, ...props }: ButtonProps) => {
   return (
     <Button
       onClick={toggle}
-      aria-haspopup='true'
+      aria-haspopup="true"
       aria-expanded={isOpen}
       ref={refs.setReference}
       {...props}
@@ -119,7 +120,7 @@ const OverlayPopupContent = ({ children }: PropsWithChildren) => {
   return isOpen ? (
     <div
       className={classNames(styles.overlay, styles.overlayColor[theme])}
-      role='menu'
+      role="menu"
       aria-hidden={!isOpen}
       ref={refs.setFloating}
       style={floatingStyles}

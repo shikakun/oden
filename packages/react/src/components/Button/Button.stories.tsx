@@ -1,3 +1,4 @@
+import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 import {
   MdAdd,
@@ -7,7 +8,6 @@ import {
 } from 'react-icons/md';
 import { withThemeDark } from '../../storybook/decorators';
 import { Button } from './Button';
-import type { Meta, StoryObj } from '@storybook/react';
 
 const meta = {
   title: 'Components/Button',

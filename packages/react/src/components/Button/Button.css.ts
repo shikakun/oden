@@ -146,8 +146,8 @@ export const root = style({
 });
 
 export const rootOverlay = styleVariants({
-  light: [interactiveOverlay['light']],
-  dark: [interactiveOverlay['dark']],
+  light: [interactiveOverlay.light],
+  dark: [interactiveOverlay.dark],
 });
 
 export const appearanceText = style({

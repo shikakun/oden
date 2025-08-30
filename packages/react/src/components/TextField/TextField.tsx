@@ -1,9 +1,10 @@
 import { Size } from '@shikakun/dashi';
 import classNames from 'classnames';
-import React, { forwardRef } from 'react';
+import type React from 'react';
+import { forwardRef } from 'react';
+import type { ThemeType } from '../ThemeProvider';
 import { useTheme } from '../ThemeProvider';
 import * as styles from './TextField.css';
-import type { ThemeType } from '../ThemeProvider';
 
 type AutocompleteAttributeType =
   | 'additional-name'
@@ -122,7 +123,7 @@ export const TextField = forwardRef<
       width = 'auto',
       ...props
     },
-    ref
+    ref,
   ) => {
     const { theme } = useTheme() as { theme: ThemeType };
 
@@ -137,7 +138,7 @@ export const TextField = forwardRef<
 
     const valueText = value || children || undefined;
     const textAreaHeight = rows
-      ? `calc(${rows}lh + ${Size.spacing['xs']} * 2)`
+      ? `calc(${rows}lh + ${Size.spacing.xs} * 2)`
       : undefined;
 
     if (rows && rows > 1) {
@@ -179,7 +180,7 @@ export const TextField = forwardRef<
         {...props}
       />
     );
-  }
+  },
 );
 
 TextField.displayName = 'TextField';

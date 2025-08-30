@@ -1,9 +1,10 @@
 import classNames from 'classnames';
-import React, { forwardRef } from 'react';
-import { IconType } from 'react-icons';
+import type React from 'react';
+import { forwardRef } from 'react';
+import type { IconType } from 'react-icons';
+import type { ThemeType } from '../ThemeProvider';
 import { useTheme } from '../ThemeProvider';
 import * as styles from './Button.css';
-import type { ThemeType } from '../ThemeProvider';
 
 type BaseButtonProps = {
   appearance?: 'text' | 'outlined' | 'tinted' | 'filled';
@@ -59,7 +60,7 @@ export const Button = forwardRef<
       width = 'auto',
       ...props
     },
-    ref
+    ref,
   ) => {
     const { theme } = useTheme() as { theme: ThemeType };
 
@@ -69,10 +70,10 @@ export const Button = forwardRef<
       styles.size[size],
       styles.width[width],
       {
-        [styles.rootOverlay['light']]:
+        [styles.rootOverlay.light]:
           (theme === 'light' && appearance !== 'filled') ||
           (theme === 'dark' && appearance === 'filled'),
-        [styles.rootOverlay['dark']]:
+        [styles.rootOverlay.dark]:
           (theme === 'dark' && appearance !== 'filled') ||
           (theme === 'light' && appearance === 'filled'),
         [styles.appearanceText]: appearance === 'text',
@@ -114,7 +115,7 @@ export const Button = forwardRef<
         [styles.hasTrailingIcon]: !!TrailingIcon,
         [styles.iconOnly]: !!Icon,
         [styles.disabled]: disabled,
-      }
+      },
     );
 
     const bodyClass = classNames(styles.body, styles.bodyLayout[layout]);
@@ -186,7 +187,7 @@ export const Button = forwardRef<
         {ButtonContent}
       </button>
     );
-  }
+  },
 );
 
 Button.displayName = 'Button';

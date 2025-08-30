@@ -1,7 +1,7 @@
+import type { Meta, StoryObj } from '@storybook/react';
 import { MdArrowDropDown } from 'react-icons/md';
 import { withThemeDark } from '../../storybook/decorators';
 import { OverlayPopup } from './OverlayPopup';
-import type { Meta, StoryObj } from '@storybook/react';
 
 const meta = {
   title: 'Components/OverlayPopup',
@@ -14,7 +14,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   render: () => (
     <OverlayPopup>
-      <OverlayPopup.Button appearance='outlined' TrailingIcon={MdArrowDropDown}>
+      <OverlayPopup.Button appearance="outlined" TrailingIcon={MdArrowDropDown}>
         Menu
       </OverlayPopup.Button>
       <OverlayPopup.Content>
@@ -36,7 +36,7 @@ export const Default: Story = {
 export const ThemeDark: Story = {
   render: () => (
     <OverlayPopup>
-      <OverlayPopup.Button appearance='outlined' TrailingIcon={MdArrowDropDown}>
+      <OverlayPopup.Button appearance="outlined" TrailingIcon={MdArrowDropDown}>
         Menu
       </OverlayPopup.Button>
       <OverlayPopup.Content>

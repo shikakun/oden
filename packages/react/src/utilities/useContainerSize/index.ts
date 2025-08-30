@@ -1,3 +1,3 @@
-import { ContainerSizeType, useContainerSize } from './useContainerSize';
+import { type ContainerSizeType, useContainerSize } from './useContainerSize';
 export { useContainerSize };
 export type { ContainerSizeType };

@@ -3,8 +3,8 @@ import { style, styleVariants } from '@vanilla-extract/css';
 import { initialize } from '../../styles/mixins.css';
 
 const RADIUS_SIZE = '0';
-const PADDING_BLOCK_SIZE = Size.spacing['xs'];
-const PADDING_INLINE_SIZE = Size.spacing['s'];
+const PADDING_BLOCK_SIZE = Size.spacing.xs;
+const PADDING_INLINE_SIZE = Size.spacing.s;
 const BORDER_SIZE = Size.border.l;
 const BORDER_COLOR = {
   enabled: {

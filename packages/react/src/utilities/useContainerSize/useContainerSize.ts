@@ -13,7 +13,7 @@ const determineContainerSize = (width: number): ContainerSizeType => {
 };
 
 export const useContainerSize = (
-  elementRef?: React.RefObject<HTMLElement | null>
+  elementRef?: React.RefObject<HTMLElement | null>,
 ): ContainerSizeType => {
   const [size, setSize] = useState<ContainerSizeType>('2xl');
 

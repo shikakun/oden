@@ -1,5 +1,5 @@
-import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
 import type { StorybookConfig } from '@storybook/react-vite';
+import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
 
 const config: StorybookConfig = {
   stories: [

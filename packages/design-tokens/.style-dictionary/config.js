@@ -20,7 +20,7 @@ const convertTokenToNestedValue = (token) => {
     Object.entries(token).map(([key, value]) => [
       key,
       convertTokenToNestedValue(value),
-    ])
+    ]),
   );
 };
 
@@ -31,7 +31,7 @@ const convertTokenToTypeDefinition = (token) => {
     Object.entries(token).map(([key, value]) => [
       key,
       convertTokenToTypeDefinition(value),
-    ])
+    ]),
   );
 };
 
@@ -47,15 +47,15 @@ StyleDictionary.registerFormat({
         acc[category] = values;
         return acc;
       },
-      {}
+      {},
     );
 
     const exportStrings = Object.entries(categorizedTokens).map(
       ([category, token]) => {
         return `export const ${capitalizeFirstLetter(
-          category
+          category,
         )} = ${JSON.stringify(convertTokenToNestedValue(token), null, 2)};\n`;
-      }
+      },
     );
 
     return header + exportStrings.join('\n');
@@ -74,15 +74,15 @@ StyleDictionary.registerFormat({
         acc[category] = values;
         return acc;
       },
-      {}
+      {},
     );
 
     const exportStrings = Object.entries(categorizedTokens).map(
       ([category, token]) => {
         return `export const ${capitalizeFirstLetter(
-          category
+          category,
         )}: ${JSON.stringify(convertTokenToTypeDefinition(token), null, 2)};\n`;
-      }
+      },
     );
 
     return header + exportStrings.join('\n').replace(/:\s"(\w+)"/g, ': $1');
